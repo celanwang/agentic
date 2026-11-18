@@ -1,64 +1,30 @@
 """Replay all four frozen evaluations in a disposable workspace."""
 
-from hashlib import sha256
 import json
-import os
 from pathlib import Path
-from shutil import copy2
-import subprocess
 import sys
 from tempfile import TemporaryDirectory
 
+from scripts.frozen_pilot import materialize, restore_states, run_python
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent.parent
 EVAL = HERE.relative_to(ROOT)
 PILOT_STATE = Path("state/pilot/round-01")
-EVAL_INPUTS = (
-    "suite.py", "blind.py", "learning_eval.py", "final_eval.py", "cold_eval.py", "stream_eval.py",
-    "protocol.json", "blind_commitment.json", "learning_binding.json",
-)
 
 
 def read_json(path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def copy_file(workspace, relative, digest=None):
-    destination = workspace / relative
-    destination.parent.mkdir(parents=True, exist_ok=True)
-    copy2(ROOT / relative, destination)
-    if digest is not None and sha256(destination.read_bytes()).hexdigest() != digest:
-        raise ValueError(f"frozen hash mismatch for {relative}")
-
-
-def prepare(workspace, release, published_blind):
-    for name, digest in release["files"].items():
-        copy_file(workspace, Path(name), digest)
-    copy_file(workspace, Path("agentic"), published_blind["cli_sha256"])
-    v2_digest = read_json(HERE / "protocol.json")["reference"]["v2_engine_sha256"]
-    copy_file(workspace, Path("candidates/triples_strategy/engine.py"), v2_digest)
-    for name in EVAL_INPUTS:
-        copy_file(workspace, EVAL / name)
-    subprocess.run([sys.executable, "-B", str(ROOT / "scripts/restore_demo_states.py"),
-                    "--state-dir", str(workspace / "state")], check=True)
-
+def prepare(workspace, published_blind):
+    release = materialize(workspace)
+    restore_states(workspace, workspace / "state")
     private = workspace / EVAL / ".sealed_pilot"
     private.mkdir(mode=0o700)
     with (private / "payload.json").open("x", encoding="utf-8") as stream:
         json.dump(published_blind["reveal"], stream, sort_keys=True)
-
-
-def run_module(workspace, module, *args):
-    env = os.environ.copy()
-    for key in ("PYTHONPATH", "PYTHONHOME", "PYTHONOPTIMIZE", "PYTHONSAFEPATH"):
-        env.pop(key, None)
-    env["PYTHONNOUSERSITE"] = "1"
-    env["PATH"] = os.pathsep.join((str(Path(sys.executable).parent), os.defpath, env.get("PATH", "")))
-    command = [sys.executable, "-B", "-m", f"candidates.pilot_eval.{module}", *args]
-    child = subprocess.run(command, cwd=workspace, env=env, capture_output=True, text=True)
-    if child.returncode:
-        raise RuntimeError(f"{module} exited with status {child.returncode}\n{child.stderr.strip() or child.stdout.strip()}")
+    return release["build"]
 
 
 def strip_learning_times(value):
@@ -97,20 +63,18 @@ def compare(workspace, filename):
 
 
 def main():
-    release = read_json(ROOT / "evidence/pilot/release.json")
     published_blind = read_json(HERE / "blind_result.json")
-    build = release["build"]
-    stages = (
-        ("learning_eval", (build,), "learning_result.json"),
-        ("final_eval", ("probe", str(PILOT_STATE / "field"), "7", build), "blind_result.json"),
-        ("cold_eval", (), "cold_result.json"),
-        ("stream_eval", ("--record",), "stream_result.json"),
-    )
-    with TemporaryDirectory(prefix=".replay-", dir=HERE) as temporary:
+    with TemporaryDirectory(prefix="agentic-round01-replay-") as temporary:
         workspace = Path(temporary)
-        prepare(workspace, release, published_blind)
+        build = prepare(workspace, published_blind)
+        stages = (
+            ("learning_eval", (build,), "learning_result.json"),
+            ("final_eval", ("probe", str(PILOT_STATE / "field"), "7", build), "blind_result.json"),
+            ("cold_eval", (), "cold_result.json"),
+            ("stream_eval", ("--record",), "stream_result.json"),
+        )
         for module, args, filename in stages:
-            run_module(workspace, module, *args)
+            run_python(workspace, "-m", f"candidates.pilot_eval.{module}", *args)
             compare(workspace, filename)
 
 

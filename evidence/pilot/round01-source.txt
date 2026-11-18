@@ -1,0 +1,29 @@
+Round 01 frozen replay source
+
+Source revision 82cbaa2
+Published build d53699daf4fb0125f9b13d3d33037f4c8de1ca07af2ad2de5e55792c827ab6ba
+Archive SHA-256 8792b65bd022f487ac06e3f561fae0dd68c198018e0bef8dc2179f7d8fb30b48
+
+The ZIP contains 34 regular files. Each member's raw bytes came from
+`git show 82cbaa2:<member>`. It includes the ten published runtime modules,
+the two launchers used by the old rebuild and probes, the old state rebuild
+and practice replay scripts, their fixed inputs, and the frozen evaluators.
+The released comparison reports and revealed payload stay in their published
+locations. The full replay reads the revealed payload from blind_result.json.
+
+The loader verifies the archive checksum, an exact regular-file allowlist,
+and the runtime checksums in the unchanged published release manifest before
+writing files into a fresh temporary workspace. Both replays rebuild their
+states there. The explicit restore command publishes completed databases to
+its chosen state directory and leaves existing databases in place.
+
+Run from the project root with Python 3.9 or later. These commands work
+offline in a source export without a Git directory.
+
+    python3 -B scripts/restore_demo_states.py
+    python3 -B -m candidates.pilot_eval.replay
+    python3 -B candidates/pilot_search/replay_round01.py
+
+The practice-only command reproduces round01_replay.json byte for byte.
+The full replay compares all four published evaluation reports and ignores
+the per-arm elapsed_ms timing fields in the learning report.
