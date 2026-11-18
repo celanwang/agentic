@@ -80,6 +80,8 @@ def show_packing(task, bins):
 def show_study(data):
     search = data["search"]
     print(f"研究 #{data['id']} · 第 {data['episode']} 轮 · v{data['generation_before']} → v{data['generation']}")
+    if data.get("memory_source_event") is not None:
+        print(f"从记录 #{data['memory_source_event']} 读回配方、历史评分和试验结果。")
     print(f"练习 {len(data['practice_tasks'])} 个输入；可调用 {len(data['skill_sources'])} 种历史或现场发现的技能。")
     print(f"实验预算 {search['calls']}/{data['budget']} 次，实测操作 {search['spent']}。")
     trials = search.get("trials", [])
@@ -101,7 +103,14 @@ def show_study(data):
     print(f"准备操作 {data['discovery_cost']}，验收操作 {data['validation_cost']}，本轮用时 {data['experiment_ms']:.1f} ms。")
     if data.get("task"):
         if data["answer"]:
-            print("触发清单的可交付装法")
+            if data.get("practice_delivery"):
+                delivery = data["practice_delivery"]
+                print(f"从练习候选 {delivery['candidate']} 取回本次装法，额外执行 {delivery['calls']} 次、"
+                      f"{delivery['executed_cost']} 个操作。")
+            elif data["answer"]["source"] == "record":
+                print(f"从记录 #{data['reused_event']} 重新核验的装法")
+            else:
+                print("触发清单的可交付装法")
             show_packing(data["task"], data["answer"]["packing"])
         else:
             print("本轮未找到触发清单的完整装法。")
