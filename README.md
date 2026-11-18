@@ -20,7 +20,7 @@
 
 它在新目录从空白记忆开始，依次提交八份已约定的用户清单，每次调用都是新进程。首轮提名在留出多解 11 份，却因成本达到 2.37 倍被放弃。到记录 #9，它学出了一条可执行规则：盘数至多为 4 时，先约分和剥离独占盘文件，再按大小排序，允许局部搬移或交换。独立留出从 21/64 到 24/64，回归仍为 11/18，合计操作为 1.52 倍，Agentic 自己保留了它。
 
-重启后看两份新任务。事前单独封存的 8 盘配对题触发了规则的跳过条件，仍然失败。另一批独立封存的 72 份清单中，实际活动策略比自己的 v0 多解 12 份。演示展示按文件顺序出现的第一份新增成功，9 个文件正好装满三个容量为 503 的盘。成功与失败的计数包括全部输入。[实验记录与逐例证据](evidence/pilot/report.md)
+重启后用只读 `probe` 看两份新任务。事前单独封存的 8 盘配对题触发了规则的跳过条件，直接作答仍然失败。改用 `solve` 时，现役版本能从本轮练习取回并复核八个盘的装法。另一批独立封存的 72 份清单中，实际活动策略比自己的 v0 多解 12 份。演示展示按文件顺序出现的第一份新增成功，9 个文件正好装满三个容量为 503 的盘。成功与失败的计数包括全部输入。[实验记录与逐例证据](evidence/pilot/report.md)
 
 ## 继续给它任务
 
@@ -42,4 +42,12 @@ S=state/pilot/round-01/stream
 
 参考 AgentPilot 的两个设计是隔离未揭示的证据，以及用既往评估来选择下一次尝试。这里的研究对象是能执行、能逐项撤销验证的分盘配方。推理、存储和验收均在本机完成。[AgentPilot 的证据状态](https://github.com/HKUDS/AgentPilot/blob/e5a81e7635009869d34dde8fbfd045d191296f3f/agentpilot/src/agentpilot/search/state.py) · [AgentPilot 的反馈更新](https://github.com/HKUDS/AgentPilot/blob/e5a81e7635009869d34dde8fbfd045d191296f3f/agentpilot/src/agentpilot/policy/ucb/updater.py)
 
-目前支持 1～16 个等容量盘、最多 64 个文件。搜索覆盖有限，超预算的未解清单仍可能有解。独立对照中，带历史的搜索在 576 份检验输入上解出 462 份，均匀搜索解出 465 份。操作数是确定性的求解工作量指标，真实用时单列。早期演示仍可用 `./agentic demo`、`./agentic demo triples`、`./agentic demo mixed` 复跑。[初版演示](evidence/demo.txt) · [三件配平](evidence/triples/report.md) · [四份混合清单](evidence/mixed/report.md) · [文件校验摘要](evidence/sha256.txt)
+目前支持 1～16 个等容量盘、最多 64 个文件。搜索覆盖有限，超预算的未解清单仍可能有解。独立对照中，按实际落盘方式重启的自适应搜索在 576 份检验输入上解出 452 份，均匀搜索解出 465 份。旧报告的 462 份对应保留内存访问顺序的实验。操作数是确定性的求解工作量指标，真实用时单列。早期演示仍可用 `./agentic demo`、`./agentic demo triples`、`./agentic demo mixed` 复跑。[初版演示](evidence/demo.txt) · [三件配平](evidence/triples/report.md) · [四份混合清单](evidence/mixed/report.md) · [文件校验摘要](evidence/sha256.txt)
+
+## 核验现役版本和已发布实验
+
+```sh
+python3 -B scripts/verify.py --full
+```
+
+去掉 `--full` 可快速检查状态读写、答案检索、跨进程学习和演示。完整模式另行核对四组历史结果、两种记忆顺序的等预算对照，以及 70 份新配对题。历史复跑从附带的固定源码恢复环境，源码导出目录也可以离线核验。留出排除所有既往已知输入；同一清单曾找到的合法装法按原文件顺序重新核验。运行 `solve` 可交付当次装法，只有通过正式门槛的配方才会在新任务上自动启用。[深度评估、实测结果和未解决的问题](evidence/review/report.md)
