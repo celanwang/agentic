@@ -1,0 +1,148 @@
+{
+  "source": "state/pilot/round-01/stream/agentic.sqlite3",
+  "memory_event": 8,
+  "practice_event": 9,
+  "planner_sha256": "7db4c6aeed92359a05deb6db088ddac6c3a9a4386b3996faeb29c56d7597e22a",
+  "seed": 6231071781303033966,
+  "budget": 128,
+  "practice_tasks": 18,
+  "skill_count": 8,
+  "event_9_nominee_id": "57a4cb955be79c86df9b04b1",
+  "arms": {
+    "history_adaptive": {
+      "calls": 128,
+      "baseline_calls": 18,
+      "candidate_calls": 110,
+      "cached_pairs": 0,
+      "spent": 16590,
+      "nominee_id": "57a4cb955be79c86df9b04b1",
+      "nominee_sha256": "57a4cb955be79c86df9b04b10736a46aa783c6ff7f316d55f1e2a4bab6ef7f58",
+      "program": {
+        "guard": {
+          "feature": "bins",
+          "op": "le",
+          "value": 4
+        },
+        "kind": "recipe",
+        "solver": {
+          "order": "descending",
+          "pick": "first",
+          "repair": "exchange"
+        },
+        "steps": [
+          "normalize_gcd",
+          "peel_forced"
+        ]
+      },
+      "reproduce_event_9": true,
+      "practice": {
+        "total": 18,
+        "gains": 6,
+        "losses": 0,
+        "old_cost": 3079,
+        "new_cost": 4080
+      },
+      "exact_nominee_positions": {
+        "first_candidate_call": 74,
+        "last_candidate_call": 91,
+        "first_total_call": 92,
+        "actual_candidate_calls": 18,
+        "full_panel": true
+      },
+      "event_9_nominee_positions": {
+        "first_candidate_call": 74,
+        "last_candidate_call": 91,
+        "first_total_call": 92,
+        "actual_candidate_calls": 18,
+        "full_panel": true
+      }
+    },
+    "same_archive_reset": {
+      "calls": 128,
+      "baseline_calls": 18,
+      "candidate_calls": 110,
+      "cached_pairs": 0,
+      "spent": 62185,
+      "nominee_id": "1f84a6d6bf7328e22ee2aa2b",
+      "nominee_sha256": "1f84a6d6bf7328e22ee2aa2bc9f2c260c24195cb381e69ce8250fa14a86923cc",
+      "program": {
+        "guard": {
+          "feature": "bins",
+          "op": "le",
+          "value": 4
+        },
+        "kind": "recipe",
+        "solver": {
+          "order": "descending",
+          "pick": "first",
+          "repair": "triples"
+        },
+        "steps": [
+          "normalize_gcd"
+        ]
+      },
+      "reproduce_event_9": false,
+      "practice": {
+        "total": 18,
+        "gains": 3,
+        "losses": 0,
+        "old_cost": 3079,
+        "new_cost": 4143
+      },
+      "exact_nominee_positions": {
+        "first_candidate_call": 86,
+        "last_candidate_call": 103,
+        "first_total_call": 104,
+        "actual_candidate_calls": 18,
+        "full_panel": true
+      },
+      "event_9_nominee_positions": {
+        "first_candidate_call": null,
+        "last_candidate_call": null,
+        "first_total_call": null,
+        "actual_candidate_calls": 0,
+        "full_panel": false
+      }
+    },
+    "cold_adaptive": {
+      "calls": 128,
+      "baseline_calls": 18,
+      "candidate_calls": 110,
+      "cached_pairs": 0,
+      "spent": 71710,
+      "nominee_id": null,
+      "nominee_sha256": null,
+      "program": null,
+      "reproduce_event_9": false,
+      "practice": null,
+      "exact_nominee_positions": null,
+      "event_9_nominee_positions": {
+        "first_candidate_call": null,
+        "last_candidate_call": null,
+        "first_total_call": null,
+        "actual_candidate_calls": 0,
+        "full_panel": false
+      }
+    },
+    "history_uniform": {
+      "calls": 128,
+      "baseline_calls": 18,
+      "candidate_calls": 110,
+      "cached_pairs": 0,
+      "spent": 105377,
+      "nominee_id": null,
+      "nominee_sha256": null,
+      "program": null,
+      "reproduce_event_9": false,
+      "practice": null,
+      "exact_nominee_positions": null,
+      "event_9_nominee_positions": {
+        "first_candidate_call": null,
+        "last_candidate_call": null,
+        "first_total_call": null,
+        "actual_candidate_calls": 0,
+        "full_panel": false
+      }
+    }
+  }
+}
