@@ -1,0 +1,235 @@
+{
+  "record": 11,
+  "build": "d91419af39b03378b1908f4e12d321f51c068c08d08a17baa5105064199b832e",
+  "decision": "kept",
+  "reason": "一份冻结配方通过独立留出、回归、历史复查与成本门槛。",
+  "generation": 2,
+  "nominee": {
+    "kind": "recipe",
+    "steps": [],
+    "solver": {
+      "order": "descending",
+      "pick": "first",
+      "repair": "none"
+    },
+    "guard": {
+      "feature": "complementary_coverage",
+      "op": "ge",
+      "value": 1000
+    },
+    "fallback": {
+      "guard": {
+        "feature": "bins",
+        "op": "le",
+        "value": 4
+      },
+      "kind": "recipe",
+      "solver": {
+        "order": "descending",
+        "pick": "first",
+        "repair": "exchange"
+      },
+      "steps": [
+        "normalize_gcd",
+        "peel_forced"
+      ]
+    }
+  },
+  "digest": "0dcff0e7115e693eea52c239a6a31c3bb78d50ce754aaf287699c2be2cecb838",
+  "practice": {
+    "total": 18,
+    "gains": 7,
+    "losses": 0,
+    "old_cost": 3226,
+    "new_cost": 4590
+  },
+  "calls": 128,
+  "budget": 128,
+  "practice_operations": 42412,
+  "preparation_operations": 2267,
+  "validation_operations": 37798,
+  "known": {
+    "total": 40,
+    "gains": 40,
+    "losses": 0,
+    "old_ok": 0,
+    "new_ok": 40,
+    "old_cost": 5088,
+    "new_cost": 8560
+  },
+  "known_outside_practice": {
+    "total": 34,
+    "gains": 34,
+    "losses": 0,
+    "old_ok": 0,
+    "new_ok": 34,
+    "old_cost": 4364,
+    "new_cost": 7352
+  },
+  "official": {
+    "holdout": {
+      "total": 63,
+      "gains": 6,
+      "losses": 0,
+      "old_ok": 22,
+      "new_ok": 28,
+      "old_cost": 17177,
+      "new_cost": 22773
+    },
+    "regression": {
+      "total": 19,
+      "gains": 0,
+      "losses": 0,
+      "old_ok": 12,
+      "new_ok": 12,
+      "old_cost": 3755,
+      "new_cost": 4940
+    },
+    "replay": {
+      "total": 4,
+      "gains": 1,
+      "losses": 0,
+      "old_ok": 3,
+      "new_ok": 4,
+      "old_cost": 499,
+      "new_cost": 588
+    }
+  },
+  "by_profile": {
+    "empty": {
+      "total": 1,
+      "gains": 0,
+      "losses": 0,
+      "old_ok": 1,
+      "new_ok": 1,
+      "old_cost": 13,
+      "new_cost": 23
+    },
+    "granularity": {
+      "total": 4,
+      "gains": 0,
+      "losses": 0,
+      "old_ok": 0,
+      "new_ok": 0,
+      "old_cost": 1404,
+      "new_cost": 1706
+    },
+    "large_count": {
+      "total": 3,
+      "gains": 0,
+      "losses": 0,
+      "old_ok": 0,
+      "new_ok": 0,
+      "old_cost": 437,
+      "new_cost": 584
+    },
+    "loose": {
+      "total": 7,
+      "gains": 0,
+      "losses": 0,
+      "old_ok": 7,
+      "new_ok": 7,
+      "old_cost": 1832,
+      "new_cost": 2520
+    },
+    "mixed": {
+      "total": 12,
+      "gains": 0,
+      "losses": 0,
+      "old_ok": 4,
+      "new_ok": 4,
+      "old_cost": 4399,
+      "new_cost": 5665
+    },
+    "one_disk": {
+      "total": 1,
+      "gains": 0,
+      "losses": 0,
+      "old_ok": 1,
+      "new_ok": 1,
+      "old_cost": 49,
+      "new_cost": 66
+    },
+    "ordered": {
+      "total": 7,
+      "gains": 0,
+      "losses": 0,
+      "old_ok": 7,
+      "new_ok": 7,
+      "old_cost": 1726,
+      "new_cost": 2355
+    },
+    "ordered_regression": {
+      "total": 9,
+      "gains": 0,
+      "losses": 0,
+      "old_ok": 9,
+      "new_ok": 9,
+      "old_cost": 1580,
+      "new_cost": 2259
+    },
+    "overload": {
+      "total": 4,
+      "gains": 0,
+      "losses": 0,
+      "old_ok": 0,
+      "new_ok": 0,
+      "old_cost": 1109,
+      "new_cost": 1456
+    },
+    "oversized": {
+      "total": 1,
+      "gains": 0,
+      "losses": 0,
+      "old_ok": 0,
+      "new_ok": 0,
+      "old_cost": 53,
+      "new_cost": 83
+    },
+    "pairs": {
+      "total": 9,
+      "gains": 6,
+      "losses": 0,
+      "old_ok": 3,
+      "new_ok": 9,
+      "old_cost": 1474,
+      "new_cost": 2346
+    },
+    "subset_gap": {
+      "total": 5,
+      "gains": 0,
+      "losses": 0,
+      "old_ok": 0,
+      "new_ok": 0,
+      "old_cost": 797,
+      "new_cost": 940
+    },
+    "tiny": {
+      "total": 5,
+      "gains": 0,
+      "losses": 0,
+      "old_ok": 2,
+      "new_ok": 2,
+      "old_cost": 2328,
+      "new_cost": 2938
+    },
+    "triples": {
+      "total": 14,
+      "gains": 0,
+      "losses": 0,
+      "old_ok": 0,
+      "new_ok": 0,
+      "old_cost": 3731,
+      "new_cost": 4772
+    }
+  },
+  "non_pairs": {
+    "total": 73,
+    "gains": 0,
+    "losses": 0,
+    "old_ok": 31,
+    "new_ok": 31,
+    "old_cost": 19458,
+    "new_cost": 25367
+  }
+}

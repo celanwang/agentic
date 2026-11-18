@@ -1,0 +1,18 @@
+{
+  "capacity_domain": [
+    1100000,
+    1999999
+  ],
+  "cases": 13,
+  "commitment": "9fe976b6b5b5caecc9397e4d1143bcaaddca045e0bf590637a1597beafaa841f",
+  "normalized": true,
+  "profiles": {
+    "anchored_mixed": 4,
+    "anchored_pairs": 4,
+    "near": 4,
+    "strict": 1
+  },
+  "sampler_sha256": "32a74ce4c444c277388b38b2a30237a23dc1082b637cdc1b4ea2296d702d46d9",
+  "selection": "one 32-byte system nonce, first draw, no solver invocation",
+  "version": "agentic-pair-blind-v1"
+}

@@ -1,0 +1,305 @@
+{
+  "by_bins": {
+    "5": {
+      "historical_strict": {
+        "arrival_first_fit": 0,
+        "cases": 10,
+        "descending_first_fit": 10,
+        "known_exact_pairs_after_peel": 10,
+        "legacy_bins_le_4": 0,
+        "peeled_exact_pairs": 10,
+        "raw_coverage_histogram": {
+          "1000": 10
+        },
+        "raw_exact_pairs": 10,
+        "raw_fill_and_two_items_per_bin": 10,
+        "raw_near_full": 10
+      },
+      "matched_mixed": {
+        "arrival_first_fit": 0,
+        "cases": 10,
+        "descending_first_fit": 10,
+        "known_exact_pairs_after_peel": 0,
+        "legacy_bins_le_4": 0,
+        "peeled_exact_pairs": 0,
+        "raw_coverage_histogram": {
+          "444": 10
+        },
+        "raw_exact_pairs": 0,
+        "raw_fill_and_two_items_per_bin": 0,
+        "raw_near_full": 10
+      },
+      "matched_pair": {
+        "arrival_first_fit": 0,
+        "cases": 10,
+        "descending_first_fit": 10,
+        "known_exact_pairs_after_peel": 10,
+        "legacy_bins_le_4": 0,
+        "peeled_exact_pairs": 10,
+        "raw_coverage_histogram": {
+          "888": 10
+        },
+        "raw_exact_pairs": 0,
+        "raw_fill_and_two_items_per_bin": 0,
+        "raw_near_full": 10
+      },
+      "near": {
+        "arrival_first_fit": 0,
+        "cases": 10,
+        "descending_first_fit": 10,
+        "known_exact_pairs_after_peel": 0,
+        "legacy_bins_le_4": 0,
+        "peeled_exact_pairs": 0,
+        "raw_coverage_histogram": {
+          "800": 10
+        },
+        "raw_exact_pairs": 0,
+        "raw_fill_and_two_items_per_bin": 0,
+        "raw_near_full": 10
+      }
+    },
+    "6": {
+      "historical_strict": {
+        "arrival_first_fit": 0,
+        "cases": 10,
+        "descending_first_fit": 10,
+        "known_exact_pairs_after_peel": 10,
+        "legacy_bins_le_4": 0,
+        "peeled_exact_pairs": 10,
+        "raw_coverage_histogram": {
+          "1000": 10
+        },
+        "raw_exact_pairs": 10,
+        "raw_fill_and_two_items_per_bin": 10,
+        "raw_near_full": 10
+      },
+      "matched_mixed": {
+        "arrival_first_fit": 1,
+        "cases": 10,
+        "descending_first_fit": 10,
+        "known_exact_pairs_after_peel": 0,
+        "legacy_bins_le_4": 0,
+        "peeled_exact_pairs": 0,
+        "raw_coverage_histogram": {
+          "545": 10
+        },
+        "raw_exact_pairs": 0,
+        "raw_fill_and_two_items_per_bin": 0,
+        "raw_near_full": 10
+      },
+      "matched_pair": {
+        "arrival_first_fit": 0,
+        "cases": 10,
+        "descending_first_fit": 10,
+        "known_exact_pairs_after_peel": 10,
+        "legacy_bins_le_4": 0,
+        "peeled_exact_pairs": 10,
+        "raw_coverage_histogram": {
+          "909": 10
+        },
+        "raw_exact_pairs": 0,
+        "raw_fill_and_two_items_per_bin": 0,
+        "raw_near_full": 10
+      },
+      "near": {
+        "arrival_first_fit": 0,
+        "cases": 10,
+        "descending_first_fit": 10,
+        "known_exact_pairs_after_peel": 0,
+        "legacy_bins_le_4": 0,
+        "peeled_exact_pairs": 0,
+        "raw_coverage_histogram": {
+          "833": 10
+        },
+        "raw_exact_pairs": 0,
+        "raw_fill_and_two_items_per_bin": 0,
+        "raw_near_full": 10
+      }
+    },
+    "7": {
+      "historical_strict": {
+        "arrival_first_fit": 0,
+        "cases": 10,
+        "descending_first_fit": 10,
+        "known_exact_pairs_after_peel": 10,
+        "legacy_bins_le_4": 0,
+        "peeled_exact_pairs": 10,
+        "raw_coverage_histogram": {
+          "1000": 10
+        },
+        "raw_exact_pairs": 10,
+        "raw_fill_and_two_items_per_bin": 10,
+        "raw_near_full": 10
+      },
+      "matched_mixed": {
+        "arrival_first_fit": 0,
+        "cases": 10,
+        "descending_first_fit": 10,
+        "known_exact_pairs_after_peel": 0,
+        "legacy_bins_le_4": 0,
+        "peeled_exact_pairs": 0,
+        "raw_coverage_histogram": {
+          "615": 10
+        },
+        "raw_exact_pairs": 0,
+        "raw_fill_and_two_items_per_bin": 0,
+        "raw_near_full": 10
+      },
+      "matched_pair": {
+        "arrival_first_fit": 0,
+        "cases": 10,
+        "descending_first_fit": 10,
+        "known_exact_pairs_after_peel": 10,
+        "legacy_bins_le_4": 0,
+        "peeled_exact_pairs": 10,
+        "raw_coverage_histogram": {
+          "923": 10
+        },
+        "raw_exact_pairs": 0,
+        "raw_fill_and_two_items_per_bin": 0,
+        "raw_near_full": 10
+      },
+      "near": {
+        "arrival_first_fit": 0,
+        "cases": 10,
+        "descending_first_fit": 10,
+        "known_exact_pairs_after_peel": 0,
+        "legacy_bins_le_4": 0,
+        "peeled_exact_pairs": 0,
+        "raw_coverage_histogram": {
+          "857": 10
+        },
+        "raw_exact_pairs": 0,
+        "raw_fill_and_two_items_per_bin": 0,
+        "raw_near_full": 10
+      }
+    },
+    "8": {
+      "historical_strict": {
+        "arrival_first_fit": 0,
+        "cases": 10,
+        "descending_first_fit": 10,
+        "known_exact_pairs_after_peel": 10,
+        "legacy_bins_le_4": 0,
+        "peeled_exact_pairs": 10,
+        "raw_coverage_histogram": {
+          "1000": 10
+        },
+        "raw_exact_pairs": 10,
+        "raw_fill_and_two_items_per_bin": 10,
+        "raw_near_full": 10
+      },
+      "matched_mixed": {
+        "arrival_first_fit": 0,
+        "cases": 10,
+        "descending_first_fit": 10,
+        "known_exact_pairs_after_peel": 0,
+        "legacy_bins_le_4": 0,
+        "peeled_exact_pairs": 0,
+        "raw_coverage_histogram": {
+          "666": 10
+        },
+        "raw_exact_pairs": 0,
+        "raw_fill_and_two_items_per_bin": 0,
+        "raw_near_full": 10
+      },
+      "matched_pair": {
+        "arrival_first_fit": 0,
+        "cases": 10,
+        "descending_first_fit": 10,
+        "known_exact_pairs_after_peel": 10,
+        "legacy_bins_le_4": 0,
+        "peeled_exact_pairs": 10,
+        "raw_coverage_histogram": {
+          "933": 10
+        },
+        "raw_exact_pairs": 0,
+        "raw_fill_and_two_items_per_bin": 0,
+        "raw_near_full": 10
+      },
+      "near": {
+        "arrival_first_fit": 0,
+        "cases": 10,
+        "descending_first_fit": 10,
+        "known_exact_pairs_after_peel": 0,
+        "legacy_bins_le_4": 0,
+        "peeled_exact_pairs": 0,
+        "raw_coverage_histogram": {
+          "875": 10
+        },
+        "raw_exact_pairs": 0,
+        "raw_fill_and_two_items_per_bin": 0,
+        "raw_near_full": 10
+      }
+    }
+  },
+  "control_seed": 2026111811,
+  "historical_cases": 40,
+  "totals": {
+    "historical_strict": {
+      "arrival_first_fit": 0,
+      "cases": 40,
+      "descending_first_fit": 40,
+      "known_exact_pairs_after_peel": 40,
+      "legacy_bins_le_4": 0,
+      "peeled_exact_pairs": 40,
+      "raw_coverage_histogram": {
+        "1000": 40
+      },
+      "raw_exact_pairs": 40,
+      "raw_fill_and_two_items_per_bin": 40,
+      "raw_near_full": 40
+    },
+    "matched_mixed": {
+      "arrival_first_fit": 1,
+      "cases": 40,
+      "descending_first_fit": 40,
+      "known_exact_pairs_after_peel": 0,
+      "legacy_bins_le_4": 0,
+      "peeled_exact_pairs": 0,
+      "raw_coverage_histogram": {
+        "444": 10,
+        "545": 10,
+        "615": 10,
+        "666": 10
+      },
+      "raw_exact_pairs": 0,
+      "raw_fill_and_two_items_per_bin": 0,
+      "raw_near_full": 40
+    },
+    "matched_pair": {
+      "arrival_first_fit": 0,
+      "cases": 40,
+      "descending_first_fit": 40,
+      "known_exact_pairs_after_peel": 40,
+      "legacy_bins_le_4": 0,
+      "peeled_exact_pairs": 40,
+      "raw_coverage_histogram": {
+        "888": 10,
+        "909": 10,
+        "923": 10,
+        "933": 10
+      },
+      "raw_exact_pairs": 0,
+      "raw_fill_and_two_items_per_bin": 0,
+      "raw_near_full": 40
+    },
+    "near": {
+      "arrival_first_fit": 0,
+      "cases": 40,
+      "descending_first_fit": 40,
+      "known_exact_pairs_after_peel": 0,
+      "legacy_bins_le_4": 0,
+      "peeled_exact_pairs": 0,
+      "raw_coverage_histogram": {
+        "800": 10,
+        "833": 10,
+        "857": 10,
+        "875": 10
+      },
+      "raw_exact_pairs": 0,
+      "raw_fill_and_two_items_per_bin": 0,
+      "raw_near_full": 40
+    }
+  }
+}

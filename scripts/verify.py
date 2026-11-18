@@ -33,6 +33,9 @@ def main():
     check("规划器跨轮记忆", "candidates/audit/planner_edges.py")
     check("现役版从空白重启", "candidates/audit/research_cli.py")
     check("冻结历史可独立恢复", "candidates/audit/frozen_replay.py")
+    check("互补计数与回退费用", "candidates/pair_strategy/check.py")
+    check("路由学习的正反例、预算与弃权", "candidates/pair_strategy/learn_check.py")
+    check("批次输入与隔离", "candidates/audit/pair_batch.py")
     if args.full:
         check("历史发布的四份逐项评测", "-m", "candidates.pilot_eval.replay")
         check("历史第 9 轮因果对照", "candidates/pilot_search/replay_round01.py",
@@ -40,6 +43,9 @@ def main():
         check("两种记忆顺序的等预算复验", "candidates/audit/planner_release_compare.py",
               expected="evidence/review/planner-boundaries.json")
         check("8 盘触发与 70 份只读复查", "candidates/audit/pair_followup.py", expected="evidence/review/pair-followup.json")
+        check("同统计量的开发对照", "-m", "candidates.pair_eval.development",
+              expected="candidates/pair_eval/development_result.json")
+        check("40 份旧失败、正式决定与封存重启", "scripts/pair_round.py", "--check")
     print("全部通过。")
 
 
