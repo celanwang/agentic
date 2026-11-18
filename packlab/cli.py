@@ -27,15 +27,19 @@ def policy_name(policy):
     return engine.describe(policy)
 
 
-def read_task(path):
+def read_json(path, limit):
     if path == "-":
-        raw = sys.stdin.read(65537)
+        raw = sys.stdin.read(limit + 1)
     else:
         with open(path, encoding="utf-8") as stream:
-            raw = stream.read(65537)
-    if len(raw) > 65536:
-        raise ValueError("清单超过 64 KiB")
-    return validate_task(json.loads(raw))
+            raw = stream.read(limit + 1)
+    if len(raw) > limit:
+        raise ValueError(f"清单超过 {limit // 1024} KiB")
+    return json.loads(raw)
+
+
+def read_task(path):
+    return validate_task(read_json(path, 65536))
 
 
 def research_record(folder, record_id):
@@ -85,14 +89,21 @@ def show_study(data):
     print(f"练习 {len(data['practice_tasks'])} 个输入；可调用 {len(data['skill_sources'])} 种历史或现场发现的技能。")
     print(f"实验预算 {search['calls']}/{data['budget']} 次，实测操作 {search['spent']}。")
     trials = search.get("trials", [])
-    print(f"实际试了 {len({t['candidate'] for t in trials})} 份配方；{len(search['comparisons'])} 份完成了整组练习。")
+    routed = data.get("research_mode") == "routing"
+    if routed:
+        print(f"收到 {len(data['batch_tasks'])} 份清单，试过 {len(search['candidates'])} 种求解策略。{search['reason']}")
+    else:
+        print(f"实际试了 {len({t['candidate'] for t in trials})} 份配方；{len(search['comparisons'])} 份完成了整组练习。")
     if data["nominee"]:
         print("冻结提名  " + policy_name(data["nominee"]))
-        choice = search["nominee"]
-        selected = next((t for t in trials if t["candidate"] == choice), None)
-        if selected:
-            print("  " + selected["reason"])
-        score = search["comparisons"][choice]
+        if routed:
+            score = search["comparison"]
+        else:
+            choice = search["nominee"]
+            selected = next((t for t in trials if t["candidate"] == choice), None)
+            if selected:
+                print("  " + selected["reason"])
+            score = search["comparisons"][choice]
         print(f"  练习新增 {score['gains']}，丢失 {score['losses']}，两端操作 {score['old_cost']} → {score['new_cost']}。")
     for key, title in (("holdout", "普通留出"), ("regression", "回归"), ("replay", "历史复查")):
         if key in data:
@@ -335,6 +346,7 @@ def main():
     demonstration.add_argument("topic", nargs="?", choices=["triples", "mixed", "pilot"], help="选择演示")
     study = subs.add_parser("research", help="启动一轮配方研究，并为此状态开启后续失败的自主研究")
     study.add_argument("task", nargs="?", help="可选的触发清单")
+    study.add_argument("--batch", help="从一批已有清单学习条件策略，读取 JSON 数组或用 - 接收标准输入")
     study.add_argument("--budget", type=int, default=research.DEFAULT_BUDGET, help="研究评估次数上限")
     study.add_argument("--json", action="store_true")
     why = subs.add_parser("explain", help="为冻结提名寻找可复算的对照例")
@@ -352,7 +364,13 @@ def main():
             demo(folder, triples=args.topic == "triples", mixed=args.topic == "mixed")
             return 0
         if args.cmd == "research":
-            data = memory.investigate(folder, read_task(args.task) if args.task else None, args.budget)
+            if args.task and args.batch:
+                raise ValueError("单份研究和批次研究请分别运行")
+            batch = read_json(args.batch, 262144) if args.batch else None
+            if args.batch and not isinstance(batch, list):
+                raise ValueError("批次须为 JSON 数组")
+            data = memory.investigate(folder, read_task(args.task) if args.task else None, args.budget,
+                                      batch=batch)
         elif args.cmd == "explain":
             from .witness import explain
             row = research_record(folder, args.id)

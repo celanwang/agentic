@@ -7,7 +7,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from . import arena, engine, planner, research
-from .experiment import Bench, ident, proven_impossible, run_round, runtime_id
+from .experiment import Bench, ident, proven_impossible, run_round, runtime_id, validate_task
 
 
 ROOT = Path(__file__).resolve().parent
@@ -16,6 +16,12 @@ BUILD = None
 # and rewards are compatible with v1; sorted JSON no longer contains its original recency order.
 LEGACY_MEMORY_FORMATS = {
     "7b5066f82fc768c31657767eeb18a9be68d7dea811e948fe150bade791048cd4":
+        "1:10d85ca8dc0c58b8803727bd89558c9231f097a0c00a87d80371b2eb4b271b09"
+}
+# The route executor preserves the values, costs and traces of four-field recipes.
+# This one-way migration applies only to the verified pair of solver builds.
+COMPATIBLE_PREDECESSORS = {
+    "1:4edca22ea390932922c4f812d3a251d0dfb8feabf73d752cf687021760e8b278":
         "1:10d85ca8dc0c58b8803727bd89558c9231f097a0c00a87d80371b2eb4b271b09"
 }
 
@@ -89,7 +95,7 @@ def _index_prior_inputs(db):
                           (last_id,)):
         event = json.loads(row["data"])
         task = event.get("task")
-        tasks = event.get("practice_tasks", [])
+        tasks = event.get("practice_tasks", []) + event.get("batch_tasks", [])
         if task is not None:
             tasks.append(task)
         keys = {research.family_id(t) for t in tasks}
@@ -112,7 +118,7 @@ def _previous_attempt(db, task, revision=None, kind=None):
     return previous
 
 
-def _research(db, revision, policies, focus, budget, bench=None, started=None):
+def _research(db, revision, policies, focus, budget, bench=None, started=None, batch=None):
     started = time.perf_counter() if started is None else started
     # Search only receives past tasks, observed production outcomes and trial actions.
     # Never pass formal holdout rows or blind answers to the planner.
@@ -128,7 +134,8 @@ def _research(db, revision, policies, focus, budget, bench=None, started=None):
     solver_build = runtime_id([ROOT / name for name in ("engine.py", "recipes.py", "experiment.py")])
     memory_format = f"{planner.MEMORY_VERSION}:{solver_build}"
     prior_format = last.get("research_memory_format", LEGACY_MEMORY_FORMATS.get(last.get("research_build")))
-    memory = last["search"]["memory"] if memory_format == prior_format else {}
+    compatible = prior_format is not None and prior_format in (memory_format, COMPATIBLE_PREDECESSORS.get(memory_format))
+    memory = last["search"]["memory"] if compatible else {}
     db.execute("""CREATE TABLE IF NOT EXISTS research_reviews
                   (revision INTEGER, build TEXT, digest TEXT, event_id INTEGER NOT NULL,
                    PRIMARY KEY (revision, build, digest))""")
@@ -137,10 +144,10 @@ def _research(db, revision, policies, focus, budget, bench=None, started=None):
     def prior_input(key):
         return db.execute("SELECT 1 FROM research_inputs WHERE family=?", (key,)).fetchone() is not None
     report = research.study(policies, revision["id"], history, memory, last.get("episode", 0) + 1,
-                            budget, focus, reviewed, prior_input, bench)
+                            budget, focus, reviewed, prior_input, bench, batch=batch)
     if focus is not None and not report["answer"]:
         saved = _previous_attempt(db, focus)
-        if saved:
+        if saved and saved["answer"]:
             report.update(answer=saved["answer"], outcome="packed", reused_event=saved["id"])
     report["research_build"] = signature
     report["research_memory_format"] = memory_format
@@ -159,11 +166,16 @@ def _research(db, revision, policies, focus, budget, bench=None, started=None):
     return event
 
 
-def investigate(folder, focus=None, budget=research.DEFAULT_BUDGET):
+def investigate(folder, focus=None, budget=research.DEFAULT_BUDGET, batch=None):
     research.validate_budget(budget)
+    if batch is not None:
+        if focus is not None or not isinstance(batch, list) or not 1 <= len(batch) <= 64:
+            raise ValueError("批次需要 1 到 64 份清单，并以第一份作为触发输入")
+        batch = [validate_task(task) for task in batch]
+        focus = batch[0]
     with transaction(folder) as db:
         rev = head(db)
-        return _research(db, rev, json.loads(rev["policies"]), focus, budget)
+        return _research(db, rev, json.loads(rev["policies"]), focus, budget, batch=batch)
 
 
 def solve(folder, task):

@@ -75,6 +75,51 @@ def curriculum(seed, history, focus):
     return tasks, metadata
 
 
+def _redistribute(task):
+    """Change two interior sizes while holding capacity, total, extrema and file count fixed."""
+    sizes = task["items"]
+    if len(sizes) < 4:
+        return None
+    low, high = min(sizes), max(sizes)
+    for i, a in enumerate(sizes):
+        if not low < a < high - 1:
+            continue
+        for j, b in enumerate(sizes):
+            if i != j and low + 1 < b < high and a + 1 != b and a + b != task["capacity"]:
+                changed = sizes.copy()
+                changed[i], changed[j] = a + 1, b - 1
+                return dict(task, items=changed)
+    return None
+
+
+def batch_curriculum(seed, batch):
+    groups = {}
+    seen = set()
+    for i, task in enumerate(batch):
+        key = family_id(task)
+        if key not in seen:
+            groups.setdefault(task["bins"], []).append(i)
+            seen.add(key)
+    tasks, views = [], []
+    indices = [group[offset] for offset in range(max(map(len, groups.values())))
+               for group in groups.values() if offset < len(group)]
+    used = set()
+
+    def add(task, origin, view):
+        if task is not None and family_id(task) not in used:
+            tasks.append(task)
+            views.append(dict(source=origin, view=view))
+            used.add(family_id(task))
+
+    for i in indices[:6]:
+        add(batch[i], f"批次 #{i + 1}", "原始")
+        add(_redistribute(batch[i]), f"批次 #{i + 1}", "保总量的两项扰动")
+    deck = list(zip(arena.cases(seed, "practice"), arena.case_expectations("practice")))
+    for profile in ("mixed", "triples", "loose", "ordered", "tiny", "pairs"):
+        add(next(task for task, (name, _) in deck if name == profile), "独立练习", profile)
+    return tasks, views
+
+
 def experience(history, policies, practice):
     skills, sources = [], []
     def remember(policy, source):
@@ -86,6 +131,8 @@ def experience(history, policies, practice):
 
     for p in policies:
         remember(p, "现役版本")
+        if "fallback" in p:
+            remember(p["fallback"], "现役递补配方")
     for event in history:
         if event.get("kind") == "solve":
             for trial in event.get("trials", []):
@@ -159,24 +206,32 @@ def validate_budget(budget):
 
 
 def study(policies, generation, history, memory, episode, budget, focus=None, reviewed=None, prior_input=None,
-          bench=None):
+          bench=None, batch=None):
     from . import planner, recipes
     validate_budget(budget)
     seed = seed_for(episode)
-    practice, views = curriculum(seed, history, focus)
+    practice, views = batch_curriculum(seed, batch) if batch else curriculum(seed, history, focus)
     skills, sources, setup_cost = experience(history, policies, practice)
-    search = planner.search(practice, policies, skills, memory, seed, budget)
+    if batch:
+        from . import routing
+        search = routing.search(practice, policies, skills, budget)
+        # The routing experiment does not update ordinary recipe-search credit or cached results.
+        search["memory"] = memory
+    else:
+        search = planner.search(practice, policies, skills, memory, seed, budget)
     program = search["program"]
     data = dict(kind="research", episode=episode, seed=seed, budget=budget, generation_before=generation,
                 generation=generation, rules=RULES, policies_before=policies, practice_tasks=practice,
                 practice_views=views, skill_sources=sources, discovery_cost=setup_cost,
                 search=search, nominee=program)
+    if batch:
+        data.update(research_mode="routing", batch_tasks=batch)
     bench = bench if bench is not None else Bench()
     if focus is not None:
         before = bench.apply(focus, policies)
         data.update(task=focus, before=before, after=before, answer=None)
     if program is None:
-        decision, reason = "inconclusive", "练习阶段没有提名可用配方。"
+        decision, reason = "inconclusive", search.get("reason", "练习阶段没有提名可用配方。")
     else:
         recipes.validate(program)
         new = dispatch(program, policies)
@@ -186,11 +241,11 @@ def study(policies, generation, history, memory, episode, budget, focus=None, re
             decision, reason = "unchanged", f"同一版本已检验过这份提名，见记录 #{reviewed[digest]}。"
         elif new == policies:
             decision, reason = "unchanged", "研究阶段重新选中了现役配方。"
-        elif len(new) > RULES["max_policies"]:
+        elif len(new) + sum("fallback" in p for p in new) > RULES["max_policies"]:
             decision, reason = "budget", "插入配方将超过原策略链长度上限。"
         else:
             # Lock exactly one candidate before opening either acceptance split.
-            hold_tasks, reg_tasks = test_sets(seed, practice, prior_input or (lambda _: False))
+            hold_tasks, reg_tasks = test_sets(seed, practice + (batch or []), prior_input or (lambda _: False))
             hold = compare(bench, hold_tasks, policies, new)
             reg = compare(bench, reg_tasks, policies, new)
             replay_tasks = [e["task"] for e in history if e.get("task") and e.get("answer")][:32]

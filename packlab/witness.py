@@ -58,7 +58,12 @@ def _controls(program, policies):
     if len(steps) == 2:
         result.append(("reverse_steps", dispatch(dict(program, steps=steps[::-1]), policies)))
     if program["guard"] is not None:
-        result.append(("without_guard", dispatch(dict(program, guard=None), policies)))
+        unguarded = dict(program, guard=None)
+        backup = unguarded.pop("fallback", None)
+        chain = dispatch(unguarded, policies)
+        if backup is not None:
+            chain.insert(1, backup)
+        result.append(("without_guard", chain))
     result.append(("previous_chain", list(policies)))
     return result
 

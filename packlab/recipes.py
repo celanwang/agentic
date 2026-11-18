@@ -1,4 +1,5 @@
-"""Execute a bounded, reversible representation change before one existing solver."""
+"""Execute bounded, reversible recipe steps and one optional fallback."""
+from collections import Counter
 from math import gcd
 
 from packlab import engine
@@ -7,19 +8,31 @@ from packlab import engine
 STEPS = ("normalize_gcd", "peel_forced")
 FEATURES = ("capacity", "gcd", "unit_capacity", "bins", "items", "forced_singletons",
             "slack", "load_permille", "items_per_bin_permille", "max_permille")
+ROUTE_FEATURES = FEATURES + ("complementary_coverage",)
 _FEATURE_NAMES = {
     "capacity": "单盘容量", "gcd": "共同单位", "unit_capacity": "约分后单盘容量",
     "bins": "盘数", "items": "文件数", "forced_singletons": "独占盘文件数",
     "slack": "总闲置量", "load_permille": "总装载率（‰）",
     "items_per_bin_permille": "每盘平均文件数（乘以 1000）", "max_permille": "最大文件占单盘容量（‰）",
+    "complementary_coverage": "互补配对覆盖率（‰）",
 }
 _STEP_NAMES = {"normalize_gcd": "消除共同单位", "peel_forced": "剥离独占盘文件"}
+_FIELDS = {"kind", "steps", "solver", "guard"}
 
 
 def validate(program):
     """Validate the JSON grammar. No rewriting or mutation of the stored program."""
-    if not isinstance(program, dict) or set(program) != {"kind", "steps", "solver", "guard"}:
-        raise ValueError("配方字段应为 kind、steps、solver、guard")
+    if not isinstance(program, dict) or set(program) not in (_FIELDS, _FIELDS | {"fallback"}):
+        raise ValueError("配方字段应为 kind、steps、solver、guard，可选 fallback")
+    _validate_leaf(program)
+    if "fallback" in program:
+        fallback = program["fallback"]
+        if program["guard"] is None or not isinstance(fallback, dict) or set(fallback) != _FIELDS:
+            raise ValueError("路由配方须有前置条件和一层普通递补配方")
+        _validate_leaf(fallback)
+
+
+def _validate_leaf(program):
     if program["kind"] != "recipe" or not isinstance(program["solver"], dict):
         raise ValueError("需要 recipe 和普通求解策略")
     engine.describe(program["solver"])
@@ -30,13 +43,20 @@ def validate(program):
     guard = program["guard"]
     if guard is not None and (
             not isinstance(guard, dict) or set(guard) != {"feature", "op", "value"} or
-            guard["feature"] not in FEATURES or guard["op"] not in ("le", "ge") or
+            guard["feature"] not in ROUTE_FEATURES or guard["op"] not in ("le", "ge") or
             type(guard["value"]) is not int):
         raise ValueError("条件必须是整数特征与整数阈值的 le/ge 比较")
 
 
 def describe(program):
     validate(program)
+    primary = _describe_leaf(program)
+    if "fallback" in program:
+        return primary + "。跳过或仍待求解时递补 " + _describe_leaf(program["fallback"])
+    return primary
+
+
+def _describe_leaf(program):
     parts = []
     guard = program["guard"]
     if guard:
@@ -101,6 +121,17 @@ def _observe(keys, capacity, bins, sizes, ops):
     if "max_permille" in keys:
         values["max_permille"] = 1000 * max(sizes, default=0) // capacity
         ops["recipe_features"] += n
+    if "complementary_coverage" in keys:
+        counts = Counter(sizes)
+        ops["recipe_complements"] = n + len(counts)
+        pairs = 0
+        for size, count in counts.items():
+            complement = capacity - size
+            if size < complement:
+                pairs += min(count, counts[complement])
+            elif size == complement:
+                pairs += count // 2
+        values["complementary_coverage"] = 2000 * pairs // n if n else 0
     ops["recipe_features"] += len(keys)
     return {key: values[key] for key in keys}
 
@@ -111,8 +142,51 @@ def features(task):
                     dict(recipe_gcd=0, recipe_features=0, recipe_isolation=0))
 
 
+def route_features(task, *, ops=None):
+    """Include structural observations and optionally accumulate their operation counts."""
+    capacity, bins, sizes = _inputs(task)
+    counts = dict(recipe_gcd=0, recipe_features=0, recipe_isolation=0,
+                  recipe_feature_input=3 + len(sizes))
+    observed = _observe(ROUTE_FEATURES, capacity, bins, sizes, counts)
+    if ops is not None:
+        for key, value in counts.items():
+            ops[key] = ops.get(key, 0) + value
+    return observed
+
+
 def run(task, program):
     validate(program)
+    primary = _run_leaf(task, program)
+    if "fallback" not in program:
+        return primary
+
+    from .experiment import proven_impossible
+
+    fallback = None
+    if not primary["ok"] and not proven_impossible(primary):
+        fallback = _run_leaf(task, program["fallback"])
+    result = fallback if fallback is not None else primary
+    ops = dict(primary["trace"]["ops"], recipe_route=1)
+    if fallback is not None:
+        for key, value in fallback["trace"]["ops"].items():
+            ops[key] = ops.get(key, 0) + value
+
+    def summarize(trial):
+        trace = trial["trace"]
+        return dict(ok=trial["ok"], cost=trial["cost"], guard=trace["guard"],
+                    search_status=trace["search_status"])
+
+    route = dict(selected="fallback" if fallback is not None else "primary",
+                 primary=summarize(primary),
+                 fallback=summarize(fallback) if fallback is not None else None)
+    trace = dict(result["trace"], guard=primary["trace"]["guard"], ops=ops, route=route)
+    if fallback is not None:
+        trace["solver_ran"] = primary["trace"]["solver_ran"] or trace["solver_ran"]
+        trace["solver_cost"] += primary["trace"]["solver_cost"]
+    return dict(result, trace=trace, cost=sum(ops.values()))
+
+
+def _run_leaf(task, program):
     capacity, count, sizes = _inputs(task)
     original_capacity, original_sizes = capacity, sizes
     ops = dict(recipe_setup=4 + len(sizes) + len(program["steps"]), recipe_features=0,
