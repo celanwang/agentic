@@ -91,13 +91,16 @@ def restart(state):
     example = json.loads((ROOT / "examples" / "pilot-independent.json").read_text())
     if research.family(example) in seen:
         raise RuntimeError("独立样例与该状态的既有样本同源")
-    print("\n另一批预封存的 72 份输入，事后按文件顺序展示首份新增成功 blind-7/raw。")
+    print("\n另一批预封存的 72 份输入。复测历史记录中首份新增成功 blind-7/raw。")
     print(f"{example['bins']} 个容量为 {example['capacity']} 的盘，文件 {example['items']}。")
     before, after = contrast(state, example)
     print(f"开发者基线 {outcome(before)}；重启后 v{last['generation']} {outcome(after)}。")
     if after["ok"]:
         show_packing(example, after["packing"])
-    assert child(state, "status")["events"] == last["events"]
+    if child(state, "status")["events"] != last["events"]:
+        raise RuntimeError("只读复测改变了记录数")
+    if not last["generation"] or before["ok"] or not after["ok"]:
+        raise RuntimeError(f"这次演示未复现从初始策略到重启后的新增成功。实验记录在 {state}")
     print("\n用自己的清单接着试   " + shlex.join([str(ROOT / "agentic"), "--state", str(state)]))
 
 
@@ -112,4 +115,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except RuntimeError as error:
+        sys.exit(str(error))

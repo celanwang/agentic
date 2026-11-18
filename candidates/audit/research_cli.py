@@ -25,18 +25,25 @@ def verify():
             shutil.copy2(ROOT / name, root / name)
         for name in ("examples", "packlab"):
             shutil.copytree(ROOT / name, root / name)
+        # Compare two executions of the current release. Frozen historical evidence
+        # has its own runtime and a separate replay command.
+        demos = root / "state" / "demos"
         subprocess.run([str(root / "demo-research")], cwd=temp, capture_output=True, text=True, check=True)
-        state, = (root / "state" / "demos").iterdir()
-        fixed = ROOT / "state" / "pilot" / "round-01" / "stream"
+        state, = demos.iterdir()
+        subprocess.run([str(root / "demo-research")], cwd=temp, capture_output=True, text=True, check=True)
+        second, = (path for path in demos.iterdir() if path != state)
         for index in range(1, 10):
             trial = run(root, state, "show", str(index))
-            released = run(root, fixed, "show", str(index))
+            repeated = run(root, second, "show", str(index))
             for ignored in ("experiment_ms", "created"):
                 trial.pop(ignored)
-                released.pop(ignored)
-            assert trial == released
+                repeated.pop(ignored)
+            assert trial == repeated
         status = run(root, state, "status")
         assert (status["events"], status["generation"]) == (9, 1)
+        nomination = run(root, state, "show", "9")
+        assert nomination["decision"] == "kept" and nomination["holdout"]["gains"] >= 3
+        assert nomination["memory_source_event"] == 8
         assert run(root, state, "research", "--budget", "1", check=False) == 2
         assert run(root, state, "status") == status
         example = str(root / "examples" / "pilot-independent.json")
