@@ -1,0 +1,174 @@
+{
+  "note": "揭示后仅试跑记录 #6 的冻结提名一次，未进入活动策略或晋级判定。",
+  "source_event": 6,
+  "policy": {
+    "order": "descending",
+    "pick": "first",
+    "repair": "fill"
+  },
+  "task": {
+    "bins": 8,
+    "capacity": 379,
+    "items": [
+      23,
+      68,
+      1,
+      12,
+      8,
+      3,
+      73,
+      39,
+      103,
+      13,
+      24,
+      60,
+      6,
+      78,
+      54,
+      133,
+      61,
+      7,
+      296,
+      4,
+      38,
+      5,
+      25,
+      22,
+      99,
+      15,
+      11,
+      275,
+      40,
+      18,
+      68,
+      89,
+      32,
+      287,
+      2,
+      12,
+      187,
+      9,
+      9,
+      6,
+      231,
+      31,
+      64,
+      277,
+      88,
+      6,
+      9,
+      11
+    ]
+  },
+  "active_ok": false,
+  "active_cost": 1862,
+  "candidate": {
+    "ok": true,
+    "packing": [
+      [
+        18,
+        13,
+        21
+      ],
+      [
+        33,
+        31,
+        5
+      ],
+      [
+        43,
+        24,
+        34,
+        2
+      ],
+      [
+        27,
+        44,
+        3,
+        19
+      ],
+      [
+        40,
+        15,
+        25
+      ],
+      [
+        36,
+        8,
+        6,
+        37,
+        17
+      ],
+      [
+        1,
+        30,
+        42,
+        16,
+        11,
+        28,
+        29
+      ],
+      [
+        14,
+        7,
+        20,
+        32,
+        41,
+        22,
+        10,
+        0,
+        23,
+        9,
+        35,
+        26,
+        47,
+        38,
+        46,
+        4,
+        12,
+        39,
+        45
+      ]
+    ],
+    "cost": 3963,
+    "trace": {
+      "blocked": {
+        "reason": "fragmentation",
+        "index": 45,
+        "size": 6,
+        "step": 42,
+        "free": [
+          5,
+          3,
+          3,
+          1,
+          0,
+          0,
+          4,
+          5
+        ],
+        "smaller_before": 0
+      },
+      "repaired": [],
+      "search_status": "solved",
+      "ops": {
+        "setup": 57,
+        "ranking": 288,
+        "bin_probes": 277,
+        "placements": 90,
+        "exchange_probes": 0,
+        "search_nodes": 0,
+        "undo": 0,
+        "diagnosis": 98,
+        "fill_guard": 98,
+        "fill_nodes": 8,
+        "fill_dp": 2435,
+        "fill_bit_tests": 115,
+        "fill_probes": 226,
+        "fill_candidates": 7,
+        "residual_scans": 264
+      }
+    }
+  },
+  "hypothetical_chain_cost": 5825
+}

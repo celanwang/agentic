@@ -1,0 +1,815 @@
+{
+  "scope": "supplied_tasks",
+  "status": "witness",
+  "witness": {
+    "task_index": 5,
+    "control": "without_peel_forced",
+    "initial": {
+      "task": {
+        "bins": 6,
+        "capacity": 3552,
+        "items": [
+          3551,
+          1760,
+          1632,
+          896,
+          1024,
+          896,
+          1344,
+          896,
+          992,
+          896,
+          928,
+          1504,
+          1216,
+          1760,
+          1120,
+          896
+        ]
+      },
+      "kept_original": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "full": {
+        "outcome": "solved",
+        "ok": true,
+        "cost": 438,
+        "packing": [
+          [
+            0
+          ],
+          [
+            1,
+            3,
+            15
+          ],
+          [
+            13,
+            5,
+            9
+          ],
+          [
+            2,
+            4,
+            7
+          ],
+          [
+            11,
+            14,
+            10
+          ],
+          [
+            6,
+            12,
+            8
+          ]
+        ],
+        "attempts": [
+          {
+            "policy": {
+              "guard": {
+                "feature": "items_per_bin_permille",
+                "op": "le",
+                "value": 3375
+              },
+              "kind": "recipe",
+              "solver": {
+                "order": "descending",
+                "pick": "first",
+                "repair": "triples"
+              },
+              "steps": [
+                "peel_forced"
+              ]
+            },
+            "ok": true,
+            "cost": 438,
+            "guard_matched": true,
+            "solver_ran": true,
+            "search_status": "solved"
+          }
+        ],
+        "packing_check": "complete",
+        "packing_original": [
+          [
+            0
+          ],
+          [
+            1,
+            3,
+            15
+          ],
+          [
+            13,
+            5,
+            9
+          ],
+          [
+            2,
+            4,
+            7
+          ],
+          [
+            11,
+            14,
+            10
+          ],
+          [
+            6,
+            12,
+            8
+          ]
+        ]
+      },
+      "control": {
+        "outcome": "unresolved",
+        "ok": false,
+        "cost": 798,
+        "packing": [
+          [
+            0
+          ],
+          [
+            1,
+            13
+          ],
+          [
+            2,
+            11
+          ],
+          [
+            6,
+            12,
+            8
+          ],
+          [
+            14,
+            4,
+            10
+          ],
+          [
+            3,
+            5,
+            7
+          ]
+        ],
+        "attempts": [
+          {
+            "policy": {
+              "guard": {
+                "feature": "items_per_bin_permille",
+                "op": "le",
+                "value": 3375
+              },
+              "kind": "recipe",
+              "solver": {
+                "order": "descending",
+                "pick": "first",
+                "repair": "triples"
+              },
+              "steps": []
+            },
+            "ok": false,
+            "cost": 267,
+            "guard_matched": true,
+            "solver_ran": true,
+            "search_status": "not_applicable"
+          },
+          {
+            "policy": {
+              "order": "arrival",
+              "pick": "first",
+              "repair": "none"
+            },
+            "ok": false,
+            "cost": 132,
+            "guard_matched": null,
+            "solver_ran": true,
+            "search_status": null
+          },
+          {
+            "policy": {
+              "order": "descending",
+              "pick": "first",
+              "repair": "none"
+            },
+            "ok": false,
+            "cost": 199,
+            "guard_matched": null,
+            "solver_ran": true,
+            "search_status": null
+          },
+          {
+            "policy": {
+              "order": "descending",
+              "pick": "first",
+              "repair": "triples"
+            },
+            "ok": false,
+            "cost": 200,
+            "guard_matched": null,
+            "solver_ran": true,
+            "search_status": "not_applicable"
+          }
+        ],
+        "packing_check": "partial",
+        "packing_original": [
+          [
+            0
+          ],
+          [
+            1,
+            13
+          ],
+          [
+            2,
+            11
+          ],
+          [
+            6,
+            12,
+            8
+          ],
+          [
+            14,
+            4,
+            10
+          ],
+          [
+            3,
+            5,
+            7
+          ]
+        ]
+      },
+      "difference": "success_gain",
+      "saved_ops": 360
+    },
+    "reduced": {
+      "task": {
+        "bins": 6,
+        "capacity": 3552,
+        "items": [
+          3551,
+          1760,
+          1632,
+          896,
+          1024,
+          896,
+          1344,
+          896,
+          992,
+          896,
+          928,
+          1504,
+          1216,
+          1760,
+          1120,
+          896
+        ]
+      },
+      "kept_original": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "full": {
+        "outcome": "solved",
+        "ok": true,
+        "cost": 438,
+        "packing": [
+          [
+            0
+          ],
+          [
+            1,
+            3,
+            15
+          ],
+          [
+            13,
+            5,
+            9
+          ],
+          [
+            2,
+            4,
+            7
+          ],
+          [
+            11,
+            14,
+            10
+          ],
+          [
+            6,
+            12,
+            8
+          ]
+        ],
+        "attempts": [
+          {
+            "policy": {
+              "guard": {
+                "feature": "items_per_bin_permille",
+                "op": "le",
+                "value": 3375
+              },
+              "kind": "recipe",
+              "solver": {
+                "order": "descending",
+                "pick": "first",
+                "repair": "triples"
+              },
+              "steps": [
+                "peel_forced"
+              ]
+            },
+            "ok": true,
+            "cost": 438,
+            "guard_matched": true,
+            "solver_ran": true,
+            "search_status": "solved"
+          }
+        ],
+        "packing_check": "complete",
+        "packing_original": [
+          [
+            0
+          ],
+          [
+            1,
+            3,
+            15
+          ],
+          [
+            13,
+            5,
+            9
+          ],
+          [
+            2,
+            4,
+            7
+          ],
+          [
+            11,
+            14,
+            10
+          ],
+          [
+            6,
+            12,
+            8
+          ]
+        ]
+      },
+      "control": {
+        "outcome": "unresolved",
+        "ok": false,
+        "cost": 798,
+        "packing": [
+          [
+            0
+          ],
+          [
+            1,
+            13
+          ],
+          [
+            2,
+            11
+          ],
+          [
+            6,
+            12,
+            8
+          ],
+          [
+            14,
+            4,
+            10
+          ],
+          [
+            3,
+            5,
+            7
+          ]
+        ],
+        "attempts": [
+          {
+            "policy": {
+              "guard": {
+                "feature": "items_per_bin_permille",
+                "op": "le",
+                "value": 3375
+              },
+              "kind": "recipe",
+              "solver": {
+                "order": "descending",
+                "pick": "first",
+                "repair": "triples"
+              },
+              "steps": []
+            },
+            "ok": false,
+            "cost": 267,
+            "guard_matched": true,
+            "solver_ran": true,
+            "search_status": "not_applicable"
+          },
+          {
+            "policy": {
+              "order": "arrival",
+              "pick": "first",
+              "repair": "none"
+            },
+            "ok": false,
+            "cost": 132,
+            "guard_matched": null,
+            "solver_ran": true,
+            "search_status": null
+          },
+          {
+            "policy": {
+              "order": "descending",
+              "pick": "first",
+              "repair": "none"
+            },
+            "ok": false,
+            "cost": 199,
+            "guard_matched": null,
+            "solver_ran": true,
+            "search_status": null
+          },
+          {
+            "policy": {
+              "order": "descending",
+              "pick": "first",
+              "repair": "triples"
+            },
+            "ok": false,
+            "cost": 200,
+            "guard_matched": null,
+            "solver_ran": true,
+            "search_status": "not_applicable"
+          }
+        ],
+        "packing_check": "partial",
+        "packing_original": [
+          [
+            0
+          ],
+          [
+            1,
+            13
+          ],
+          [
+            2,
+            11
+          ],
+          [
+            6,
+            12,
+            8
+          ],
+          [
+            14,
+            4,
+            10
+          ],
+          [
+            3,
+            5,
+            7
+          ]
+        ]
+      },
+      "difference": "success_gain",
+      "saved_ops": 360
+    },
+    "deleted_original": [],
+    "accepted_deletions": [],
+    "completed_reduction_pairs": 21,
+    "local_stop": "budget",
+    "reduction_scope": "只在容量、盘数及单位固定时局部删项，全局最小性未检验。"
+  },
+  "inspected": [
+    {
+      "task_index": 0,
+      "full_outcome": "unresolved",
+      "full_cost": 2279,
+      "comparisons": [
+        {
+          "control": "without_peel_forced",
+          "outcome": "unresolved",
+          "cost": 2278,
+          "difference": null
+        },
+        {
+          "control": "without_guard",
+          "outcome": "unresolved",
+          "cost": 3468,
+          "difference": "cost_saving"
+        },
+        {
+          "control": "previous_chain",
+          "outcome": "unresolved",
+          "cost": 2210,
+          "difference": null
+        }
+      ]
+    },
+    {
+      "task_index": 1,
+      "full_outcome": "unresolved",
+      "full_cost": 2279,
+      "comparisons": [
+        {
+          "control": "without_peel_forced",
+          "outcome": "unresolved",
+          "cost": 2278,
+          "difference": null
+        },
+        {
+          "control": "without_guard",
+          "outcome": "unresolved",
+          "cost": 3468,
+          "difference": "cost_saving"
+        },
+        {
+          "control": "previous_chain",
+          "outcome": "unresolved",
+          "cost": 2210,
+          "difference": null
+        }
+      ]
+    },
+    {
+      "task_index": 2,
+      "full_outcome": "unresolved",
+      "full_cost": 2421,
+      "comparisons": [
+        {
+          "control": "without_peel_forced",
+          "outcome": "unresolved",
+          "cost": 2420,
+          "difference": null
+        },
+        {
+          "control": "without_guard",
+          "outcome": "unresolved",
+          "cost": 3617,
+          "difference": "cost_saving"
+        },
+        {
+          "control": "previous_chain",
+          "outcome": "unresolved",
+          "cost": 2350,
+          "difference": null
+        }
+      ]
+    },
+    {
+      "task_index": 3,
+      "full_outcome": "solved",
+      "full_cost": 429,
+      "comparisons": [
+        {
+          "control": "without_peel_forced",
+          "outcome": "solved",
+          "cost": 368,
+          "difference": null
+        },
+        {
+          "control": "without_guard",
+          "outcome": "solved",
+          "cost": 427,
+          "difference": null
+        },
+        {
+          "control": "previous_chain",
+          "outcome": "solved",
+          "cost": 589,
+          "difference": "cost_saving"
+        }
+      ]
+    },
+    {
+      "task_index": 4,
+      "full_outcome": "solved",
+      "full_cost": 429,
+      "comparisons": [
+        {
+          "control": "without_peel_forced",
+          "outcome": "solved",
+          "cost": 368,
+          "difference": null
+        },
+        {
+          "control": "without_guard",
+          "outcome": "solved",
+          "cost": 427,
+          "difference": null
+        },
+        {
+          "control": "previous_chain",
+          "outcome": "solved",
+          "cost": 589,
+          "difference": "cost_saving"
+        }
+      ]
+    },
+    {
+      "task_index": 5,
+      "full_outcome": "solved",
+      "full_cost": 438,
+      "comparisons": [
+        {
+          "control": "without_peel_forced",
+          "outcome": "unresolved",
+          "cost": 798,
+          "difference": "success_gain"
+        },
+        {
+          "control": "without_guard",
+          "outcome": "solved",
+          "cost": 436,
+          "difference": null
+        },
+        {
+          "control": "previous_chain",
+          "outcome": "unresolved",
+          "cost": 531,
+          "difference": "success_gain"
+        }
+      ]
+    }
+  ],
+  "program": {
+    "guard": {
+      "feature": "items_per_bin_permille",
+      "op": "le",
+      "value": 3375
+    },
+    "kind": "recipe",
+    "solver": {
+      "order": "descending",
+      "pick": "first",
+      "repair": "triples"
+    },
+    "steps": [
+      "peel_forced"
+    ]
+  },
+  "full_chain": [
+    {
+      "guard": {
+        "feature": "items_per_bin_permille",
+        "op": "le",
+        "value": 3375
+      },
+      "kind": "recipe",
+      "solver": {
+        "order": "descending",
+        "pick": "first",
+        "repair": "triples"
+      },
+      "steps": [
+        "peel_forced"
+      ]
+    },
+    {
+      "order": "arrival",
+      "pick": "first",
+      "repair": "none"
+    },
+    {
+      "order": "descending",
+      "pick": "first",
+      "repair": "none"
+    },
+    {
+      "order": "descending",
+      "pick": "first",
+      "repair": "triples"
+    }
+  ],
+  "controls": {
+    "without_peel_forced": [
+      {
+        "guard": {
+          "feature": "items_per_bin_permille",
+          "op": "le",
+          "value": 3375
+        },
+        "kind": "recipe",
+        "solver": {
+          "order": "descending",
+          "pick": "first",
+          "repair": "triples"
+        },
+        "steps": []
+      },
+      {
+        "order": "arrival",
+        "pick": "first",
+        "repair": "none"
+      },
+      {
+        "order": "descending",
+        "pick": "first",
+        "repair": "none"
+      },
+      {
+        "order": "descending",
+        "pick": "first",
+        "repair": "triples"
+      }
+    ],
+    "without_guard": [
+      {
+        "guard": null,
+        "kind": "recipe",
+        "solver": {
+          "order": "descending",
+          "pick": "first",
+          "repair": "triples"
+        },
+        "steps": [
+          "peel_forced"
+        ]
+      },
+      {
+        "order": "arrival",
+        "pick": "first",
+        "repair": "none"
+      },
+      {
+        "order": "descending",
+        "pick": "first",
+        "repair": "none"
+      },
+      {
+        "order": "descending",
+        "pick": "first",
+        "repair": "triples"
+      }
+    ],
+    "previous_chain": [
+      {
+        "order": "arrival",
+        "pick": "first",
+        "repair": "none"
+      },
+      {
+        "order": "descending",
+        "pick": "first",
+        "repair": "none"
+      },
+      {
+        "order": "descending",
+        "pick": "first",
+        "repair": "triples"
+      }
+    ]
+  },
+  "budget_unit": "uncached_task_policy_runs",
+  "budget": 96,
+  "discovery_stop": "witness_selected",
+  "runs_used": 96,
+  "cache_hits": 48,
+  "executed_ops": 28610,
+  "tasks_total": 18,
+  "unchecked_input_pairs": 36,
+  "scope_note": "结论限于实际核验的清单及其局部删项。",
+  "finding": "完整配方链成功，对照链未解。"
+}

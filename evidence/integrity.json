@@ -1,0 +1,1 @@
+{"parallel": ["kept", "unchanged", "unchanged", "unchanged"], "evidence": {"holdout": 64, "gains": 14, "regression": 20, "cost_ratio": 2.0154}, "rollback": 0, "reused_event": 1, "events": 7, "invalid_exit": 2, "rejection": {"decision": "rejected", "cost_ratio": 8.1653, "repeat": "unchanged"}}

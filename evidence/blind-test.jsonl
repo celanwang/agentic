@@ -1,0 +1,21 @@
+{"check": "trigger", "before": false, "after": true, "before_cost": 40, "after_cost": 86, "decision": "kept", "generation": 1}
+{"check": "restart-transfer", "before": true, "after": true, "before_cost": 122, "after_cost": 122, "decision": "unchanged", "generation": 1}
+{"check": "fresh-control", "before": false, "after": true, "before_cost": 57, "after_cost": 122, "decision": "kept", "generation": 1}
+{"check": "descending-regression", "before": true, "after": true, "before_cost": 24, "after_cost": 24, "decision": "unchanged", "generation": 1}
+{"check": "empty-spare-disk", "before": true, "after": true, "before_cost": 18, "after_cost": 18, "decision": "unchanged", "generation": 1}
+{"check": "arrival-regression-0", "before": true, "after": true, "before_cost": 40, "after_cost": 40, "decision": "unchanged", "generation": 1}
+{"check": "arrival-regression-1", "before": true, "after": true, "before_cost": 40, "after_cost": 40, "decision": "unchanged", "generation": 1}
+{"check": "arrival-regression-2", "before": true, "after": true, "before_cost": 40, "after_cost": 40, "decision": "unchanged", "generation": 1}
+{"check": "arrival-regression-3", "before": true, "after": true, "before_cost": 40, "after_cost": 40, "decision": "unchanged", "generation": 1}
+{"check": "arrival-regression-4", "before": true, "after": true, "before_cost": 40, "after_cost": 40, "decision": "unchanged", "generation": 1}
+{"check": "arrival-regression-5", "before": true, "after": true, "before_cost": 40, "after_cost": 40, "decision": "unchanged", "generation": 1}
+{"check": "arrival-regression-6", "before": true, "after": true, "before_cost": 40, "after_cost": 40, "decision": "unchanged", "generation": 1}
+{"check": "arrival-regression-7", "before": true, "after": true, "before_cost": 40, "after_cost": 40, "decision": "unchanged", "generation": 1}
+{"check": "arrival-regression-8", "before": true, "after": true, "before_cost": 40, "after_cost": 40, "decision": "unchanged", "generation": 1}
+{"check": "arrival-regression-9", "before": true, "after": true, "before_cost": 40, "after_cost": 40, "decision": "unchanged", "generation": 1}
+{"check": "volume-balanced-impossible", "before": false, "after": false, "before_cost": 77, "after_cost": 77, "decision": "unchanged", "generation": 1}
+{"check": "single-oversize-file", "before": false, "after": false, "before_cost": 16, "after_cost": 16, "decision": "unchanged", "generation": 1}
+{"check": "invalid-json", "exit": 2}
+{"check": "invalid-bool", "exit": 2}
+{"check": "invalid-zero", "exit": 2}
+{"check": "invalid-float", "exit": 2}

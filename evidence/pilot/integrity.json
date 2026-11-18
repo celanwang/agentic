@@ -1,0 +1,13 @@
+{
+  "reproduced_events": 9,
+  "same_evidence_except_clock": true,
+  "standalone": true,
+  "transfer_ops": 198,
+  "rollback_generation": 0,
+  "invalid_budget_atomic": true,
+  "concurrent_decisions": [
+    "inconclusive",
+    "unchanged"
+  ],
+  "sqlite_integrity": "ok"
+}
