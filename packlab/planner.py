@@ -169,6 +169,11 @@ def _packed_stat_keys(node, context):
             _key(["context", node.direction, context]))
 
 
+def _restore_entries(memory, name):
+    # Start every episode in the same key order as a persisted SQLite snapshot.
+    return dict(sorted(memory.get(name, {}).items()))
+
+
 class Episode:
     def __init__(self, tasks, policies, indices, memory, budget, mode):
         self.tasks = tasks
@@ -177,10 +182,9 @@ class Episode:
         self.mode = mode
         self.views = {i: recipes.features(tasks[i]) for i in indices}
         self.keys = {i: _key(tasks[i]) for i in indices}
-        self.stats = {key: tuple(value) for key, value in memory.get("stats", {}).items()}
-        self.recent = {key: value for key, value in memory.get("recent", {}).items()}
-        if mode == "adaptive_reset":
-            self.stats, self.recent = {}, {}
+        history = {} if mode == "adaptive_reset" else memory
+        self.stats = {key: list(pair) for key, pair in _restore_entries(history, "stats").items()}
+        self.recent = _restore_entries(history, "recent")
         self.raw_keys = {}
         self.rows = {}
         self.trials = []
@@ -241,7 +245,7 @@ class Episode:
                 if count >= 16:
                     total = total * 15 // 16
                     count = 15
-                self.stats[stat] = (count + 1, total + reward)
+                self.stats[stat] = [count + 1, total + reward]
 
     def priority(self, node, probes):
         values = self.views[probes[0]]
@@ -426,6 +430,8 @@ def search(practice, policies, experience, memory, seed, budget, mode="adaptive"
         archive.setdefault(row["id"], row)
     baseline_spent = sum(row["cost"] for row in episode.baseline)
     stop = "budget" if episode.remaining == 0 or (not indices and practice and nodes) else "exhausted"
+    # Within this episode new evidence and cache hits move to the end. Retain
+    # those entries first; the next episode canonicalizes the surviving maps.
     return dict(program=nodes[nominee].program if nominee else None, nominee=nominee,
                 memory=dict(version=MEMORY_VERSION, archive=list(archive.values())[:ARCHIVE_LIMIT],
                             stats=dict(list(episode.stats.items())[-STAT_LIMIT:]),
