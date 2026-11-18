@@ -1,0 +1,115 @@
+#!/usr/bin/env python3
+"""Replay a fixed user workload through a fresh Agentic process for each command."""
+import hashlib
+import json
+from pathlib import Path
+import shlex
+import subprocess
+import sys
+import tempfile
+
+sys.dont_write_bytecode = True
+from packlab import arena, research
+from packlab.cli import policy_name, show_packing, show_study
+
+
+ROOT = Path(__file__).resolve().parent
+ORDER = ("first", "restart", "next", "triples-trigger", "triples-restart",
+         "mixed-trigger", "mixed-restart", "pilot-transfer")
+COMMITMENT = "d313501049928258e0eeb94aba175d329b16b5d6c38cba7fec7192d6a018afae"
+
+
+def child(state, *args, stdin=None):
+    command = [str(ROOT / "agentic"), "--state", str(state), *map(str, args), "--json"]
+    p = subprocess.run(command, input=stdin, text=True, capture_output=True)
+    if p.returncode:
+        raise RuntimeError(p.stderr.strip())
+    return json.loads(p.stdout)
+
+
+def jobs(state):
+    for name in ORDER:
+        event = child(state, "solve", ROOT / "examples" / (name + ".json"))
+        if event.get("answer") and not arena.check(event["task"], event["answer"]["packing"]):
+            raise RuntimeError("触发清单的交付装法无效")
+        print(f"\n{name}   #{event['id']}   首次作答{'装完' if event['before']['ok'] else '未解'}", flush=True)
+        if event["kind"] == "research":
+            show_study(event)
+        else:
+            print(event["reason"])
+
+
+def contrast(state, task):
+    readings = []
+    for flags in (["--initial"], []):
+        result = child(state, "probe", "-", *flags, stdin=json.dumps(task))["result"]
+        if result["ok"] and not arena.check(task, result["packing"]):
+            raise RuntimeError("新进程交付了无效装法")
+        readings.append(result)
+    return readings
+
+
+def outcome(result):
+    return f"{'装完' if result['ok'] else '未装完'}（{result['cost']}）"
+
+
+def restart(state):
+    # The envelope is opened after the final decision. Its witness is used only by this verifier.
+    path = ROOT / "examples" / "pilot-pairs-sealed.json"
+    payload = json.loads(path.read_text())
+    raw = json.dumps(payload, sort_keys=True, ensure_ascii=False, separators=(",", ":")).encode()
+    if hashlib.sha256(raw).hexdigest() != COMMITMENT:
+        raise RuntimeError("封存清单摘要不符")
+    task = payload["task"]
+    if not arena.check(task, payload["packing"]):
+        raise RuntimeError("封存见证装法不合法")
+    last = child(state, "status")
+    seen = set()
+    for i in range(1, last["events"] + 1):
+        event = child(state, "show", i)
+        tasks = ([event["task"]] if event.get("task") else []) + event.get("practice_tasks", [])
+        for phase in ("holdout", "regression"):
+            tasks.extend(row["task"] for row in event.get(phase, {}).get("rows", []))
+        seen.update(research.family(t) for t in tasks)
+    if research.family(task) in seen:
+        raise RuntimeError("封存任务与该状态的既有样本同源")
+    print(f"\n已核对封存承诺；{task['bins']} 个容量为 {task['capacity']} 的盘，文件 {task['items']}。")
+    for label, result in zip(("开发者基线", f"重启后活动策略 v{last['generation']}"), contrast(state, task)):
+        print(f"{label}   {'装完' if result['ok'] else '未装完'}，操作 {result['cost']}。")
+        if result["ok"]:
+            print("实际命中  " + policy_name(result["attempts"][-1]["policy"]))
+            show_packing(task, result["packing"])
+    print("\n揭封后的盘数对照：在原清单中按已知配对依次取前 k 对，保留原输入顺序。")
+    print("盘数    开发者基线（操作）    重启活动策略（操作）")
+    for count in range(2, task["bins"] + 1):
+        indices = sorted(i for pair in payload["packing"][:count] for i in pair)
+        subtask = dict(task, bins=count, items=[task["items"][i] for i in indices])
+        if research.family(subtask) in seen:
+            raise RuntimeError("盘数对照与该状态的既有样本同源")
+        before, after = contrast(state, subtask)
+        print(f" {count:>2}      {outcome(before):<12}    {outcome(after)}")
+    example = json.loads((ROOT / "examples" / "pilot-independent.json").read_text())
+    if research.family(example) in seen:
+        raise RuntimeError("独立样例与该状态的既有样本同源")
+    print("\n另一批预封存的 72 份输入，事后按文件顺序展示首份新增成功 blind-7/raw。")
+    print(f"{example['bins']} 个容量为 {example['capacity']} 的盘，文件 {example['items']}。")
+    before, after = contrast(state, example)
+    print(f"开发者基线 {outcome(before)}；重启后 v{last['generation']} {outcome(after)}。")
+    if after["ok"]:
+        show_packing(example, after["packing"])
+    assert child(state, "status")["events"] == last["events"]
+    print("\n用自己的清单接着试   " + shlex.join([str(ROOT / "agentic"), "--state", str(state)]))
+
+
+def main():
+    parent = ROOT / "state" / "demos"
+    parent.mkdir(parents=True, exist_ok=True)
+    state = Path(tempfile.mkdtemp(dir=str(parent), prefix="research-"))
+    print(f"空白状态  {state}", flush=True)
+    show_study(child(state, "research"))
+    jobs(state)
+    restart(state)
+
+
+if __name__ == "__main__":
+    main()
