@@ -1,0 +1,125 @@
+{
+  "seed": 2026111809,
+  "cases": 70,
+  "input_bins": 8,
+  "before_cost": 162,
+  "decision": "inconclusive",
+  "reason": "练习阶段没有提名可用配方。",
+  "nominee": null,
+  "record": 10,
+  "starting_generation": 1,
+  "active_generation": 1,
+  "budget": 128,
+  "calls": 128,
+  "history_from": 9,
+  "gate": {},
+  "trigger_answer": {
+    "source": "trial",
+    "candidate": "ac24a65f5ab497bfba56e04f",
+    "packing": [
+      [
+        13,
+        0
+      ],
+      [
+        8,
+        2
+      ],
+      [
+        10,
+        3
+      ],
+      [
+        12,
+        1
+      ],
+      [
+        9,
+        6
+      ],
+      [
+        14,
+        7
+      ],
+      [
+        11,
+        4
+      ],
+      [
+        15,
+        5
+      ]
+    ]
+  },
+  "practice_delivery": {
+    "task_index": 0,
+    "candidate": "ac24a65f5ab497bfba56e04f",
+    "cost": 295,
+    "calls": 1,
+    "executed_cost": 295
+  },
+  "measured_finalists": {
+    "7e1aa980d5e152534edd3251": {
+      "gains": 3,
+      "losses": 0,
+      "old_cost": 3953,
+      "new_cost": 12580,
+      "utility": -164,
+      "total": 17
+    },
+    "13bfd33aafebf2fa8ae20a20": {
+      "gains": 3,
+      "losses": 0,
+      "old_cost": 3953,
+      "new_cost": 12778,
+      "utility": -319,
+      "total": 17
+    },
+    "af58285a076b0718b3380bc4": {
+      "gains": 3,
+      "losses": 5,
+      "old_cost": 3953,
+      "new_cost": 11952,
+      "utility": -13423,
+      "total": 17
+    }
+  },
+  "posthoc_practice": {
+    "remove_guard": {
+      "total": 17,
+      "gains": 3,
+      "losses": 0,
+      "old_cost": 3953,
+      "new_cost": 11205
+    },
+    "use_descending_recipe": {
+      "total": 17,
+      "gains": 3,
+      "losses": 3,
+      "old_cost": 3953,
+      "new_cost": 7698
+    }
+  },
+  "probe_cost_and_success": {
+    "active": {
+      "ok": 30,
+      "cost": 8085
+    },
+    "without_guard": {
+      "ok": 70,
+      "cost": 12561
+    },
+    "descending": {
+      "ok": 70,
+      "cost": 6780
+    },
+    "cold": {
+      "ok": 0,
+      "cost": 5183
+    },
+    "deployed": {
+      "ok": 30,
+      "cost": 8085
+    }
+  }
+}
