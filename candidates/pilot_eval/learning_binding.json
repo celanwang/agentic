@@ -1,0 +1,80 @@
+{
+  "experience": [
+    {
+      "order": "descending",
+      "pick": "first",
+      "repair": "exchange"
+    },
+    {
+      "order": "descending",
+      "pick": "first",
+      "repair": "search"
+    },
+    {
+      "order": "descending",
+      "pick": "first",
+      "repair": "fill"
+    },
+    {
+      "order": "descending",
+      "pick": "tight",
+      "repair": "none"
+    },
+    {
+      "order": "descending",
+      "pick": "roomy",
+      "repair": "none"
+    },
+    {
+      "order": "descending",
+      "pick": "first",
+      "repair": "triples"
+    },
+    {
+      "order": "descending",
+      "pick": "first",
+      "repair": "none"
+    },
+    {
+      "order": "arrival",
+      "pick": "tight",
+      "repair": "none"
+    },
+    {
+      "order": "arrival",
+      "pick": "roomy",
+      "repair": "none"
+    },
+    {
+      "order": "arrival",
+      "pick": "first",
+      "repair": "exchange"
+    },
+    {
+      "order": "arrival",
+      "pick": "first",
+      "repair": "search"
+    }
+  ],
+  "learner_memory_initial": null,
+  "policies": [
+    {
+      "order": "arrival",
+      "pick": "first",
+      "repair": "none"
+    },
+    {
+      "order": "descending",
+      "pick": "first",
+      "repair": "none"
+    },
+    {
+      "order": "descending",
+      "pick": "first",
+      "repair": "triples"
+    }
+  ],
+  "protocol_sha256": "02880dd564957339a55b54887811f40dd5a14d2bdea1e95ad61bd7a0691e5b4b",
+  "runner_sha256": "41d5e5ff7bf5babcf9df995bf746076ae3cd7f7424306b1644604bae08a59122",
+  "shared_source": "v2 published #1\u2013#6 ordinary trials[].policy only, newest event first, first duplicate kept"
+}

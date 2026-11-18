@@ -1,0 +1,42 @@
+{
+  "version": "agentic-pilot-eval-v1",
+  "reference": {
+    "upstream_idea_reference": "HKUDS/AgentPilot@e5a81e7635009869d34dde8fbfd045d191296f3f",
+    "v2_state": "state/mixed/20261118-201146-mt88urf4",
+    "v2_engine_sha256": "f2be6568d4e580fb0fd2dbece6d3f4d8df9a0844cd5b97c28773a500c1f2b6cf",
+    "official_arena_sha256": "57d55bf92c56258f7bd306f16a0f2c4603706c4f065a1e19327d95a928a20f7d"
+  },
+  "data": {
+    "generator": "candidates/pilot_eval/suite.py",
+    "seed_rule": "Six public learning seeds are the unsigned big-endian first eight bytes of SHA-256(agentic-pilot-eval-v1/learning/i) for i=0..5. Per-round scheduling and per-core streams are independently namespaced in the generator. The blind seed is a new private 32-byte system-random nonce.",
+    "profiles": ["ordered", "pairs", "triples", "mixed_exact", "mixed_slack", "two_disk"],
+    "construction": "Generate legal disks before arranging files. Keep an independently checkable witness with original indices. Base capacity is selected from the phase's distinct prime pool. No workload is screened by candidate performance.",
+    "core_identity": "Remove every full-capacity item and its own required disk. Divide remaining sizes and capacity by their common GCD. Use the residual disk count, normalized capacity and sorted remaining multiset as the key. Deduplicate train, checkpoint and blind at this core level. Also check published and formal direct tasks. The frozen official arena has capacity at most 368 before normalization.",
+    "variants": "Keep the source order, scale units by a pre-sampled factor from 2/3/5/11, insert one capacity-sized file at a pre-sampled index and add a disk, or apply both. Verify that all four tasks have the same core key and legal transformed witnesses. Count all four as one cluster for transfer.",
+    "reuse": "Checkpoint and blind outcomes are available only to the evaluation process, without feedback into grammar, planner, nomination, gate or retry. The official promotion splits stay closed to this benchmark."
+  },
+  "learning": {
+    "seeds": 6,
+    "rounds_per_seed": 8,
+    "training_inputs_per_round": 6,
+    "checkpoint_cores_per_round": 3,
+    "checkpoint_variants_per_core": 4,
+    "budget_per_arm_per_round": 128,
+    "budget_unit": "One actual distinct solver candidate–task execution, including the incumbent execution once per task; list incumbent and candidate calls separately. Count an execution even if it fails. Checkpoint measurement is separately metered and is identical in tasks across arms.",
+    "arms": {
+      "adaptive": "Real adaptive planner, retaining JSON-round-tripped prior planner memory within each seed.",
+      "uniform": "Real uniform planner using the same grammar and initial experience, retaining memory while sampling without result-driven candidate selection.",
+      "reset": "Real adaptive planner with memory reset before each round. Within-round feedback is enabled."
+    },
+    "controls": "All arms use the same fixed v2 ordinary chain, empty initial prior and identical ordered tasks, RNG seed and call limit. Public schedule cycles each of four hard profiles twice, with paired and easy controls. The planner sees the six training tasks only. At each round boundary, evaluate its nominated recipe on independent variants with that round's same ordinary fallback; a missing recipe uses ordinary fallback.",
+    "parity_rule": "Primary paired comparisons require equal actual baseline and candidate calls in all three arms. Any round with unequal completion is reported explicitly, with actual call counts and stop reasons, and excluded from the equal-work comparison. No virtual evaluations or count-based retry.",
+    "primary": "For each seed and arm, sum net checked checkpoint rescues relative to fixed v2 over the matched-budget rounds. Report the paired adaptive-minus-uniform and adaptive-minus-reset counts per seed, their median, and wins/ties/losses. Keep the round-by-round curves and all failed or missing nominations. Aggregate v2-relative operation cost, learning calls and operation charges separately, avoiding claims based on a single seed.",
+    "secondary": "Report absolute checkpoint successes, gains and losses, core-level all-four consistency, cost, and variation across profiles, variants and rounds. These designed workloads and abstract operation charges limit generalization to production latency or prevalence."
+  },
+  "final_blind": {
+    "preregistered_size": "Three cores per profile, 18 independent cores total, four paired variants each for 72 inputs.",
+    "commitment": "Publish only SHA-256 of the canonical JSON envelope including nonce, tasks, and witness, plus generator and protocol hashes; keep tasks and witnesses private until frozen release and assessment authorization.",
+    "execution": "Use a fresh release CLI process for each case and mode. Read-only v2 control uses the original v2 state, nominee diagnostics use probe --nominee EVENT with that event's ordinary fallback, actual rollout uses ordinary probe on the formally persisted head. Abort before opening if the fixed release and formal decision are unconfirmed. Keep nominee outcomes distinct from actual rollout even if the nominee is withheld.",
+    "report": "Publish per-core, per-variant success and full-path operation costs, with independent packing verification, actual persisted generation and gate decision. Show failures, paired gains/losses, number of cores solved in every variant, and absolute costs. For a failed CLI invocation record it explicitly. Variants of one core are correlated; report paired cluster counts. A blind assessment does not change the formal promotion decision."
+  }
+}

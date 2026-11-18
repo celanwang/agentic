@@ -1,0 +1,18 @@
+{
+  "build": "d53699daf4fb0125f9b13d3d33037f4c8de1ca07af2ad2de5e55792c827ab6ba",
+  "research_build": "7b5066f82fc768c31657767eeb18a9be68d7dea811e948fe150bade791048cd4",
+  "files": {
+    "packlab/__init__.py": "d65f0e5048d3af0f3805f3d0ffb31a7e860cdcea381daf9b7a410c5428428def",
+    "packlab/arena.py": "57d55bf92c56258f7bd306f16a0f2c4603706c4f065a1e19327d95a928a20f7d",
+    "packlab/cli.py": "189957c5f34671a39078ee8689f225c57074979c8ee826d85899a3fa7c0c80a5",
+    "packlab/engine.py": "d8cd40a2854ad7c5b53d5b55079176294bf92bb07dcc2a9506da1b20950a8fcf",
+    "packlab/experiment.py": "e152a58f2e6e481d31170095bf82bbb0a3b96bc87c35d37017424c6a4673d3af",
+    "packlab/memory.py": "e0b698eb9dcf6ba9d4ea38a79c162c8cd5cb9458d6ca872477bad2e142d1a426",
+    "packlab/planner.py": "7db4c6aeed92359a05deb6db088ddac6c3a9a4386b3996faeb29c56d7597e22a",
+    "packlab/recipes.py": "0583c3e217c73d373f504df5ddfa653b6441e3ec880ce2a6cfce4c10465ef86d",
+    "packlab/research.py": "bd80fe8a12ebcb36a8eb36632894d675dd7b4dd016e1e6e7533e5d08a2da4c97",
+    "packlab/witness.py": "04ee3f398665135e2fa085d0ac848ff5579feedf2237989b2be9bcc10b4386b6"
+  },
+  "precommit": "94ce3a3c8c80d3d16656db19f583d9647b92731bc4b4420c02d8767620ce2429",
+  "state": "state/pilot/round-01"
+}

@@ -1,0 +1,15 @@
+{
+  "arena_sha256": "57d55bf92c56258f7bd306f16a0f2c4603706c4f065a1e19327d95a928a20f7d",
+  "blind_sha256": "ba19d39cd7ca80275dc5160e69b1fd5f9ac740efdffd30d2067628551e367368",
+  "clusters": 18,
+  "protocol": "agentic-pilot-eval-v1",
+  "protocol_sha256": "02880dd564957339a55b54887811f40dd5a14d2bdea1e95ad61bd7a0691e5b4b",
+  "seal_sha256": "75998d04f9c2044296e7767f330eeb1954a68298a3731c0362024860bb92a24b",
+  "suite_sha256": "01c32d28f9a83a67eb9f9f6cc270a3ceb030517ad8d38e962393f507aeb05072",
+  "variants": [
+    "raw",
+    "scaled",
+    "anchored",
+    "both"
+  ]
+}
