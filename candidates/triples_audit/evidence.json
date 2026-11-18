@@ -1,0 +1,152 @@
+{
+  "python": "3.9.6",
+  "agentic_build": "1f382e84d683b225c55112d16459129971ea8cb7f56b3d17681d6810c204b145",
+  "original_integrity_sha256": "11b36d4802811640fcd32613f3906bed7fba8647fae402130e79493e36826d26",
+  "tested_patched_integrity_sha256": "52dab95f802ee918f1626dee0b1195f303bd32858f47eeab2f4a8cfef498261b",
+  "patch_verification": "applied to an isolated copy; patched check_rejection passed against ./agentic",
+  "replacement": {
+    "task": {
+      "capacity": 11,
+      "bins": 2,
+      "items": [
+        3,
+        3,
+        3,
+        3,
+        4,
+        5
+      ]
+    },
+    "decision": "rejected",
+    "reason": "独立两组的总操作成本超过预设倍率。",
+    "generation_before": 0,
+    "generation": 0,
+    "before_ok": false,
+    "after_ok": false,
+    "answer": {
+      "source": "trial",
+      "packing": [
+        [
+          0,
+          1,
+          4
+        ],
+        [
+          2,
+          3,
+          5
+        ]
+      ]
+    },
+    "nominee": {
+      "order": "arrival",
+      "pick": "first",
+      "repair": "search"
+    },
+    "holdout": {
+      "total": 64,
+      "old_ok": 19,
+      "new_ok": 25,
+      "losses": 0
+    },
+    "regression": {
+      "total": 20,
+      "old_ok": 11,
+      "new_ok": 12,
+      "losses": 0
+    },
+    "combined_cost": {
+      "before": 14346,
+      "after": 117140,
+      "ratio": 8.165342
+    }
+  },
+  "independent_checks": {
+    "subset_oracle_feasible": true,
+    "frozen_v0_arrival_packing": null,
+    "frozen_v0_descending_packing": null,
+    "item_total": 21,
+    "disk_total": 22,
+    "triples_nomination_count": 0,
+    "persisted_evidence_readback_match": true
+  },
+  "repeat": {
+    "decision": "unchanged",
+    "generation": 0,
+    "trial_count": 0,
+    "reused_event": 1,
+    "answer": {
+      "source": "record",
+      "packing": [
+        [
+          0,
+          1,
+          4
+        ],
+        [
+          2,
+          3,
+          5
+        ]
+      ]
+    },
+    "persisted_event_count": 2
+  },
+  "prior_fixture_on_current_build": {
+    "task": {
+      "capacity": 7,
+      "bins": 2,
+      "items": [
+        2,
+        2,
+        2,
+        2,
+        3,
+        3
+      ]
+    },
+    "decision": "kept",
+    "reason": "触发任务已解决，留出组增益、回归和成本均达到预设门槛。",
+    "generation_before": 0,
+    "generation": 1,
+    "before_ok": false,
+    "after_ok": true,
+    "answer": {
+      "source": "active",
+      "packing": [
+        [
+          4,
+          0,
+          3
+        ],
+        [
+          5,
+          1,
+          2
+        ]
+      ]
+    },
+    "nominee": {
+      "order": "arrival",
+      "pick": "first",
+      "repair": "triples"
+    },
+    "holdout": {
+      "total": 64,
+      "old_ok": 19,
+      "new_ok": 31,
+      "losses": 0
+    },
+    "regression": {
+      "total": 20,
+      "old_ok": 11,
+      "new_ok": 13,
+      "losses": 0
+    },
+    "combined_cost": {
+      "before": 14346,
+      "after": 27389,
+      "ratio": 1.909173
+    }
+  }
+}

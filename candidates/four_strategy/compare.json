@@ -1,0 +1,740 @@
+[
+  {
+    "row": 20,
+    "repair": "fill",
+    "status": "solved",
+    "cost": 4904,
+    "greedy": 870,
+    "search_ops": {
+      "setup": 0,
+      "ranking": 0,
+      "bin_probes": 0,
+      "placements": 52,
+      "exchange_probes": 0,
+      "search_nodes": 0,
+      "undo": 0,
+      "diagnosis": 0,
+      "fill_guard": 106,
+      "fill_nodes": 10,
+      "fill_dp": 3126,
+      "fill_bit_tests": 126,
+      "fill_probes": 262,
+      "fill_candidates": 9,
+      "residual_scans": 343
+    },
+    "packing": [
+      [
+        17,
+        15,
+        1
+      ],
+      [
+        7,
+        20,
+        19
+      ],
+      [
+        21,
+        9,
+        25,
+        35
+      ],
+      [
+        16,
+        32,
+        41
+      ],
+      [
+        2,
+        10,
+        39,
+        43
+      ],
+      [
+        28,
+        50,
+        5
+      ],
+      [
+        3,
+        30,
+        49,
+        45,
+        37
+      ],
+      [
+        36,
+        18,
+        22,
+        33,
+        6,
+        14
+      ],
+      [
+        38,
+        11,
+        46,
+        47,
+        40,
+        29,
+        13
+      ],
+      [
+        4,
+        26,
+        8,
+        12,
+        34,
+        48,
+        51,
+        23,
+        27,
+        42,
+        31,
+        24,
+        44,
+        0
+      ]
+    ]
+  },
+  {
+    "row": 20,
+    "repair": "fill_deep",
+    "status": "solved",
+    "cost": 4904,
+    "greedy": 870,
+    "search_ops": {
+      "setup": 0,
+      "ranking": 0,
+      "bin_probes": 0,
+      "placements": 52,
+      "exchange_probes": 0,
+      "search_nodes": 0,
+      "undo": 0,
+      "diagnosis": 0,
+      "fill_guard": 106,
+      "fill_nodes": 10,
+      "fill_dp": 3126,
+      "fill_bit_tests": 126,
+      "fill_probes": 262,
+      "fill_candidates": 9,
+      "residual_scans": 343
+    },
+    "packing": [
+      [
+        17,
+        15,
+        1
+      ],
+      [
+        7,
+        20,
+        19
+      ],
+      [
+        21,
+        9,
+        25,
+        35
+      ],
+      [
+        16,
+        32,
+        41
+      ],
+      [
+        2,
+        10,
+        39,
+        43
+      ],
+      [
+        28,
+        50,
+        5
+      ],
+      [
+        3,
+        30,
+        49,
+        45,
+        37
+      ],
+      [
+        36,
+        18,
+        22,
+        33,
+        6,
+        14
+      ],
+      [
+        38,
+        11,
+        46,
+        47,
+        40,
+        29,
+        13
+      ],
+      [
+        4,
+        26,
+        8,
+        12,
+        34,
+        48,
+        51,
+        23,
+        27,
+        42,
+        31,
+        24,
+        44,
+        0
+      ]
+    ]
+  },
+  {
+    "row": 23,
+    "repair": "fill",
+    "status": "solved",
+    "cost": 3925,
+    "greedy": 795,
+    "search_ops": {
+      "setup": 0,
+      "ranking": 0,
+      "bin_probes": 0,
+      "placements": 47,
+      "exchange_probes": 0,
+      "search_nodes": 0,
+      "undo": 0,
+      "diagnosis": 0,
+      "fill_guard": 96,
+      "fill_nodes": 11,
+      "fill_dp": 2270,
+      "fill_bit_tests": 116,
+      "fill_probes": 269,
+      "fill_candidates": 10,
+      "residual_scans": 311
+    },
+    "packing": [
+      [
+        26,
+        12,
+        11
+      ],
+      [
+        2,
+        7,
+        23,
+        10
+      ],
+      [
+        15,
+        46,
+        25,
+        32
+      ],
+      [
+        38,
+        13,
+        1
+      ],
+      [
+        3,
+        6,
+        29
+      ],
+      [
+        42,
+        19,
+        8,
+        18
+      ],
+      [
+        45,
+        43,
+        35
+      ],
+      [
+        0,
+        27,
+        22,
+        14,
+        39
+      ],
+      [
+        20,
+        41,
+        21,
+        30
+      ],
+      [
+        34,
+        28,
+        16,
+        31,
+        37,
+        36
+      ],
+      [
+        9,
+        24,
+        33,
+        5,
+        40,
+        4,
+        44,
+        17
+      ]
+    ]
+  },
+  {
+    "row": 23,
+    "repair": "fill_deep",
+    "status": "solved",
+    "cost": 3925,
+    "greedy": 795,
+    "search_ops": {
+      "setup": 0,
+      "ranking": 0,
+      "bin_probes": 0,
+      "placements": 47,
+      "exchange_probes": 0,
+      "search_nodes": 0,
+      "undo": 0,
+      "diagnosis": 0,
+      "fill_guard": 96,
+      "fill_nodes": 11,
+      "fill_dp": 2270,
+      "fill_bit_tests": 116,
+      "fill_probes": 269,
+      "fill_candidates": 10,
+      "residual_scans": 311
+    },
+    "packing": [
+      [
+        26,
+        12,
+        11
+      ],
+      [
+        2,
+        7,
+        23,
+        10
+      ],
+      [
+        15,
+        46,
+        25,
+        32
+      ],
+      [
+        38,
+        13,
+        1
+      ],
+      [
+        3,
+        6,
+        29
+      ],
+      [
+        42,
+        19,
+        8,
+        18
+      ],
+      [
+        45,
+        43,
+        35
+      ],
+      [
+        0,
+        27,
+        22,
+        14,
+        39
+      ],
+      [
+        20,
+        41,
+        21,
+        30
+      ],
+      [
+        34,
+        28,
+        16,
+        31,
+        37,
+        36
+      ],
+      [
+        9,
+        24,
+        33,
+        5,
+        40,
+        4,
+        44,
+        17
+      ]
+    ]
+  },
+  {
+    "row": 25,
+    "repair": "fill",
+    "status": "solved",
+    "cost": 2349,
+    "greedy": 557,
+    "search_ops": {
+      "setup": 0,
+      "ranking": 0,
+      "bin_probes": 0,
+      "placements": 36,
+      "exchange_probes": 0,
+      "search_nodes": 0,
+      "undo": 0,
+      "diagnosis": 0,
+      "fill_guard": 74,
+      "fill_nodes": 9,
+      "fill_dp": 1202,
+      "fill_bit_tests": 110,
+      "fill_probes": 170,
+      "fill_candidates": 8,
+      "residual_scans": 183
+    },
+    "packing": [
+      [
+        24,
+        27,
+        11
+      ],
+      [
+        4,
+        3,
+        7,
+        17
+      ],
+      [
+        21,
+        13,
+        31,
+        26
+      ],
+      [
+        30,
+        9,
+        22,
+        15
+      ],
+      [
+        35,
+        12,
+        32,
+        0,
+        19
+      ],
+      [
+        14,
+        20,
+        8
+      ],
+      [
+        5,
+        33,
+        34
+      ],
+      [
+        25,
+        29,
+        2,
+        28
+      ],
+      [
+        6,
+        10,
+        18,
+        1,
+        16,
+        23
+      ]
+    ]
+  },
+  {
+    "row": 25,
+    "repair": "fill_deep",
+    "status": "solved",
+    "cost": 2349,
+    "greedy": 557,
+    "search_ops": {
+      "setup": 0,
+      "ranking": 0,
+      "bin_probes": 0,
+      "placements": 36,
+      "exchange_probes": 0,
+      "search_nodes": 0,
+      "undo": 0,
+      "diagnosis": 0,
+      "fill_guard": 74,
+      "fill_nodes": 9,
+      "fill_dp": 1202,
+      "fill_bit_tests": 110,
+      "fill_probes": 170,
+      "fill_candidates": 8,
+      "residual_scans": 183
+    },
+    "packing": [
+      [
+        24,
+        27,
+        11
+      ],
+      [
+        4,
+        3,
+        7,
+        17
+      ],
+      [
+        21,
+        13,
+        31,
+        26
+      ],
+      [
+        30,
+        9,
+        22,
+        15
+      ],
+      [
+        35,
+        12,
+        32,
+        0,
+        19
+      ],
+      [
+        14,
+        20,
+        8
+      ],
+      [
+        5,
+        33,
+        34
+      ],
+      [
+        25,
+        29,
+        2,
+        28
+      ],
+      [
+        6,
+        10,
+        18,
+        1,
+        16,
+        23
+      ]
+    ]
+  },
+  {
+    "row": 28,
+    "repair": "fill",
+    "status": "solved",
+    "cost": 3698,
+    "greedy": 757,
+    "search_ops": {
+      "setup": 0,
+      "ranking": 0,
+      "bin_probes": 0,
+      "placements": 46,
+      "exchange_probes": 0,
+      "search_nodes": 0,
+      "undo": 0,
+      "diagnosis": 0,
+      "fill_guard": 94,
+      "fill_nodes": 12,
+      "fill_dp": 2101,
+      "fill_bit_tests": 96,
+      "fill_probes": 259,
+      "fill_candidates": 11,
+      "residual_scans": 322
+    },
+    "packing": [
+      [
+        16,
+        45,
+        30
+      ],
+      [
+        12,
+        34,
+        2,
+        3
+      ],
+      [
+        32,
+        15,
+        10
+      ],
+      [
+        38,
+        36,
+        23,
+        40
+      ],
+      [
+        19,
+        1,
+        44
+      ],
+      [
+        21,
+        18,
+        11
+      ],
+      [
+        5,
+        31,
+        33
+      ],
+      [
+        43,
+        25,
+        39
+      ],
+      [
+        37,
+        42,
+        17,
+        9
+      ],
+      [
+        4,
+        22,
+        20,
+        29
+      ],
+      [
+        41,
+        14,
+        13
+      ],
+      [
+        27,
+        0,
+        8,
+        26,
+        6,
+        7,
+        24,
+        35,
+        28
+      ]
+    ]
+  },
+  {
+    "row": 28,
+    "repair": "fill_deep",
+    "status": "solved",
+    "cost": 3698,
+    "greedy": 757,
+    "search_ops": {
+      "setup": 0,
+      "ranking": 0,
+      "bin_probes": 0,
+      "placements": 46,
+      "exchange_probes": 0,
+      "search_nodes": 0,
+      "undo": 0,
+      "diagnosis": 0,
+      "fill_guard": 94,
+      "fill_nodes": 12,
+      "fill_dp": 2101,
+      "fill_bit_tests": 96,
+      "fill_probes": 259,
+      "fill_candidates": 11,
+      "residual_scans": 322
+    },
+    "packing": [
+      [
+        16,
+        45,
+        30
+      ],
+      [
+        12,
+        34,
+        2,
+        3
+      ],
+      [
+        32,
+        15,
+        10
+      ],
+      [
+        38,
+        36,
+        23,
+        40
+      ],
+      [
+        19,
+        1,
+        44
+      ],
+      [
+        21,
+        18,
+        11
+      ],
+      [
+        5,
+        31,
+        33
+      ],
+      [
+        43,
+        25,
+        39
+      ],
+      [
+        37,
+        42,
+        17,
+        9
+      ],
+      [
+        4,
+        22,
+        20,
+        29
+      ],
+      [
+        41,
+        14,
+        13
+      ],
+      [
+        27,
+        0,
+        8,
+        26,
+        6,
+        7,
+        24,
+        35,
+        28
+      ]
+    ]
+  }
+]

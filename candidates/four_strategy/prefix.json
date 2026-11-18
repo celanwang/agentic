@@ -1,0 +1,541 @@
+[
+  {
+    "row": 20,
+    "task": {
+      "bins": 10,
+      "capacity": 266,
+      "items": [
+        3,
+        9,
+        100,
+        88,
+        34,
+        80,
+        7,
+        199,
+        30,
+        114,
+        98,
+        43,
+        25,
+        20,
+        4,
+        52,
+        126,
+        205,
+        69,
+        1,
+        66,
+        146,
+        64,
+        20,
+        4,
+        5,
+        34,
+        17,
+        96,
+        23,
+        85,
+        12,
+        112,
+        52,
+        23,
+        1,
+        70,
+        1,
+        52,
+        66,
+        42,
+        28,
+        16,
+        2,
+        4,
+        8,
+        43,
+        43,
+        23,
+        84,
+        90,
+        21
+      ]
+    },
+    "trials": [
+      {
+        "rollback": 0,
+        "kept": 47,
+        "status": "exhausted",
+        "packing": null,
+        "cost": 1359,
+        "ops": {
+          "greedy": 870,
+          "reconstruct_order": 312,
+          "reconstruct_state": 166,
+          "prefix_undo": 0,
+          "nodes": 1,
+          "bin_probes": 10,
+          "placements": 0,
+          "undo": 0
+        }
+      },
+      {
+        "rollback": 4,
+        "kept": 43,
+        "status": "exhausted",
+        "packing": null,
+        "cost": 1597,
+        "ops": {
+          "greedy": 870,
+          "reconstruct_order": 312,
+          "reconstruct_state": 166,
+          "prefix_undo": 4,
+          "nodes": 19,
+          "bin_probes": 190,
+          "placements": 18,
+          "undo": 18
+        }
+      },
+      {
+        "rollback": 8,
+        "kept": 39,
+        "status": "exhausted",
+        "packing": null,
+        "cost": 2017,
+        "ops": {
+          "greedy": 870,
+          "reconstruct_order": 312,
+          "reconstruct_state": 166,
+          "prefix_undo": 8,
+          "nodes": 51,
+          "bin_probes": 510,
+          "placements": 50,
+          "undo": 50
+        }
+      }
+    ]
+  },
+  {
+    "row": 23,
+    "task": {
+      "bins": 11,
+      "capacity": 227,
+      "items": [
+        76,
+        13,
+        163,
+        122,
+        22,
+        30,
+        98,
+        54,
+        13,
+        39,
+        2,
+        6,
+        44,
+        90,
+        11,
+        126,
+        41,
+        13,
+        4,
+        89,
+        70,
+        45,
+        61,
+        8,
+        39,
+        8,
+        177,
+        71,
+        47,
+        7,
+        44,
+        41,
+        2,
+        39,
+        51,
+        35,
+        11,
+        36,
+        124,
+        8,
+        23,
+        68,
+        121,
+        83,
+        22,
+        109,
+        91
+      ]
+    },
+    "trials": [
+      {
+        "rollback": 0,
+        "kept": 41,
+        "status": "exhausted",
+        "packing": null,
+        "cost": 1240,
+        "ops": {
+          "greedy": 795,
+          "reconstruct_order": 282,
+          "reconstruct_state": 151,
+          "prefix_undo": 0,
+          "nodes": 1,
+          "bin_probes": 11,
+          "placements": 0,
+          "undo": 0
+        }
+      },
+      {
+        "rollback": 4,
+        "kept": 37,
+        "status": "exhausted",
+        "packing": null,
+        "cost": 1412,
+        "ops": {
+          "greedy": 795,
+          "reconstruct_order": 282,
+          "reconstruct_state": 151,
+          "prefix_undo": 4,
+          "nodes": 13,
+          "bin_probes": 143,
+          "placements": 12,
+          "undo": 12
+        }
+      },
+      {
+        "rollback": 8,
+        "kept": 33,
+        "status": "exhausted",
+        "packing": null,
+        "cost": 5854,
+        "ops": {
+          "greedy": 795,
+          "reconstruct_order": 282,
+          "reconstruct_state": 151,
+          "prefix_undo": 8,
+          "nodes": 330,
+          "bin_probes": 3630,
+          "placements": 329,
+          "undo": 329
+        }
+      }
+    ]
+  },
+  {
+    "row": 25,
+    "task": {
+      "bins": 9,
+      "capacity": 289,
+      "items": [
+        16,
+        43,
+        52,
+        69,
+        212,
+        121,
+        51,
+        5,
+        28,
+        75,
+        50,
+        2,
+        55,
+        79,
+        165,
+        7,
+        43,
+        3,
+        49,
+        16,
+        96,
+        202,
+        20,
+        42,
+        229,
+        99,
+        3,
+        58,
+        40,
+        98,
+        187,
+        5,
+        23,
+        120,
+        48,
+        179
+      ]
+    },
+    "trials": [
+      {
+        "rollback": 0,
+        "kept": 29,
+        "status": "exhausted",
+        "packing": null,
+        "cost": 895,
+        "ops": {
+          "greedy": 557,
+          "reconstruct_order": 216,
+          "reconstruct_state": 112,
+          "prefix_undo": 0,
+          "nodes": 1,
+          "bin_probes": 9,
+          "placements": 0,
+          "undo": 0
+        }
+      },
+      {
+        "rollback": 4,
+        "kept": 25,
+        "status": "solved",
+        "packing": [
+          [
+            24,
+            27,
+            11
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            21,
+            13,
+            15
+          ],
+          [
+            30,
+            25,
+            17
+          ],
+          [
+            35,
+            29,
+            7,
+            31
+          ],
+          [
+            14,
+            5,
+            26
+          ],
+          [
+            33,
+            20,
+            3
+          ],
+          [
+            12,
+            2,
+            6,
+            10,
+            18,
+            0,
+            19
+          ],
+          [
+            34,
+            1,
+            16,
+            23,
+            28,
+            8,
+            32,
+            22
+          ]
+        ],
+        "cost": 1087,
+        "ops": {
+          "greedy": 557,
+          "reconstruct_order": 216,
+          "reconstruct_state": 112,
+          "prefix_undo": 4,
+          "nodes": 21,
+          "bin_probes": 148,
+          "placements": 20,
+          "undo": 9
+        }
+      },
+      {
+        "rollback": 8,
+        "kept": 21,
+        "status": "solved",
+        "packing": [
+          [
+            24,
+            27,
+            11
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            21,
+            13,
+            15
+          ],
+          [
+            30,
+            25,
+            17
+          ],
+          [
+            35,
+            29,
+            7,
+            31
+          ],
+          [
+            14,
+            5,
+            26
+          ],
+          [
+            33,
+            20,
+            3
+          ],
+          [
+            12,
+            2,
+            6,
+            10,
+            18,
+            0,
+            19
+          ],
+          [
+            34,
+            1,
+            16,
+            23,
+            28,
+            8,
+            32,
+            22
+          ]
+        ],
+        "cost": 1135,
+        "ops": {
+          "greedy": 557,
+          "reconstruct_order": 216,
+          "reconstruct_state": 112,
+          "prefix_undo": 8,
+          "nodes": 25,
+          "bin_probes": 184,
+          "placements": 24,
+          "undo": 9
+        }
+      }
+    ]
+  },
+  {
+    "row": 28,
+    "task": {
+      "bins": 12,
+      "capacity": 260,
+      "items": [
+        40,
+        83,
+        5,
+        1,
+        132,
+        155,
+        31,
+        24,
+        40,
+        7,
+        22,
+        36,
+        179,
+        30,
+        109,
+        59,
+        197,
+        46,
+        64,
+        173,
+        45,
+        160,
+        46,
+        18,
+        24,
+        56,
+        32,
+        44,
+        1,
+        37,
+        3,
+        78,
+        179,
+        27,
+        75,
+        24,
+        59,
+        152,
+        179,
+        50,
+        4,
+        121,
+        55,
+        154,
+        4,
+        60
+      ]
+    },
+    "trials": [
+      {
+        "rollback": 0,
+        "kept": 36,
+        "status": "exhausted",
+        "packing": null,
+        "cost": 1188,
+        "ops": {
+          "greedy": 757,
+          "reconstruct_order": 276,
+          "reconstruct_state": 142,
+          "prefix_undo": 0,
+          "nodes": 1,
+          "bin_probes": 12,
+          "placements": 0,
+          "undo": 0
+        }
+      },
+      {
+        "rollback": 4,
+        "kept": 32,
+        "status": "exhausted",
+        "packing": null,
+        "cost": 1252,
+        "ops": {
+          "greedy": 757,
+          "reconstruct_order": 276,
+          "reconstruct_state": 142,
+          "prefix_undo": 4,
+          "nodes": 5,
+          "bin_probes": 60,
+          "placements": 4,
+          "undo": 4
+        }
+      },
+      {
+        "rollback": 8,
+        "kept": 28,
+        "status": "exhausted",
+        "packing": null,
+        "cost": 1316,
+        "ops": {
+          "greedy": 757,
+          "reconstruct_order": 276,
+          "reconstruct_state": 142,
+          "prefix_undo": 8,
+          "nodes": 9,
+          "bin_probes": 108,
+          "placements": 8,
+          "undo": 8
+        }
+      }
+    ]
+  }
+]

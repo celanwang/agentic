@@ -1,0 +1,12 @@
+--- a/candidates/audit/integrity.py
++++ b/candidates/audit/integrity.py
+@@ -48,7 +48,8 @@
+ 
+ def check_rejection(cli):
+     state = "rejection"
+-    problem = task(7, 2, [2, 2, 2, 2, 3, 3])
++    # The files total 21 across 22 units, outside the exact-fill triples domain.
++    problem = task(11, 2, [3, 3, 3, 3, 4, 5])
+     require(feasible(problem), "cost rejection fixture must have a valid packing")
+     before = cli.response(state, "status")
+     first = cli.solve(state, "cost-rejection", problem)

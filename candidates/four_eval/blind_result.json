@@ -1,0 +1,589 @@
+{
+  "active": {
+    "exit": 0,
+    "output": {
+      "policies": [
+        {
+          "order": "arrival",
+          "pick": "first",
+          "repair": "none"
+        },
+        {
+          "order": "descending",
+          "pick": "first",
+          "repair": "none"
+        },
+        {
+          "order": "descending",
+          "pick": "first",
+          "repair": "triples"
+        }
+      ],
+      "result": {
+        "attempts": [
+          {
+            "cost": 337,
+            "ok": false,
+            "policy": {
+              "order": "arrival",
+              "pick": "first",
+              "repair": "none"
+            }
+          },
+          {
+            "cost": 762,
+            "ok": false,
+            "policy": {
+              "order": "descending",
+              "pick": "first",
+              "repair": "none"
+            }
+          },
+          {
+            "cost": 763,
+            "ok": false,
+            "policy": {
+              "order": "descending",
+              "pick": "first",
+              "repair": "triples"
+            }
+          }
+        ],
+        "cost": 1862,
+        "ok": false,
+        "packing": [
+          [
+            18,
+            13
+          ],
+          [
+            33,
+            31
+          ],
+          [
+            43,
+            24
+          ],
+          [
+            27,
+            8
+          ],
+          [
+            40,
+            15,
+            25
+          ],
+          [
+            36,
+            44,
+            6,
+            41
+          ],
+          [
+            1,
+            30,
+            42,
+            16,
+            11,
+            14
+          ],
+          [
+            28,
+            7,
+            20,
+            32,
+            22,
+            10,
+            0,
+            23,
+            29,
+            9,
+            3,
+            35,
+            26,
+            47,
+            37,
+            38,
+            46,
+            4,
+            17,
+            12,
+            39
+          ]
+        ],
+        "trace": {
+          "blocked": {
+            "free": [
+              5,
+              3,
+              3,
+              1,
+              0,
+              0,
+              4,
+              5
+            ],
+            "index": 45,
+            "reason": "fragmentation",
+            "size": 6,
+            "smaller_before": 0,
+            "step": 42
+          },
+          "ops": {
+            "bin_probes": 277,
+            "diagnosis": 98,
+            "exchange_probes": 0,
+            "placements": 42,
+            "ranking": 288,
+            "search_nodes": 0,
+            "setup": 57,
+            "shape_checks": 1,
+            "undo": 0
+          },
+          "repaired": [],
+          "search_status": "not_applicable"
+        }
+      },
+      "task": {
+        "bins": 8,
+        "capacity": 379,
+        "items": [
+          23,
+          68,
+          1,
+          12,
+          8,
+          3,
+          73,
+          39,
+          103,
+          13,
+          24,
+          60,
+          6,
+          78,
+          54,
+          133,
+          61,
+          7,
+          296,
+          4,
+          38,
+          5,
+          25,
+          22,
+          99,
+          15,
+          11,
+          275,
+          40,
+          18,
+          68,
+          89,
+          32,
+          287,
+          2,
+          12,
+          187,
+          9,
+          9,
+          6,
+          231,
+          31,
+          64,
+          277,
+          88,
+          6,
+          9,
+          11
+        ]
+      }
+    },
+    "policies": [
+      {
+        "order": "arrival",
+        "pick": "first",
+        "repair": "none"
+      },
+      {
+        "order": "descending",
+        "pick": "first",
+        "repair": "none"
+      },
+      {
+        "order": "descending",
+        "pick": "first",
+        "repair": "triples"
+      }
+    ],
+    "revision": 2
+  },
+  "commitment": "5f221aa66aa209bf0618053c049733417067fe5cd8681778275a3a2fe00a4d28",
+  "formal": {
+    "after": 2,
+    "before": 2,
+    "decision": "inconclusive",
+    "event": 6,
+    "nominee": {
+      "order": "descending",
+      "pick": "first",
+      "repair": "fill"
+    },
+    "rules": {
+      "allowed_losses": 0,
+      "max_candidates": 16,
+      "max_cost_ratio": 2.25,
+      "max_holdout": 80,
+      "max_policies": 4,
+      "max_practice": 18,
+      "max_regression": 24,
+      "min_holdout": 30,
+      "min_holdout_gains": 3,
+      "min_previous_successes": 8
+    }
+  },
+  "sealed": {
+    "draw": 2,
+    "nonce": "12568531c04785924a070a47483092c279ab933c5feedcd9db4a0b42ff6df2a0",
+    "task": {
+      "bins": 8,
+      "capacity": 379,
+      "items": [
+        23,
+        68,
+        1,
+        12,
+        8,
+        3,
+        73,
+        39,
+        103,
+        13,
+        24,
+        60,
+        6,
+        78,
+        54,
+        133,
+        61,
+        7,
+        296,
+        4,
+        38,
+        5,
+        25,
+        22,
+        99,
+        15,
+        11,
+        275,
+        40,
+        18,
+        68,
+        89,
+        32,
+        287,
+        2,
+        12,
+        187,
+        9,
+        9,
+        6,
+        231,
+        31,
+        64,
+        277,
+        88,
+        6,
+        9,
+        11
+      ]
+    },
+    "witness": [
+      [
+        27,
+        41,
+        6
+      ],
+      [
+        43,
+        7,
+        0,
+        29,
+        9,
+        38
+      ],
+      [
+        36,
+        14,
+        15,
+        21
+      ],
+      [
+        18,
+        25,
+        34,
+        19,
+        17,
+        5,
+        3,
+        28
+      ],
+      [
+        42,
+        30,
+        13,
+        31,
+        39,
+        47,
+        22,
+        20
+      ],
+      [
+        44,
+        26,
+        11,
+        35,
+        45,
+        24,
+        8
+      ],
+      [
+        33,
+        46,
+        16,
+        23
+      ],
+      [
+        40,
+        37,
+        2,
+        4,
+        10,
+        12,
+        1,
+        32
+      ]
+    ]
+  },
+  "transfer": false,
+  "v2": {
+    "exit": 0,
+    "output": {
+      "policies": [
+        {
+          "order": "arrival",
+          "pick": "first",
+          "repair": "none"
+        },
+        {
+          "order": "descending",
+          "pick": "first",
+          "repair": "none"
+        },
+        {
+          "order": "descending",
+          "pick": "first",
+          "repair": "triples"
+        }
+      ],
+      "result": {
+        "attempts": [
+          {
+            "cost": 337,
+            "ok": false,
+            "policy": {
+              "order": "arrival",
+              "pick": "first",
+              "repair": "none"
+            }
+          },
+          {
+            "cost": 762,
+            "ok": false,
+            "policy": {
+              "order": "descending",
+              "pick": "first",
+              "repair": "none"
+            }
+          },
+          {
+            "cost": 763,
+            "ok": false,
+            "policy": {
+              "order": "descending",
+              "pick": "first",
+              "repair": "triples"
+            }
+          }
+        ],
+        "cost": 1862,
+        "ok": false,
+        "packing": [
+          [
+            18,
+            13
+          ],
+          [
+            33,
+            31
+          ],
+          [
+            43,
+            24
+          ],
+          [
+            27,
+            8
+          ],
+          [
+            40,
+            15,
+            25
+          ],
+          [
+            36,
+            44,
+            6,
+            41
+          ],
+          [
+            1,
+            30,
+            42,
+            16,
+            11,
+            14
+          ],
+          [
+            28,
+            7,
+            20,
+            32,
+            22,
+            10,
+            0,
+            23,
+            29,
+            9,
+            3,
+            35,
+            26,
+            47,
+            37,
+            38,
+            46,
+            4,
+            17,
+            12,
+            39
+          ]
+        ],
+        "trace": {
+          "blocked": {
+            "free": [
+              5,
+              3,
+              3,
+              1,
+              0,
+              0,
+              4,
+              5
+            ],
+            "index": 45,
+            "reason": "fragmentation",
+            "size": 6,
+            "smaller_before": 0,
+            "step": 42
+          },
+          "ops": {
+            "bin_probes": 277,
+            "diagnosis": 98,
+            "exchange_probes": 0,
+            "placements": 42,
+            "ranking": 288,
+            "search_nodes": 0,
+            "setup": 57,
+            "shape_checks": 1,
+            "undo": 0
+          },
+          "repaired": [],
+          "search_status": "not_applicable"
+        }
+      },
+      "task": {
+        "bins": 8,
+        "capacity": 379,
+        "items": [
+          23,
+          68,
+          1,
+          12,
+          8,
+          3,
+          73,
+          39,
+          103,
+          13,
+          24,
+          60,
+          6,
+          78,
+          54,
+          133,
+          61,
+          7,
+          296,
+          4,
+          38,
+          5,
+          25,
+          22,
+          99,
+          15,
+          11,
+          275,
+          40,
+          18,
+          68,
+          89,
+          32,
+          287,
+          2,
+          12,
+          187,
+          9,
+          9,
+          6,
+          231,
+          31,
+          64,
+          277,
+          88,
+          6,
+          9,
+          11
+        ]
+      }
+    },
+    "policies": [
+      {
+        "order": "arrival",
+        "pick": "first",
+        "repair": "none"
+      },
+      {
+        "order": "descending",
+        "pick": "first",
+        "repair": "none"
+      },
+      {
+        "order": "descending",
+        "pick": "first",
+        "repair": "triples"
+      }
+    ],
+    "revision": 2
+  }
+}

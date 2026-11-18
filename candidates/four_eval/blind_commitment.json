@@ -1,0 +1,10 @@
+{
+  "arena_sha256": "57d55bf92c56258f7bd306f16a0f2c4603706c4f065a1e19327d95a928a20f7d",
+  "commitment": "5f221aa66aa209bf0618053c049733417067fe5cd8681778275a3a2fe00a4d28",
+  "frozen_v2_sha256": "f2be6568d4e580fb0fd2dbece6d3f4d8df9a0844cd5b97c28773a500c1f2b6cf",
+  "helper_sha256": "4a4958a88eda5a36f7aed17b3371f20ca039b91a313340fee25c427fd453e947",
+  "normalized_capacity": 379,
+  "protocol": "agentic-mixed-blind-v1",
+  "sampler_sha256": "5c69a59c35abbeea1aa84e787cc8019bca9d8a8a68ed1a2aa9b4b0518b92b86e",
+  "selection": "first legacy v2 failure drawn from the mixed profile at prime capacity 379"
+}

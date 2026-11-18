@@ -1,0 +1,12 @@
+{
+  "arena_sha256": "57d55bf92c56258f7bd306f16a0f2c4603706c4f065a1e19327d95a928a20f7d",
+  "commitment": "02541222664d0520a24677c0272d6e37f46fa140b148d5208893bc62de8f50ca",
+  "protocol": "agentic-triples-blind-v1",
+  "sampler_sha256": "4a4958a88eda5a36f7aed17b3371f20ca039b91a313340fee25c427fd453e947",
+  "selection": "first independently generated tight triple fixture missed by both v1 policies",
+  "shape": {
+    "bins": 6,
+    "files_per_disk": 3,
+    "normalized_capacity": 373
+  }
+}

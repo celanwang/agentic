@@ -1,0 +1,365 @@
+{
+  "active": {
+    "exit": 0,
+    "output": {
+      "policies": [
+        {
+          "order": "arrival",
+          "pick": "first",
+          "repair": "none"
+        },
+        {
+          "order": "descending",
+          "pick": "first",
+          "repair": "none"
+        },
+        {
+          "order": "descending",
+          "pick": "first",
+          "repair": "triples"
+        }
+      ],
+      "result": {
+        "attempts": [
+          {
+            "cost": 137,
+            "ok": false,
+            "policy": {
+              "order": "arrival",
+              "pick": "first",
+              "repair": "none"
+            }
+          },
+          {
+            "cost": 237,
+            "ok": false,
+            "policy": {
+              "order": "descending",
+              "pick": "first",
+              "repair": "none"
+            }
+          },
+          {
+            "cost": 459,
+            "ok": true,
+            "policy": {
+              "order": "descending",
+              "pick": "first",
+              "repair": "triples"
+            }
+          }
+        ],
+        "cost": 833,
+        "ok": true,
+        "packing": [
+          [
+            9,
+            5,
+            6
+          ],
+          [
+            14,
+            2,
+            10
+          ],
+          [
+            11,
+            12,
+            4
+          ],
+          [
+            1,
+            15,
+            13
+          ],
+          [
+            7,
+            0,
+            3
+          ],
+          [
+            16,
+            17,
+            8
+          ]
+        ],
+        "trace": {
+          "blocked": {
+            "free": [
+              29,
+              74,
+              0,
+              5,
+              22,
+              59
+            ],
+            "index": 5,
+            "reason": "fragmentation",
+            "size": 95,
+            "smaller_before": 0,
+            "step": 16
+          },
+          "ops": {
+            "bin_probes": 66,
+            "diagnosis": 40,
+            "duplicate_checks": 2,
+            "exchange_probes": 0,
+            "group_candidates": 8,
+            "group_nodes": 9,
+            "pair_probes": 52,
+            "placements": 40,
+            "ranking": 90,
+            "residual_scans": 84,
+            "search_nodes": 0,
+            "setup": 25,
+            "shape_checks": 37,
+            "undo": 6
+          },
+          "repaired": [],
+          "search_status": "solved"
+        }
+      },
+      "task": {
+        "bins": 6,
+        "capacity": 373,
+        "items": [
+          137,
+          143,
+          115,
+          96,
+          104,
+          95,
+          94,
+          140,
+          115,
+          184,
+          98,
+          156,
+          113,
+          97,
+          160,
+          133,
+          137,
+          121
+        ]
+      }
+    },
+    "persisted_policies": [
+      {
+        "order": "arrival",
+        "pick": "first",
+        "repair": "none"
+      },
+      {
+        "order": "descending",
+        "pick": "first",
+        "repair": "none"
+      },
+      {
+        "order": "descending",
+        "pick": "first",
+        "repair": "triples"
+      }
+    ],
+    "revision": 2
+  },
+  "commitment": "02541222664d0520a24677c0272d6e37f46fa140b148d5208893bc62de8f50ca",
+  "sealed": {
+    "draw": 1,
+    "nonce": "3eb62997a4b6004da0c3c1aa7ac56a5c479f6b25e342880ec9bed061a227f7fc",
+    "task": {
+      "bins": 6,
+      "capacity": 373,
+      "items": [
+        137,
+        143,
+        115,
+        96,
+        104,
+        95,
+        94,
+        140,
+        115,
+        184,
+        98,
+        156,
+        113,
+        97,
+        160,
+        133,
+        137,
+        121
+      ]
+    },
+    "witness": [
+      [
+        17,
+        16,
+        2
+      ],
+      [
+        12,
+        4,
+        11
+      ],
+      [
+        14,
+        8,
+        10
+      ],
+      [
+        9,
+        5,
+        6
+      ],
+      [
+        1,
+        15,
+        13
+      ],
+      [
+        7,
+        3,
+        0
+      ]
+    ]
+  },
+  "transfer": true,
+  "v1": {
+    "exit": 0,
+    "output": {
+      "policies": [
+        {
+          "order": "arrival",
+          "pick": "first",
+          "repair": "none"
+        },
+        {
+          "order": "descending",
+          "pick": "first",
+          "repair": "none"
+        }
+      ],
+      "result": {
+        "attempts": [
+          {
+            "cost": 137,
+            "ok": false,
+            "policy": {
+              "order": "arrival",
+              "pick": "first",
+              "repair": "none"
+            }
+          },
+          {
+            "cost": 237,
+            "ok": false,
+            "policy": {
+              "order": "descending",
+              "pick": "first",
+              "repair": "none"
+            }
+          }
+        ],
+        "cost": 374,
+        "ok": false,
+        "packing": [
+          [
+            9,
+            14
+          ],
+          [
+            11,
+            1
+          ],
+          [
+            7,
+            0,
+            3
+          ],
+          [
+            16,
+            15,
+            10
+          ],
+          [
+            17,
+            2,
+            8
+          ],
+          [
+            12,
+            4,
+            13
+          ]
+        ],
+        "trace": {
+          "blocked": {
+            "free": [
+              29,
+              74,
+              0,
+              5,
+              22,
+              59
+            ],
+            "index": 5,
+            "reason": "fragmentation",
+            "size": 95,
+            "smaller_before": 0,
+            "step": 16
+          },
+          "ops": {
+            "bin_probes": 66,
+            "diagnosis": 40,
+            "exchange_probes": 0,
+            "placements": 16,
+            "ranking": 90,
+            "search_nodes": 0,
+            "setup": 25,
+            "undo": 0
+          },
+          "repaired": [],
+          "search_status": null
+        }
+      },
+      "task": {
+        "bins": 6,
+        "capacity": 373,
+        "items": [
+          137,
+          143,
+          115,
+          96,
+          104,
+          95,
+          94,
+          140,
+          115,
+          184,
+          98,
+          156,
+          113,
+          97,
+          160,
+          133,
+          137,
+          121
+        ]
+      }
+    },
+    "persisted_policies": [
+      {
+        "order": "arrival",
+        "pick": "first",
+        "repair": "none"
+      },
+      {
+        "order": "descending",
+        "pick": "first",
+        "repair": "none"
+      }
+    ],
+    "revision": 1
+  }
+}
