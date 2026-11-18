@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 sys.dont_write_bytecode = True
 
-from packlab import engine, planner
+from packlab import arena, engine, planner, recipes
 
 
 def stored(value):
@@ -28,6 +28,22 @@ def episode(start, memory, seed, budget, mode="adaptive"):
 
 
 class PlannerEdges(unittest.TestCase):
+    def test_best_practice_solution_survives_full_cache_hit(self):
+        tasks = [dict(capacity=9, bins=2, items=[4, 3, 2]), dict(capacity=9, bins=1, items=[12])]
+        first = planner.search(tasks, [engine.BASE], [], None, 10, 128)
+        successes = [(r["spent"], r["candidate"]) for r in first["trials"] if r["raw_ok"]]
+        cost, candidate = min(successes)
+        self.assertGreater(sum(c == cost for c, _ in successes), 1)
+        expected = [dict(task_index=0, candidate=candidate, cost=cost)]
+        self.assertEqual(first["practice_solutions"], expected)
+        again = planner.search(tasks, [engine.BASE], [], stored(first["memory"]), 10, 128)
+        self.assertEqual(again["candidate_calls"], 0)
+        self.assertGreater(again["cached_pairs"], 0)
+        self.assertEqual(again["practice_solutions"], expected)
+        answer = recipes.run(tasks[0], again["candidates"][candidate]["program"])
+        self.assertEqual(answer["cost"], cost)
+        self.assertTrue(answer["ok"] and arena.check(tasks[0], answer["packing"]))
+
     def test_resume_across_real_cache_eviction(self):
         memory = episode(1, None, 5, 128)["memory"]
         self.assertEqual(memory, stored(memory))

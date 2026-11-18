@@ -136,6 +136,23 @@ def judge(hold, regression, replay):
     return "kept", "一份冻结配方通过独立留出、回归、历史复查与成本门槛。"
 
 
+def _deliver_practice_answer(data, bench):
+    # Only recover a candidate already seen to solve this exact input. No new search or nomination.
+    search = data["search"]
+    for solved in search["practice_solutions"]:
+        if data["practice_tasks"][solved["task_index"]] != data["task"]:
+            continue
+        program = search["candidates"][solved["candidate"]]["program"]
+        calls = len(bench.cache)
+        checked = bench.single(data["task"], program)
+        if not checked["ok"] or checked["cost"] != solved["cost"]:
+            raise RuntimeError("练习记录中的触发清单装法未能复现")
+        executed = len(bench.cache) - calls
+        data["practice_delivery"] = dict(solved, calls=executed, executed_cost=executed * checked["cost"])
+        data["answer"] = dict(source="trial", candidate=solved["candidate"], packing=checked["packing"])
+        break
+
+
 def validate_budget(budget):
     if type(budget) is not int or not 2 <= budget <= MAX_BUDGET:
         raise ValueError(f"研究预算须为 2 到 {MAX_BUDGET} 之间的整数")
@@ -188,10 +205,12 @@ def study(policies, generation, history, memory, episode, budget, focus=None, re
                 data["answer"] = dict(source="active" if decision == "kept" else "trial", packing=one["packing"])
             if decision == "kept":
                 data["after"] = one
+    data.update(decision=decision, reason=reason, validation_calls=len(bench.cache),
+                validation_cost=sum(r["cost"] for r in bench.cache.values()))
     if focus is not None:
         if data["after"]["ok"]:
             data["answer"] = dict(source="active", packing=data["after"]["packing"])
+        elif data["answer"] is None:
+            _deliver_practice_answer(data, bench)
         data["outcome"] = "packed" if data["answer"] else "unresolved"
-    data.update(decision=decision, reason=reason,
-                validation_calls=len(bench.cache), validation_cost=sum(r["cost"] for r in bench.cache.values()))
     return data

@@ -324,6 +324,17 @@ def _worth_review(score):
     return score["new_cost"] < score["old_cost"]
 
 
+def _practice_solutions(rows):
+    best = {}
+    for candidate, results in rows.items():
+        for index, row in results.items():
+            if row["raw_ok"]:
+                choice = (row["spent"], candidate)
+                if index not in best or choice < best[index]:
+                    best[index] = choice
+    return [dict(task_index=i, candidate=best[i][1], cost=best[i][0]) for i in sorted(best)]
+
+
 def search(practice, policies, experience, memory, seed, budget, mode="adaptive"):
     """Return the sole practice nominee, resumable memory, and exact call accounting.
 
@@ -437,6 +448,7 @@ def search(practice, policies, experience, memory, seed, budget, mode="adaptive"
                             stats=dict(list(episode.stats.items())[-STAT_LIMIT:]),
                             recent=dict(list(episode.recent.items())[-CACHE_LIMIT:])),
                 trials=episode.trials, candidates={key: node.metadata() for key, node in nodes.items()},
+                practice_solutions=_practice_solutions(episode.rows),
                 calls=len(episode.baseline) + len(episode.trials), spent=baseline_spent + episode.candidate_spent,
                 baseline_calls=len(episode.baseline), baseline_spent=baseline_spent, baseline=episode.baseline,
                 candidate_calls=len(episode.trials), candidate_spent=episode.candidate_spent,
