@@ -1,0 +1,29 @@
+# Local memory and generated evaluation workspaces
+/state/
+*.sqlite3
+*.sqlite3-*
+.sealed_*/
+.replay-*/
+/candidates/pilot_programs/continuous_pair_commitment/
+
+# Python environments and caches
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# Local configuration and editor files
+.env
+.env.*
+!.env.example
+.DS_Store
+.idea/
+.vscode/
