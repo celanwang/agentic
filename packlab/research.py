@@ -136,11 +136,15 @@ def judge(hold, regression, replay):
     return "kept", "一份冻结配方通过独立留出、回归、历史复查与成本门槛。"
 
 
+def validate_budget(budget):
+    if type(budget) is not int or not 2 <= budget <= MAX_BUDGET:
+        raise ValueError(f"研究预算须为 2 到 {MAX_BUDGET} 之间的整数")
+
+
 def study(policies, generation, history, memory, episode, budget, focus=None, reviewed=None, prior_input=None,
           bench=None):
     from . import planner, recipes
-    if type(budget) is not int or not 2 <= budget <= MAX_BUDGET:
-        raise ValueError(f"研究预算须为 2 到 {MAX_BUDGET} 之间的整数")
+    validate_budget(budget)
     seed = seed_for(episode)
     practice, views = curriculum(seed, history, focus)
     skills, sources, setup_cost = experience(history, policies, practice)

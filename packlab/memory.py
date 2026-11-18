@@ -43,6 +43,21 @@ def transaction(folder):
             yield db
 
 
+@contextmanager
+def _read_state(folder):
+    path = Path(folder).resolve() / "agentic.sqlite3"
+    try:
+        path.stat()
+    except FileNotFoundError:
+        yield None
+        return
+    with closing(sqlite3.connect(path.as_uri() + "?mode=ro", uri=True, timeout=0)) as db:
+        db.row_factory = sqlite3.Row
+        # A deferred transaction keeps the revision and event counts in one snapshot.
+        db.execute("BEGIN")
+        yield db
+
+
 def head(db):
     return db.execute("SELECT r.* FROM revisions r JOIN head h ON r.id=h.revision WHERE h.slot=1").fetchone()
 
@@ -100,6 +115,7 @@ def _research(db, revision, policies, focus, budget, bench=None, started=None):
 
 
 def investigate(folder, focus=None, budget=research.DEFAULT_BUDGET):
+    research.validate_budget(budget)
     with transaction(folder) as db:
         rev = head(db)
         return _research(db, rev, json.loads(rev["policies"]), focus, budget)
@@ -134,34 +150,49 @@ def solve(folder, task):
 
 
 def status(folder):
-    with transaction(folder) as db:
+    path = str(Path(folder).resolve() / "agentic.sqlite3")
+    with _read_state(folder) as db:
+        if db is None:
+            return dict(generation=0, parent=None, policies=[engine.BASE.copy()], db=path,
+                        events=0, build=build_id(), research_rounds=0)
         rev = head(db)
+        if rev is None:
+            raise ValueError("状态库缺少有效的活动版本")
         return dict(generation=rev["id"], parent=rev["parent"], policies=json.loads(rev["policies"]),
-                    db=str(Path(folder).resolve() / "agentic.sqlite3"),
+                    db=path,
                     events=db.execute("SELECT count(*) FROM events").fetchone()[0], build=build_id(),
                     research_rounds=db.execute("SELECT count(*) FROM events WHERE kind='research'").fetchone()[0])
 
 
 def history(folder, limit):
-    with transaction(folder) as db:
+    with _read_state(folder) as db:
+        if db is None:
+            return []
         return [dict(row) for row in db.execute(
             "SELECT id, created, start_revision, decision, reason FROM events ORDER BY id DESC LIMIT ?", (limit,))]
 
 
 def event(folder, event_id):
-    with transaction(folder) as db:
-        row = db.execute("SELECT id, data FROM events WHERE id=?", (event_id,)).fetchone()
-        if row is None:
-            raise ValueError("没有编号为 %s 的记录" % event_id)
-        return dict(json.loads(row["data"]), id=row["id"])
+    if 0 < event_id <= 2**63 - 1:
+        with _read_state(folder) as db:
+            if db is not None:
+                row = db.execute("SELECT id, data FROM events WHERE id=?", (event_id,)).fetchone()
+                if row is not None:
+                    return dict(json.loads(row["data"]), id=row["id"])
+    raise ValueError("没有编号为 %s 的记录" % event_id)
 
 
 def rollback(folder):
+    initial_state = "当前位于初始版本，没有更早的策略可恢复"
+    try:
+        (Path(folder) / "agentic.sqlite3").stat()
+    except FileNotFoundError:
+        raise ValueError(initial_state) from None
     with transaction(folder) as db:
         rev = head(db)
         parent = rev["parent"]
         if parent is None:
-            raise ValueError("当前位于初始版本，没有更早的策略可恢复")
+            raise ValueError(initial_state)
         db.execute("UPDATE head SET revision=? WHERE slot=1", (parent,))
         return add_event(db, "rollback", dict(generation_before=rev["id"], generation=parent,
                          decision="rollback", reason="手动恢复到上一份已验证策略，实验记录仍可查阅。"))

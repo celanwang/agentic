@@ -40,7 +40,7 @@ def read_task(path):
 
 def research_record(folder, record_id):
     row = memory.event(folder, record_id)
-    if row["kind"] != "research" or row["nominee"] is None:
+    if row["kind"] != "research" or row.get("nominee") is None:
         raise ValueError(f"记录 #{record_id} 没有冻结的研究配方")
     return row
 
