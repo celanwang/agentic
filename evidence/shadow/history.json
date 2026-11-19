@@ -1,0 +1,189 @@
+{
+  "candidate_decision": "inconclusive",
+  "controlled_gate": {
+    "holdout": {
+      "additional_first_branch_hits": 0,
+      "before_ops": 23378,
+      "candidate_ops": 23378,
+      "inputs": 64,
+      "old_success_extra_ops": 0,
+      "old_successes": 33
+    },
+    "regression": {
+      "additional_first_branch_hits": 0,
+      "before_ops": 4395,
+      "candidate_ops": 4395,
+      "inputs": 19,
+      "old_success_extra_ops": 0,
+      "old_successes": 12
+    },
+    "replay": {
+      "additional_first_branch_hits": 0,
+      "before_ops": 6566,
+      "candidate_ops": 6566,
+      "inputs": 32,
+      "old_success_extra_ops": 0,
+      "old_successes": 32
+    }
+  },
+  "new_hit_interval_permille": [
+    444,
+    999
+  ],
+  "provenance": {
+    "fixed_continuous_demo": {
+      "inputs": 8,
+      "origin": "preselected_public_examples",
+      "source": "evidence/pilot/stream-protocol.md"
+    },
+    "ordinary_holdout": {
+      "origin": "arena_generator_with_prior_family_exclusions",
+      "source": "evidence/route-review/protocol.md"
+    },
+    "organic_prevalence_identifiable": false,
+    "targeted_probe": {
+      "origin": "five_predefined_profiles_across_5_to_8_bins",
+      "source": "candidates/route_review/eval/seal.py"
+    },
+    "unverified_origin_is_excluded": true,
+    "verified_public_organic_user_streams": 0
+  },
+  "public_inputs": [
+    "evidence/route-review/decision.json",
+    "evidence/route-review/coverage.json",
+    "candidates/route_review/eval/probe_result.json"
+  ],
+  "round": 12,
+  "targeted_published_probes": {
+    "by_first_branch_change": {
+      "old_failure": {
+        "additional_first_branch_hits": 11,
+        "before_ops": 1710,
+        "candidate_first_branch_hits": 11,
+        "candidate_ops": 2327,
+        "candidate_successes": 11,
+        "extra_ops": 617,
+        "gains": 11,
+        "inputs": 11,
+        "losses": 0,
+        "old_first_branch_hits": 0,
+        "old_success_extra_ops": 0,
+        "old_successes": 0
+      },
+      "old_success": {
+        "additional_first_branch_hits": 5,
+        "before_ops": 636,
+        "candidate_first_branch_hits": 5,
+        "candidate_ops": 979,
+        "candidate_successes": 5,
+        "extra_ops": 343,
+        "gains": 0,
+        "inputs": 5,
+        "losses": 0,
+        "old_first_branch_hits": 0,
+        "old_success_extra_ops": 343,
+        "old_successes": 5
+      },
+      "unchanged_first_branch": {
+        "additional_first_branch_hits": 0,
+        "before_ops": 856,
+        "candidate_first_branch_hits": 4,
+        "candidate_ops": 856,
+        "candidate_successes": 4,
+        "extra_ops": 0,
+        "gains": 0,
+        "inputs": 4,
+        "losses": 0,
+        "old_first_branch_hits": 4,
+        "old_success_extra_ops": 0,
+        "old_successes": 4
+      }
+    },
+    "by_profile": {
+      "anchored": {
+        "additional_first_branch_hits": 4,
+        "before_ops": 602,
+        "candidate_first_branch_hits": 4,
+        "candidate_ops": 808,
+        "candidate_successes": 4,
+        "extra_ops": 206,
+        "gains": 4,
+        "inputs": 4,
+        "losses": 0,
+        "old_first_branch_hits": 0,
+        "old_success_extra_ops": 0,
+        "old_successes": 0
+      },
+      "mixed": {
+        "additional_first_branch_hits": 4,
+        "before_ops": 573,
+        "candidate_first_branch_hits": 4,
+        "candidate_ops": 809,
+        "candidate_successes": 4,
+        "extra_ops": 236,
+        "gains": 3,
+        "inputs": 4,
+        "losses": 0,
+        "old_first_branch_hits": 0,
+        "old_success_extra_ops": 57,
+        "old_successes": 1
+      },
+      "near": {
+        "additional_first_branch_hits": 4,
+        "before_ops": 624,
+        "candidate_first_branch_hits": 4,
+        "candidate_ops": 856,
+        "candidate_successes": 4,
+        "extra_ops": 232,
+        "gains": 4,
+        "inputs": 4,
+        "losses": 0,
+        "old_first_branch_hits": 0,
+        "old_success_extra_ops": 0,
+        "old_successes": 0
+      },
+      "old_control": {
+        "additional_first_branch_hits": 4,
+        "before_ops": 547,
+        "candidate_first_branch_hits": 4,
+        "candidate_ops": 833,
+        "candidate_successes": 4,
+        "extra_ops": 286,
+        "gains": 0,
+        "inputs": 4,
+        "losses": 0,
+        "old_first_branch_hits": 0,
+        "old_success_extra_ops": 286,
+        "old_successes": 4
+      },
+      "strict": {
+        "additional_first_branch_hits": 0,
+        "before_ops": 856,
+        "candidate_first_branch_hits": 4,
+        "candidate_ops": 856,
+        "candidate_successes": 4,
+        "extra_ops": 0,
+        "gains": 0,
+        "inputs": 4,
+        "losses": 0,
+        "old_first_branch_hits": 4,
+        "old_success_extra_ops": 0,
+        "old_successes": 4
+      }
+    },
+    "total": {
+      "additional_first_branch_hits": 16,
+      "before_ops": 3202,
+      "candidate_first_branch_hits": 20,
+      "candidate_ops": 4162,
+      "candidate_successes": 20,
+      "extra_ops": 960,
+      "gains": 11,
+      "inputs": 20,
+      "losses": 0,
+      "old_first_branch_hits": 4,
+      "old_success_extra_ops": 343,
+      "old_successes": 9
+    }
+  }
+}

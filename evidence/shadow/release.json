@@ -1,0 +1,15 @@
+{
+  "base_commit": "e346fb6b1791b3a0f11da18b9941722ae393ad88",
+  "build": "8dfb6655e596523fd0190c739c4c22cfa4ffe21edee0b6109d276c1a494836e1",
+  "commitment": "18a23ed9172f4cebdf8a0de8699f7e379f6881a314682561de7c32b44d824e4b",
+  "event": 12,
+  "files": {
+    "candidates/shadow/check_store.py": "415f32fb489c9e98bc926a86ff031bc50a318dda21b48f3a5cfbb9e6da6ac922",
+    "candidates/shadow/commitment.json": "d1dc265b024419bc534776c3012641898d0b8ec0a66faf5a7c66ff108593e97d",
+    "candidates/shadow/eval.py": "d578a6f698bbfc66808b64866d20b766edce294f6dfed9c7b73523bb887d10f7",
+    "evidence/shadow/protocol.md": "fc31db66fd07bbefa70ca2e76ce9e07895975202e6de33dadacd1f28454c310b",
+    "packlab/cli.py": "c4afd1f7b3f545481105690d393e99ed2dd9e1901fdbd1bb4e4d28a1738bcb76",
+    "packlab/memory.py": "178fc881f84024fae89af5de252948b3a2cb5a171180638d931569ec41679676",
+    "packlab/shadow.py": "0daa5af638b08aabc685cbf5b3ecca3071cb96d73ba3441130b4794aa880ce26"
+  }
+}

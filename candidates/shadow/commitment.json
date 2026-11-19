@@ -1,0 +1,25 @@
+{
+  "arrivals": 19,
+  "commitment": "18a23ed9172f4cebdf8a0de8699f7e379f6881a314682561de7c32b44d824e4b",
+  "event": 12,
+  "limit": 12,
+  "planned": {
+    "closed": 1,
+    "duplicate": 3,
+    "eligible": 12,
+    "prior": 3
+  },
+  "profiles": [
+    "strict",
+    "anchored",
+    "near",
+    "mixed",
+    "old_control",
+    "easy"
+  ],
+  "sampler_sha256": "8e9acf2ea01bb227e40b01d5029991d1dada625436fcb356e614c7a23d211747",
+  "selection": "one system-random nonce; construction only, no solver screening",
+  "source": "observe",
+  "synthetic": true,
+  "version": "agentic-shadow-arrivals-v1"
+}

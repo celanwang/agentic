@@ -38,6 +38,9 @@ def main():
     check("批次输入与隔离", "candidates/audit/pair_batch.py")
     check("跨轮留出、历史迁移与批次复查", "candidates/route_review/check_history.py")
     check("已有两层路由的扩展与完整费用", "candidates/route_review/check_learning.py")
+    check("影子窗口的计费、并发、停止与恢复", "candidates/shadow/check_store.py")
+    check("第 12 轮的公开历史汇总", "candidates/shadow/audit_history.py",
+          expected="evidence/shadow/history.json")
     if args.full:
         check("历史发布的四份逐项评测", "-m", "candidates.pilot_eval.replay")
         check("历史第 9 轮因果对照", "candidates/pilot_search/replay_round01.py",
@@ -53,6 +56,7 @@ def main():
               expected="candidates/route_review/eval/development.json")
         check("第 12 轮与四路重启盲测", "scripts/route_review.py", "--check")
         check("现役程序从 v2 升级、复用装法和回退", "candidates/route_review/check_live.py")
+        check("封存到达流和正常作答入口", "scripts/shadow_observation.py", "--check")
     print("全部通过。")
 
 

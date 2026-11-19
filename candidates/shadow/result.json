@@ -1,0 +1,4753 @@
+{
+  "commitment": {
+    "arrivals": 19,
+    "commitment": "18a23ed9172f4cebdf8a0de8699f7e379f6881a314682561de7c32b44d824e4b",
+    "event": 12,
+    "limit": 12,
+    "planned": {
+      "closed": 1,
+      "duplicate": 3,
+      "eligible": 12,
+      "prior": 3
+    },
+    "profiles": [
+      "strict",
+      "anchored",
+      "near",
+      "mixed",
+      "old_control",
+      "easy"
+    ],
+    "sampler_sha256": "8e9acf2ea01bb227e40b01d5029991d1dada625436fcb356e614c7a23d211747",
+    "selection": "one system-random nonce; construction only, no solver screening",
+    "source": "observe",
+    "synthetic": true,
+    "version": "agentic-shadow-arrivals-v1"
+  },
+  "observed": [
+    {
+      "family": "31f9764e0ec11ca45d59c29d7f964d208894c604bc2732970db0ca407a070e58",
+      "index": 1,
+      "label": "known-batch",
+      "outcome": "prior"
+    },
+    {
+      "family": "a7a3c9d9f26e6bfb9119ec4f3666ae8b88f5ab0e2aa04dfa0b7380cea6aec171",
+      "index": 2,
+      "label": "fresh-1",
+      "outcome": "eligible"
+    },
+    {
+      "family": "a7a3c9d9f26e6bfb9119ec4f3666ae8b88f5ab0e2aa04dfa0b7380cea6aec171",
+      "index": 3,
+      "label": "repeat-exact",
+      "outcome": "duplicate"
+    },
+    {
+      "family": "038ae7117f00daccdccecb750519a8de615aaddf5ba6baa19fcb79dce502f57b",
+      "index": 4,
+      "label": "fresh-2",
+      "outcome": "eligible"
+    },
+    {
+      "family": "64c27a80922b70d9ae331ff2a7be9898777e24f1c6f153c5306415444486129b",
+      "index": 5,
+      "label": "fresh-3",
+      "outcome": "eligible"
+    },
+    {
+      "family": "a7a3c9d9f26e6bfb9119ec4f3666ae8b88f5ab0e2aa04dfa0b7380cea6aec171",
+      "index": 6,
+      "label": "repeat-scaled",
+      "outcome": "duplicate"
+    },
+    {
+      "family": "0677e01ff7522bc015cdb86af0d1be200afc6043d9300221a72b5e8f49d4fffb",
+      "index": 7,
+      "label": "fresh-4",
+      "outcome": "eligible"
+    },
+    {
+      "family": "abbbcdd4973bf8fb7e7c13126fcb6808c0c46bdb6ab92a80050b9375cbc6338d",
+      "index": 8,
+      "label": "known-trigger",
+      "outcome": "prior"
+    },
+    {
+      "family": "8952d58a41c2e28f0f4a7356476188f00c502a12122ee910066120ef8eacef36",
+      "index": 9,
+      "label": "fresh-5",
+      "outcome": "eligible"
+    },
+    {
+      "family": "0b50ce3e6bfdcd5d798d1ce6de8089b99b6d09faae4c1b02a3e122bbaf17daf5",
+      "index": 10,
+      "label": "fresh-6",
+      "outcome": "eligible"
+    },
+    {
+      "family": "d45d33994f5bd3807bb9699887bd398a82a9d56a6cf3934940fed414899554dd",
+      "index": 11,
+      "label": "fresh-7",
+      "outcome": "eligible"
+    },
+    {
+      "family": "038ae7117f00daccdccecb750519a8de615aaddf5ba6baa19fcb79dce502f57b",
+      "index": 12,
+      "label": "repeat-reordered",
+      "outcome": "duplicate"
+    },
+    {
+      "family": "73925b3bbed3c843b5a3880aa17f30ab2980b4c9a7044f3574d678cc08e790e9",
+      "index": 13,
+      "label": "fresh-8",
+      "outcome": "eligible"
+    },
+    {
+      "family": "47d078fd2d26f5040646773cee777c7ecf5509efa77fbddc6f2b3ac8d89d02b6",
+      "index": 14,
+      "label": "fresh-9",
+      "outcome": "eligible"
+    },
+    {
+      "family": "31f9764e0ec11ca45d59c29d7f964d208894c604bc2732970db0ca407a070e58",
+      "index": 15,
+      "label": "known-scaled",
+      "outcome": "prior"
+    },
+    {
+      "family": "8640da23959adde0217463df4d3b9fc44580f4a0fd66cce754576c9ac0a1aa0e",
+      "index": 16,
+      "label": "fresh-10",
+      "outcome": "eligible"
+    },
+    {
+      "family": "e1579901c25b9ae0320fa1e324750b92eee5e77c0e39c0e6855fa15cc4fdcee4",
+      "index": 17,
+      "label": "fresh-11",
+      "outcome": "eligible"
+    },
+    {
+      "family": "a345abb303467c4d99e44ebde3f21aed076561f1a2099b13d42ec59c278721f7",
+      "index": 18,
+      "label": "fresh-12",
+      "outcome": "eligible"
+    },
+    {
+      "family": "0f1df9787ab9b99d3cfc828720100a3740bce9b9e6746ec9451dda5aba24066d",
+      "index": 19,
+      "label": "over-limit-fresh",
+      "outcome": "closed"
+    }
+  ],
+  "original_events_and_head_unchanged": true,
+  "profiles": {
+    "anchored": {
+      "branch_changes": 2,
+      "compared": 2,
+      "errors": 0,
+      "gains": 1,
+      "losses": 0,
+      "new_cost": 328,
+      "new_ok": 2,
+      "new_on_old_success_cost": 146,
+      "old_cost": 234,
+      "old_ok": 1,
+      "old_success_cost": 95,
+      "shadow_calls": 6,
+      "shadow_spent": 562
+    },
+    "easy": {
+      "branch_changes": 0,
+      "compared": 2,
+      "errors": 0,
+      "gains": 0,
+      "losses": 0,
+      "new_cost": 435,
+      "new_ok": 2,
+      "new_on_old_success_cost": 435,
+      "old_cost": 435,
+      "old_ok": 2,
+      "old_success_cost": 435,
+      "shadow_calls": 6,
+      "shadow_spent": 599
+    },
+    "mixed": {
+      "branch_changes": 2,
+      "compared": 2,
+      "errors": 0,
+      "gains": 2,
+      "losses": 0,
+      "new_cost": 329,
+      "new_ok": 2,
+      "new_on_old_success_cost": 0,
+      "old_cost": 249,
+      "old_ok": 0,
+      "old_success_cost": 0,
+      "shadow_calls": 6,
+      "shadow_spent": 578
+    },
+    "near": {
+      "branch_changes": 2,
+      "compared": 2,
+      "errors": 0,
+      "gains": 2,
+      "losses": 0,
+      "new_cost": 430,
+      "new_ok": 2,
+      "new_on_old_success_cost": 0,
+      "old_cost": 313,
+      "old_ok": 0,
+      "old_success_cost": 0,
+      "shadow_calls": 6,
+      "shadow_spent": 743
+    },
+    "old_control": {
+      "branch_changes": 2,
+      "compared": 2,
+      "errors": 0,
+      "gains": 0,
+      "losses": 0,
+      "new_cost": 504,
+      "new_ok": 2,
+      "new_on_old_success_cost": 504,
+      "old_cost": 334,
+      "old_ok": 2,
+      "old_success_cost": 334,
+      "shadow_calls": 6,
+      "shadow_spent": 838
+    },
+    "strict": {
+      "branch_changes": 0,
+      "compared": 2,
+      "errors": 0,
+      "gains": 0,
+      "losses": 0,
+      "new_cost": 504,
+      "new_ok": 2,
+      "new_on_old_success_cost": 504,
+      "old_cost": 504,
+      "old_ok": 2,
+      "old_success_cost": 504,
+      "shadow_calls": 4,
+      "shadow_spent": 1008
+    }
+  },
+  "release_build": "8dfb6655e596523fd0190c739c4c22cfa4ffe21edee0b6109d276c1a494836e1",
+  "research_event": {
+    "after": 2,
+    "before": 2,
+    "build": "84a1a1a26dce0acbfff0450ec1f1b32b2ab42887339ddea4f9f9a346c84cdcde",
+    "decision": "inconclusive",
+    "id": 12,
+    "nominee": {
+      "fallback": {
+        "guard": {
+          "feature": "bins",
+          "op": "le",
+          "value": 4
+        },
+        "kind": "recipe",
+        "solver": {
+          "order": "descending",
+          "pick": "first",
+          "repair": "exchange"
+        },
+        "steps": [
+          "normalize_gcd",
+          "peel_forced"
+        ]
+      },
+      "guard": {
+        "feature": "complementary_coverage",
+        "op": "ge",
+        "value": 444
+      },
+      "kind": "recipe",
+      "solver": {
+        "order": "descending",
+        "pick": "first",
+        "repair": "none"
+      },
+      "steps": []
+    },
+    "nominee_sha256": "6ff6f1d1f2b790fbd42b5af9c2a5054c670443923d0984a8a89bfec0af01e2ef",
+    "policies_before": [
+      {
+        "fallback": {
+          "guard": {
+            "feature": "bins",
+            "op": "le",
+            "value": 4
+          },
+          "kind": "recipe",
+          "solver": {
+            "order": "descending",
+            "pick": "first",
+            "repair": "exchange"
+          },
+          "steps": [
+            "normalize_gcd",
+            "peel_forced"
+          ]
+        },
+        "guard": {
+          "feature": "complementary_coverage",
+          "op": "ge",
+          "value": 1000
+        },
+        "kind": "recipe",
+        "solver": {
+          "order": "descending",
+          "pick": "first",
+          "repair": "none"
+        },
+        "steps": []
+      },
+      {
+        "order": "arrival",
+        "pick": "first",
+        "repair": "none"
+      }
+    ],
+    "rules": {
+      "allowed_losses": 0,
+      "max_candidates": 16,
+      "max_cost_ratio": 2.25,
+      "max_holdout": 80,
+      "max_policies": 4,
+      "max_practice": 18,
+      "max_regression": 24,
+      "min_holdout": 30,
+      "min_holdout_gains": 3,
+      "min_previous_successes": 8
+    }
+  },
+  "reveal": {
+    "arrivals": [
+      {
+        "expected": "prior",
+        "label": "known-batch",
+        "profile": "prior_control",
+        "task": {
+          "bins": 5,
+          "capacity": 1200864,
+          "items": [
+            1025394,
+            175469,
+            536214,
+            1025395,
+            694532,
+            1200864,
+            175470,
+            664650,
+            506332
+          ]
+        },
+        "witness": [
+          [
+            5
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            2,
+            7
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            6,
+            0
+          ]
+        ]
+      },
+      {
+        "expected": "eligible",
+        "label": "fresh-1",
+        "profile": "strict",
+        "task": {
+          "bins": 8,
+          "capacity": 3984741,
+          "items": [
+            1412651,
+            1168599,
+            1478035,
+            1908543,
+            1386186,
+            1412650,
+            1460728,
+            1163013,
+            2076198,
+            2816142,
+            2598555,
+            2524013,
+            2821728,
+            2506706,
+            2572090,
+            2572091
+          ]
+        },
+        "witness": [
+          [
+            3,
+            8
+          ],
+          [
+            1,
+            9
+          ],
+          [
+            4,
+            10
+          ],
+          [
+            6,
+            11
+          ],
+          [
+            7,
+            12
+          ],
+          [
+            2,
+            13
+          ],
+          [
+            0,
+            14
+          ],
+          [
+            5,
+            15
+          ]
+        ]
+      },
+      {
+        "expected": "duplicate",
+        "label": "repeat-exact",
+        "profile": "strict",
+        "task": {
+          "bins": 8,
+          "capacity": 3984741,
+          "items": [
+            1412651,
+            1168599,
+            1478035,
+            1908543,
+            1386186,
+            1412650,
+            1460728,
+            1163013,
+            2076198,
+            2816142,
+            2598555,
+            2524013,
+            2821728,
+            2506706,
+            2572090,
+            2572091
+          ]
+        },
+        "witness": [
+          [
+            3,
+            8
+          ],
+          [
+            1,
+            9
+          ],
+          [
+            4,
+            10
+          ],
+          [
+            6,
+            11
+          ],
+          [
+            7,
+            12
+          ],
+          [
+            2,
+            13
+          ],
+          [
+            0,
+            14
+          ],
+          [
+            5,
+            15
+          ]
+        ]
+      },
+      {
+        "expected": "eligible",
+        "label": "fresh-2",
+        "profile": "mixed",
+        "task": {
+          "bins": 5,
+          "capacity": 4031303,
+          "items": [
+            2603410,
+            532613,
+            2999931,
+            4031303,
+            2966078,
+            4031303,
+            1031372,
+            532612,
+            1427893
+          ]
+        },
+        "witness": [
+          [
+            5
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            7,
+            1,
+            4
+          ],
+          [
+            3
+          ]
+        ]
+      },
+      {
+        "expected": "eligible",
+        "label": "fresh-3",
+        "profile": "near",
+        "task": {
+          "bins": 5,
+          "capacity": 4174560,
+          "items": [
+            1045561,
+            1283138,
+            1605129,
+            1283137,
+            2033252,
+            2141308,
+            2891422,
+            3128999,
+            2891423,
+            2569430
+          ]
+        },
+        "witness": [
+          [
+            4,
+            5
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            3,
+            8
+          ],
+          [
+            2,
+            9
+          ]
+        ]
+      },
+      {
+        "expected": "duplicate",
+        "label": "repeat-scaled",
+        "profile": "strict",
+        "task": {
+          "bins": 8,
+          "capacity": 11954223,
+          "items": [
+            7716273,
+            7716270,
+            7520118,
+            8465184,
+            7572039,
+            7795665,
+            8448426,
+            6228594,
+            3489039,
+            4382184,
+            4237950,
+            4158558,
+            5725629,
+            4434105,
+            3505797,
+            4237953
+          ]
+        },
+        "witness": [
+          [
+            12,
+            7
+          ],
+          [
+            14,
+            6
+          ],
+          [
+            11,
+            5
+          ],
+          [
+            9,
+            4
+          ],
+          [
+            8,
+            3
+          ],
+          [
+            13,
+            2
+          ],
+          [
+            15,
+            1
+          ],
+          [
+            10,
+            0
+          ]
+        ]
+      },
+      {
+        "expected": "eligible",
+        "label": "fresh-4",
+        "profile": "easy",
+        "task": {
+          "bins": 8,
+          "capacity": 4229716,
+          "items": [
+            815883,
+            815884,
+            2597949,
+            776473,
+            776474,
+            2676769,
+            750275,
+            750276,
+            2729165,
+            793058,
+            793059,
+            2643599,
+            774965,
+            774966,
+            2679785,
+            721726,
+            721727,
+            2786263,
+            830076,
+            830077,
+            2569563,
+            794885,
+            794886,
+            2639945
+          ]
+        },
+        "witness": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            3,
+            4,
+            5
+          ],
+          [
+            6,
+            7,
+            8
+          ],
+          [
+            9,
+            10,
+            11
+          ],
+          [
+            12,
+            13,
+            14
+          ],
+          [
+            15,
+            16,
+            17
+          ],
+          [
+            18,
+            19,
+            20
+          ],
+          [
+            21,
+            22,
+            23
+          ]
+        ]
+      },
+      {
+        "expected": "prior",
+        "label": "known-trigger",
+        "profile": "prior_control",
+        "task": {
+          "bins": 2,
+          "capacity": 10,
+          "items": [
+            4,
+            4,
+            6,
+            6
+          ]
+        },
+        "witness": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            3
+          ]
+        ]
+      },
+      {
+        "expected": "eligible",
+        "label": "fresh-5",
+        "profile": "old_control",
+        "task": {
+          "bins": 7,
+          "capacity": 4374233,
+          "items": [
+            1154914,
+            3219319,
+            1344597,
+            3029636,
+            1723551,
+            2650682,
+            1172674,
+            3201559,
+            1172673,
+            3201560,
+            2054218,
+            2320015,
+            1845102,
+            2529130
+          ]
+        },
+        "witness": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            8,
+            9
+          ],
+          [
+            10,
+            11
+          ],
+          [
+            12,
+            13
+          ]
+        ]
+      },
+      {
+        "expected": "eligible",
+        "label": "fresh-6",
+        "profile": "mixed",
+        "task": {
+          "bins": 6,
+          "capacity": 4401513,
+          "items": [
+            578862,
+            1400656,
+            1704289,
+            2697224,
+            4401513,
+            578863,
+            2718836,
+            4401513,
+            1682677,
+            3000857,
+            3243788
+          ]
+        },
+        "witness": [
+          [
+            7
+          ],
+          [
+            1,
+            9
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            8,
+            6
+          ],
+          [
+            0,
+            5,
+            10
+          ],
+          [
+            4
+          ]
+        ]
+      },
+      {
+        "expected": "eligible",
+        "label": "fresh-7",
+        "profile": "old_control",
+        "task": {
+          "bins": 8,
+          "capacity": 4563554,
+          "items": [
+            1359210,
+            3204344,
+            1972684,
+            2590870,
+            2209195,
+            2354359,
+            2190321,
+            2373233,
+            1747584,
+            2815970,
+            1972685,
+            2590869,
+            1269669,
+            3293885,
+            1550355,
+            3013198
+          ]
+        },
+        "witness": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            8,
+            9
+          ],
+          [
+            10,
+            11
+          ],
+          [
+            12,
+            13
+          ],
+          [
+            14,
+            15
+          ]
+        ]
+      },
+      {
+        "expected": "duplicate",
+        "label": "repeat-reordered",
+        "profile": "mixed",
+        "task": {
+          "bins": 5,
+          "capacity": 4031303,
+          "items": [
+            1427893,
+            532612,
+            1031372,
+            4031303,
+            2966078,
+            4031303,
+            2999931,
+            532613,
+            2603410
+          ]
+        },
+        "witness": [
+          [
+            3
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            1,
+            7,
+            4
+          ],
+          [
+            5
+          ]
+        ]
+      },
+      {
+        "expected": "eligible",
+        "label": "fresh-8",
+        "profile": "anchored",
+        "task": {
+          "bins": 6,
+          "capacity": 4691450,
+          "items": [
+            697642,
+            4691450,
+            1846032,
+            2510153,
+            3993809,
+            3340383,
+            697641,
+            2181297,
+            2845418,
+            1351067,
+            3993808
+          ]
+        },
+        "witness": [
+          [
+            1
+          ],
+          [
+            2,
+            8
+          ],
+          [
+            9,
+            5
+          ],
+          [
+            7,
+            3
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            0,
+            10
+          ]
+        ]
+      },
+      {
+        "expected": "eligible",
+        "label": "fresh-9",
+        "profile": "anchored",
+        "task": {
+          "bins": 5,
+          "capacity": 4746370,
+          "items": [
+            4152641,
+            1200836,
+            4746370,
+            3545534,
+            3192918,
+            4152640,
+            1553452,
+            593730,
+            593729
+          ]
+        },
+        "witness": [
+          [
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            7,
+            5
+          ]
+        ]
+      },
+      {
+        "expected": "prior",
+        "label": "known-scaled",
+        "profile": "prior_control",
+        "task": {
+          "bins": 5,
+          "capacity": 6004320,
+          "items": [
+            2531660,
+            3323250,
+            877350,
+            6004320,
+            3472660,
+            5126975,
+            2681070,
+            877345,
+            5126970
+          ]
+        },
+        "witness": [
+          [
+            3
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            6,
+            1
+          ],
+          [
+            7,
+            5
+          ],
+          [
+            2,
+            8
+          ]
+        ]
+      },
+      {
+        "expected": "eligible",
+        "label": "fresh-10",
+        "profile": "near",
+        "task": {
+          "bins": 8,
+          "capacity": 4835868,
+          "items": [
+            1465400,
+            2030661,
+            1925585,
+            2204319,
+            2097866,
+            1530223,
+            1637202,
+            1925584,
+            2910284,
+            2738002,
+            3305645,
+            2631549,
+            2910283,
+            2805207,
+            3198666,
+            3370467
+          ]
+        },
+        "witness": [
+          [
+            7,
+            8
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            5,
+            10
+          ],
+          [
+            3,
+            11
+          ],
+          [
+            2,
+            12
+          ],
+          [
+            1,
+            13
+          ],
+          [
+            6,
+            14
+          ],
+          [
+            0,
+            15
+          ]
+        ]
+      },
+      {
+        "expected": "eligible",
+        "label": "fresh-11",
+        "profile": "strict",
+        "task": {
+          "bins": 7,
+          "capacity": 4993475,
+          "items": [
+            1774132,
+            1295791,
+            1555886,
+            1592960,
+            1555885,
+            1640341,
+            2135652,
+            2857823,
+            3353134,
+            3219343,
+            3697684,
+            3437590,
+            3437589,
+            3400515
+          ]
+        },
+        "witness": [
+          [
+            6,
+            7
+          ],
+          [
+            5,
+            8
+          ],
+          [
+            0,
+            9
+          ],
+          [
+            1,
+            10
+          ],
+          [
+            4,
+            11
+          ],
+          [
+            2,
+            12
+          ],
+          [
+            3,
+            13
+          ]
+        ]
+      },
+      {
+        "expected": "eligible",
+        "label": "fresh-12",
+        "profile": "easy",
+        "task": {
+          "bins": 6,
+          "capacity": 5058775,
+          "items": [
+            941848,
+            941849,
+            3175078,
+            1009080,
+            1009081,
+            3040614,
+            859202,
+            859203,
+            3340370,
+            993537,
+            993538,
+            3071700,
+            926874,
+            926875,
+            3205026,
+            860145,
+            860146,
+            3338484
+          ]
+        },
+        "witness": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            3,
+            4,
+            5
+          ],
+          [
+            6,
+            7,
+            8
+          ],
+          [
+            9,
+            10,
+            11
+          ],
+          [
+            12,
+            13,
+            14
+          ],
+          [
+            15,
+            16,
+            17
+          ]
+        ]
+      },
+      {
+        "expected": "closed",
+        "label": "over-limit-fresh",
+        "profile": "near",
+        "task": {
+          "bins": 6,
+          "capacity": 5143885,
+          "items": [
+            1562775,
+            1577514,
+            2502599,
+            1562776,
+            2441314,
+            2506518,
+            3566371,
+            3581110,
+            2702571,
+            3581109,
+            2641286,
+            2637366
+          ]
+        },
+        "witness": [
+          [
+            1,
+            6
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            4,
+            8
+          ],
+          [
+            3,
+            9
+          ],
+          [
+            2,
+            10
+          ],
+          [
+            5,
+            11
+          ]
+        ]
+      }
+    ],
+    "limit": 12,
+    "nonce": "df32614a381a861606690f4081659808dc1be3ef92370c9ab8ced935aedf7782",
+    "version": "agentic-shadow-arrivals-v1"
+  },
+  "rows": [
+    {
+      "arrival": 2,
+      "branch_changed": false,
+      "family": "a7a3c9d9f26e6bfb9119ec4f3666ae8b88f5ab0e2aa04dfa0b7380cea6aec171",
+      "new": {
+        "attempts": [
+          {
+            "cost": 272,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 1000,
+              "op": "ge",
+              "value": 444
+            },
+            "ok": true,
+            "policy": {
+              "fallback": {
+                "guard": {
+                  "feature": "bins",
+                  "op": "le",
+                  "value": 4
+                },
+                "kind": "recipe",
+                "solver": {
+                  "order": "descending",
+                  "pick": "first",
+                  "repair": "exchange"
+                },
+                "steps": [
+                  "normalize_gcd",
+                  "peel_forced"
+                ]
+              },
+              "guard": {
+                "feature": "complementary_coverage",
+                "op": "ge",
+                "value": 444
+              },
+              "kind": "recipe",
+              "solver": {
+                "order": "descending",
+                "pick": "first",
+                "repair": "none"
+              },
+              "steps": []
+            },
+            "route": {
+              "fallback": null,
+              "primary": {
+                "cost": 271,
+                "guard": {
+                  "feature": "complementary_coverage",
+                  "matched": true,
+                  "observed": 1000,
+                  "op": "ge",
+                  "value": 444
+                },
+                "ok": true,
+                "search_status": null
+              },
+              "selected": "primary"
+            },
+            "search_status": null,
+            "solver_ran": true
+          }
+        ],
+        "cost": 272,
+        "ok": true,
+        "outcome": "solved",
+        "packing": [
+          [
+            12,
+            7
+          ],
+          [
+            9,
+            1
+          ],
+          [
+            10,
+            4
+          ],
+          [
+            15,
+            5
+          ],
+          [
+            14,
+            0
+          ],
+          [
+            11,
+            6
+          ],
+          [
+            13,
+            2
+          ],
+          [
+            8,
+            3
+          ]
+        ],
+        "path": [
+          {
+            "matched": true,
+            "slot": "primary",
+            "solver": {
+              "order": "descending",
+              "pick": "first",
+              "repair": "none"
+            },
+            "steps": []
+          }
+        ]
+      },
+      "old": {
+        "attempts": [
+          {
+            "cost": 272,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 1000,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": true,
+            "policy": {
+              "fallback": {
+                "guard": {
+                  "feature": "bins",
+                  "op": "le",
+                  "value": 4
+                },
+                "kind": "recipe",
+                "solver": {
+                  "order": "descending",
+                  "pick": "first",
+                  "repair": "exchange"
+                },
+                "steps": [
+                  "normalize_gcd",
+                  "peel_forced"
+                ]
+              },
+              "guard": {
+                "feature": "complementary_coverage",
+                "op": "ge",
+                "value": 1000
+              },
+              "kind": "recipe",
+              "solver": {
+                "order": "descending",
+                "pick": "first",
+                "repair": "none"
+              },
+              "steps": []
+            },
+            "route": {
+              "fallback": null,
+              "primary": {
+                "cost": 271,
+                "guard": {
+                  "feature": "complementary_coverage",
+                  "matched": true,
+                  "observed": 1000,
+                  "op": "ge",
+                  "value": 1000
+                },
+                "ok": true,
+                "search_status": null
+              },
+              "selected": "primary"
+            },
+            "search_status": null,
+            "solver_ran": true
+          }
+        ],
+        "cost": 272,
+        "ok": true,
+        "outcome": "solved",
+        "packing": [
+          [
+            12,
+            7
+          ],
+          [
+            9,
+            1
+          ],
+          [
+            10,
+            4
+          ],
+          [
+            15,
+            5
+          ],
+          [
+            14,
+            0
+          ],
+          [
+            11,
+            6
+          ],
+          [
+            13,
+            2
+          ],
+          [
+            8,
+            3
+          ]
+        ],
+        "path": [
+          {
+            "matched": true,
+            "slot": "primary",
+            "solver": {
+              "order": "descending",
+              "pick": "first",
+              "repair": "none"
+            },
+            "steps": []
+          }
+        ]
+      },
+      "shadow_calls": 2,
+      "shadow_spent": 544,
+      "task": {
+        "bins": 8,
+        "capacity": 3984741,
+        "items": [
+          1412651,
+          1168599,
+          1478035,
+          1908543,
+          1386186,
+          1412650,
+          1460728,
+          1163013,
+          2076198,
+          2816142,
+          2598555,
+          2524013,
+          2821728,
+          2506706,
+          2572090,
+          2572091
+        ]
+      }
+    },
+    {
+      "arrival": 4,
+      "branch_changed": true,
+      "family": "038ae7117f00daccdccecb750519a8de615aaddf5ba6baa19fcb79dce502f57b",
+      "new": {
+        "attempts": [
+          {
+            "cost": 147,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 444,
+              "op": "ge",
+              "value": 444
+            },
+            "ok": true,
+            "policy": {
+              "fallback": {
+                "guard": {
+                  "feature": "bins",
+                  "op": "le",
+                  "value": 4
+                },
+                "kind": "recipe",
+                "solver": {
+                  "order": "descending",
+                  "pick": "first",
+                  "repair": "exchange"
+                },
+                "steps": [
+                  "normalize_gcd",
+                  "peel_forced"
+                ]
+              },
+              "guard": {
+                "feature": "complementary_coverage",
+                "op": "ge",
+                "value": 444
+              },
+              "kind": "recipe",
+              "solver": {
+                "order": "descending",
+                "pick": "first",
+                "repair": "none"
+              },
+              "steps": []
+            },
+            "route": {
+              "fallback": null,
+              "primary": {
+                "cost": 146,
+                "guard": {
+                  "feature": "complementary_coverage",
+                  "matched": true,
+                  "observed": 444,
+                  "op": "ge",
+                  "value": 444
+                },
+                "ok": true,
+                "search_status": null
+              },
+              "selected": "primary"
+            },
+            "search_status": null,
+            "solver_ran": true
+          }
+        ],
+        "cost": 147,
+        "ok": true,
+        "outcome": "solved",
+        "packing": [
+          [
+            3
+          ],
+          [
+            5
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            4,
+            1,
+            7
+          ],
+          [
+            0,
+            8
+          ]
+        ],
+        "path": [
+          {
+            "matched": true,
+            "slot": "primary",
+            "solver": {
+              "order": "descending",
+              "pick": "first",
+              "repair": "none"
+            },
+            "steps": []
+          }
+        ]
+      },
+      "old": {
+        "attempts": [
+          {
+            "cost": 43,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 444,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "policy": {
+              "fallback": {
+                "guard": {
+                  "feature": "bins",
+                  "op": "le",
+                  "value": 4
+                },
+                "kind": "recipe",
+                "solver": {
+                  "order": "descending",
+                  "pick": "first",
+                  "repair": "exchange"
+                },
+                "steps": [
+                  "normalize_gcd",
+                  "peel_forced"
+                ]
+              },
+              "guard": {
+                "feature": "complementary_coverage",
+                "op": "ge",
+                "value": 1000
+              },
+              "kind": "recipe",
+              "solver": {
+                "order": "descending",
+                "pick": "first",
+                "repair": "none"
+              },
+              "steps": []
+            },
+            "route": {
+              "fallback": {
+                "cost": 10,
+                "guard": {
+                  "feature": "bins",
+                  "matched": false,
+                  "observed": 5,
+                  "op": "le",
+                  "value": 4
+                },
+                "ok": false,
+                "search_status": "guard_skip"
+              },
+              "primary": {
+                "cost": 32,
+                "guard": {
+                  "feature": "complementary_coverage",
+                  "matched": false,
+                  "observed": 444,
+                  "op": "ge",
+                  "value": 1000
+                },
+                "ok": false,
+                "search_status": "guard_skip"
+              },
+              "selected": "fallback"
+            },
+            "search_status": "guard_skip",
+            "solver_ran": false
+          },
+          {
+            "cost": 69,
+            "guard": null,
+            "ok": false,
+            "policy": {
+              "order": "arrival",
+              "pick": "first",
+              "repair": "none"
+            },
+            "route": null,
+            "search_status": null,
+            "solver_ran": true
+          }
+        ],
+        "cost": 112,
+        "ok": false,
+        "outcome": "unresolved",
+        "packing": [
+          [
+            0,
+            1,
+            7
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ]
+        ],
+        "path": [
+          {
+            "matched": false,
+            "slot": "primary",
+            "solver": null,
+            "steps": []
+          },
+          {
+            "matched": false,
+            "slot": "fallback",
+            "solver": null,
+            "steps": []
+          },
+          {
+            "matched": true,
+            "slot": "ordinary",
+            "solver": {
+              "order": "arrival",
+              "pick": "first",
+              "repair": "none"
+            },
+            "steps": []
+          }
+        ]
+      },
+      "shadow_calls": 3,
+      "shadow_spent": 259,
+      "task": {
+        "bins": 5,
+        "capacity": 4031303,
+        "items": [
+          2603410,
+          532613,
+          2999931,
+          4031303,
+          2966078,
+          4031303,
+          1031372,
+          532612,
+          1427893
+        ]
+      }
+    },
+    {
+      "arrival": 5,
+      "branch_changed": true,
+      "family": "64c27a80922b70d9ae331ff2a7be9898777e24f1c6f153c5306415444486129b",
+      "new": {
+        "attempts": [
+          {
+            "cost": 158,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 800,
+              "op": "ge",
+              "value": 444
+            },
+            "ok": true,
+            "policy": {
+              "fallback": {
+                "guard": {
+                  "feature": "bins",
+                  "op": "le",
+                  "value": 4
+                },
+                "kind": "recipe",
+                "solver": {
+                  "order": "descending",
+                  "pick": "first",
+                  "repair": "exchange"
+                },
+                "steps": [
+                  "normalize_gcd",
+                  "peel_forced"
+                ]
+              },
+              "guard": {
+                "feature": "complementary_coverage",
+                "op": "ge",
+                "value": 444
+              },
+              "kind": "recipe",
+              "solver": {
+                "order": "descending",
+                "pick": "first",
+                "repair": "none"
+              },
+              "steps": []
+            },
+            "route": {
+              "fallback": null,
+              "primary": {
+                "cost": 157,
+                "guard": {
+                  "feature": "complementary_coverage",
+                  "matched": true,
+                  "observed": 800,
+                  "op": "ge",
+                  "value": 444
+                },
+                "ok": true,
+                "search_status": null
+              },
+              "selected": "primary"
+            },
+            "search_status": null,
+            "solver_ran": true
+          }
+        ],
+        "cost": 158,
+        "ok": true,
+        "outcome": "solved",
+        "packing": [
+          [
+            7,
+            0
+          ],
+          [
+            8,
+            3
+          ],
+          [
+            6,
+            1
+          ],
+          [
+            9,
+            2
+          ],
+          [
+            5,
+            4
+          ]
+        ],
+        "path": [
+          {
+            "matched": true,
+            "slot": "primary",
+            "solver": {
+              "order": "descending",
+              "pick": "first",
+              "repair": "none"
+            },
+            "steps": []
+          }
+        ]
+      },
+      "old": {
+        "attempts": [
+          {
+            "cost": 47,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 800,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "policy": {
+              "fallback": {
+                "guard": {
+                  "feature": "bins",
+                  "op": "le",
+                  "value": 4
+                },
+                "kind": "recipe",
+                "solver": {
+                  "order": "descending",
+                  "pick": "first",
+                  "repair": "exchange"
+                },
+                "steps": [
+                  "normalize_gcd",
+                  "peel_forced"
+                ]
+              },
+              "guard": {
+                "feature": "complementary_coverage",
+                "op": "ge",
+                "value": 1000
+              },
+              "kind": "recipe",
+              "solver": {
+                "order": "descending",
+                "pick": "first",
+                "repair": "none"
+              },
+              "steps": []
+            },
+            "route": {
+              "fallback": {
+                "cost": 10,
+                "guard": {
+                  "feature": "bins",
+                  "matched": false,
+                  "observed": 5,
+                  "op": "le",
+                  "value": 4
+                },
+                "ok": false,
+                "search_status": "guard_skip"
+              },
+              "primary": {
+                "cost": 36,
+                "guard": {
+                  "feature": "complementary_coverage",
+                  "matched": false,
+                  "observed": 800,
+                  "op": "ge",
+                  "value": 1000
+                },
+                "ok": false,
+                "search_status": "guard_skip"
+              },
+              "selected": "fallback"
+            },
+            "search_status": "guard_skip",
+            "solver_ran": false
+          },
+          {
+            "cost": 71,
+            "guard": null,
+            "ok": false,
+            "policy": {
+              "order": "arrival",
+              "pick": "first",
+              "repair": "none"
+            },
+            "route": null,
+            "search_status": null,
+            "solver_ran": true
+          }
+        ],
+        "cost": 118,
+        "ok": false,
+        "outcome": "unresolved",
+        "packing": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ]
+        ],
+        "path": [
+          {
+            "matched": false,
+            "slot": "primary",
+            "solver": null,
+            "steps": []
+          },
+          {
+            "matched": false,
+            "slot": "fallback",
+            "solver": null,
+            "steps": []
+          },
+          {
+            "matched": true,
+            "slot": "ordinary",
+            "solver": {
+              "order": "arrival",
+              "pick": "first",
+              "repair": "none"
+            },
+            "steps": []
+          }
+        ]
+      },
+      "shadow_calls": 3,
+      "shadow_spent": 276,
+      "task": {
+        "bins": 5,
+        "capacity": 4174560,
+        "items": [
+          1045561,
+          1283138,
+          1605129,
+          1283137,
+          2033252,
+          2141308,
+          2891422,
+          3128999,
+          2891423,
+          2569430
+        ]
+      }
+    },
+    {
+      "arrival": 7,
+      "branch_changed": false,
+      "family": "0677e01ff7522bc015cdb86af0d1be200afc6043d9300221a72b5e8f49d4fffb",
+      "new": {
+        "attempts": [
+          {
+            "cost": 92,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 444
+            },
+            "ok": false,
+            "policy": {
+              "fallback": {
+                "guard": {
+                  "feature": "bins",
+                  "op": "le",
+                  "value": 4
+                },
+                "kind": "recipe",
+                "solver": {
+                  "order": "descending",
+                  "pick": "first",
+                  "repair": "exchange"
+                },
+                "steps": [
+                  "normalize_gcd",
+                  "peel_forced"
+                ]
+              },
+              "guard": {
+                "feature": "complementary_coverage",
+                "op": "ge",
+                "value": 444
+              },
+              "kind": "recipe",
+              "solver": {
+                "order": "descending",
+                "pick": "first",
+                "repair": "none"
+              },
+              "steps": []
+            },
+            "route": {
+              "fallback": {
+                "cost": 13,
+                "guard": {
+                  "feature": "bins",
+                  "matched": false,
+                  "observed": 8,
+                  "op": "le",
+                  "value": 4
+                },
+                "ok": false,
+                "search_status": "guard_skip"
+              },
+              "primary": {
+                "cost": 78,
+                "guard": {
+                  "feature": "complementary_coverage",
+                  "matched": false,
+                  "observed": 0,
+                  "op": "ge",
+                  "value": 444
+                },
+                "ok": false,
+                "search_status": "guard_skip"
+              },
+              "selected": "fallback"
+            },
+            "search_status": "guard_skip",
+            "solver_ran": false
+          },
+          {
+            "cost": 165,
+            "guard": null,
+            "ok": true,
+            "policy": {
+              "order": "arrival",
+              "pick": "first",
+              "repair": "none"
+            },
+            "route": null,
+            "search_status": null,
+            "solver_ran": true
+          }
+        ],
+        "cost": 257,
+        "ok": true,
+        "outcome": "solved",
+        "packing": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            3,
+            4,
+            5
+          ],
+          [
+            6,
+            7,
+            8
+          ],
+          [
+            9,
+            10,
+            11
+          ],
+          [
+            12,
+            13,
+            14
+          ],
+          [
+            15,
+            16,
+            17
+          ],
+          [
+            18,
+            19,
+            20
+          ],
+          [
+            21,
+            22,
+            23
+          ]
+        ],
+        "path": [
+          {
+            "matched": false,
+            "slot": "primary",
+            "solver": null,
+            "steps": []
+          },
+          {
+            "matched": false,
+            "slot": "fallback",
+            "solver": null,
+            "steps": []
+          },
+          {
+            "matched": true,
+            "slot": "ordinary",
+            "solver": {
+              "order": "arrival",
+              "pick": "first",
+              "repair": "none"
+            },
+            "steps": []
+          }
+        ]
+      },
+      "old": {
+        "attempts": [
+          {
+            "cost": 92,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "policy": {
+              "fallback": {
+                "guard": {
+                  "feature": "bins",
+                  "op": "le",
+                  "value": 4
+                },
+                "kind": "recipe",
+                "solver": {
+                  "order": "descending",
+                  "pick": "first",
+                  "repair": "exchange"
+                },
+                "steps": [
+                  "normalize_gcd",
+                  "peel_forced"
+                ]
+              },
+              "guard": {
+                "feature": "complementary_coverage",
+                "op": "ge",
+                "value": 1000
+              },
+              "kind": "recipe",
+              "solver": {
+                "order": "descending",
+                "pick": "first",
+                "repair": "none"
+              },
+              "steps": []
+            },
+            "route": {
+              "fallback": {
+                "cost": 13,
+                "guard": {
+                  "feature": "bins",
+                  "matched": false,
+                  "observed": 8,
+                  "op": "le",
+                  "value": 4
+                },
+                "ok": false,
+                "search_status": "guard_skip"
+              },
+              "primary": {
+                "cost": 78,
+                "guard": {
+                  "feature": "complementary_coverage",
+                  "matched": false,
+                  "observed": 0,
+                  "op": "ge",
+                  "value": 1000
+                },
+                "ok": false,
+                "search_status": "guard_skip"
+              },
+              "selected": "fallback"
+            },
+            "search_status": "guard_skip",
+            "solver_ran": false
+          },
+          {
+            "cost": 165,
+            "guard": null,
+            "ok": true,
+            "policy": {
+              "order": "arrival",
+              "pick": "first",
+              "repair": "none"
+            },
+            "route": null,
+            "search_status": null,
+            "solver_ran": true
+          }
+        ],
+        "cost": 257,
+        "ok": true,
+        "outcome": "solved",
+        "packing": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            3,
+            4,
+            5
+          ],
+          [
+            6,
+            7,
+            8
+          ],
+          [
+            9,
+            10,
+            11
+          ],
+          [
+            12,
+            13,
+            14
+          ],
+          [
+            15,
+            16,
+            17
+          ],
+          [
+            18,
+            19,
+            20
+          ],
+          [
+            21,
+            22,
+            23
+          ]
+        ],
+        "path": [
+          {
+            "matched": false,
+            "slot": "primary",
+            "solver": null,
+            "steps": []
+          },
+          {
+            "matched": false,
+            "slot": "fallback",
+            "solver": null,
+            "steps": []
+          },
+          {
+            "matched": true,
+            "slot": "ordinary",
+            "solver": {
+              "order": "arrival",
+              "pick": "first",
+              "repair": "none"
+            },
+            "steps": []
+          }
+        ]
+      },
+      "shadow_calls": 3,
+      "shadow_spent": 349,
+      "task": {
+        "bins": 8,
+        "capacity": 4229716,
+        "items": [
+          815883,
+          815884,
+          2597949,
+          776473,
+          776474,
+          2676769,
+          750275,
+          750276,
+          2729165,
+          793058,
+          793059,
+          2643599,
+          774965,
+          774966,
+          2679785,
+          721726,
+          721727,
+          2786263,
+          830076,
+          830077,
+          2569563,
+          794885,
+          794886,
+          2639945
+        ]
+      }
+    },
+    {
+      "arrival": 9,
+      "branch_changed": true,
+      "family": "8952d58a41c2e28f0f4a7356476188f00c502a12122ee910066120ef8eacef36",
+      "new": {
+        "attempts": [
+          {
+            "cost": 232,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 857,
+              "op": "ge",
+              "value": 444
+            },
+            "ok": true,
+            "policy": {
+              "fallback": {
+                "guard": {
+                  "feature": "bins",
+                  "op": "le",
+                  "value": 4
+                },
+                "kind": "recipe",
+                "solver": {
+                  "order": "descending",
+                  "pick": "first",
+                  "repair": "exchange"
+                },
+                "steps": [
+                  "normalize_gcd",
+                  "peel_forced"
+                ]
+              },
+              "guard": {
+                "feature": "complementary_coverage",
+                "op": "ge",
+                "value": 444
+              },
+              "kind": "recipe",
+              "solver": {
+                "order": "descending",
+                "pick": "first",
+                "repair": "none"
+              },
+              "steps": []
+            },
+            "route": {
+              "fallback": null,
+              "primary": {
+                "cost": 231,
+                "guard": {
+                  "feature": "complementary_coverage",
+                  "matched": true,
+                  "observed": 857,
+                  "op": "ge",
+                  "value": 444
+                },
+                "ok": true,
+                "search_status": null
+              },
+              "selected": "primary"
+            },
+            "search_status": null,
+            "solver_ran": true
+          }
+        ],
+        "cost": 232,
+        "ok": true,
+        "outcome": "solved",
+        "packing": [
+          [
+            1,
+            0
+          ],
+          [
+            9,
+            8
+          ],
+          [
+            7,
+            6
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            13,
+            12
+          ],
+          [
+            11,
+            10
+          ]
+        ],
+        "path": [
+          {
+            "matched": true,
+            "slot": "primary",
+            "solver": {
+              "order": "descending",
+              "pick": "first",
+              "repair": "none"
+            },
+            "steps": []
+          }
+        ]
+      },
+      "old": {
+        "attempts": [
+          {
+            "cost": 61,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 857,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "policy": {
+              "fallback": {
+                "guard": {
+                  "feature": "bins",
+                  "op": "le",
+                  "value": 4
+                },
+                "kind": "recipe",
+                "solver": {
+                  "order": "descending",
+                  "pick": "first",
+                  "repair": "exchange"
+                },
+                "steps": [
+                  "normalize_gcd",
+                  "peel_forced"
+                ]
+              },
+              "guard": {
+                "feature": "complementary_coverage",
+                "op": "ge",
+                "value": 1000
+              },
+              "kind": "recipe",
+              "solver": {
+                "order": "descending",
+                "pick": "first",
+                "repair": "none"
+              },
+              "steps": []
+            },
+            "route": {
+              "fallback": {
+                "cost": 12,
+                "guard": {
+                  "feature": "bins",
+                  "matched": false,
+                  "observed": 7,
+                  "op": "le",
+                  "value": 4
+                },
+                "ok": false,
+                "search_status": "guard_skip"
+              },
+              "primary": {
+                "cost": 48,
+                "guard": {
+                  "feature": "complementary_coverage",
+                  "matched": false,
+                  "observed": 857,
+                  "op": "ge",
+                  "value": 1000
+                },
+                "ok": false,
+                "search_status": "guard_skip"
+              },
+              "selected": "fallback"
+            },
+            "search_status": "guard_skip",
+            "solver_ran": false
+          },
+          {
+            "cost": 92,
+            "guard": null,
+            "ok": true,
+            "policy": {
+              "order": "arrival",
+              "pick": "first",
+              "repair": "none"
+            },
+            "route": null,
+            "search_status": null,
+            "solver_ran": true
+          }
+        ],
+        "cost": 153,
+        "ok": true,
+        "outcome": "solved",
+        "packing": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            8,
+            9
+          ],
+          [
+            10,
+            11
+          ],
+          [
+            12,
+            13
+          ]
+        ],
+        "path": [
+          {
+            "matched": false,
+            "slot": "primary",
+            "solver": null,
+            "steps": []
+          },
+          {
+            "matched": false,
+            "slot": "fallback",
+            "solver": null,
+            "steps": []
+          },
+          {
+            "matched": true,
+            "slot": "ordinary",
+            "solver": {
+              "order": "arrival",
+              "pick": "first",
+              "repair": "none"
+            },
+            "steps": []
+          }
+        ]
+      },
+      "shadow_calls": 3,
+      "shadow_spent": 385,
+      "task": {
+        "bins": 7,
+        "capacity": 4374233,
+        "items": [
+          1154914,
+          3219319,
+          1344597,
+          3029636,
+          1723551,
+          2650682,
+          1172674,
+          3201559,
+          1172673,
+          3201560,
+          2054218,
+          2320015,
+          1845102,
+          2529130
+        ]
+      }
+    },
+    {
+      "arrival": 10,
+      "branch_changed": true,
+      "family": "0b50ce3e6bfdcd5d798d1ce6de8089b99b6d09faae4c1b02a3e122bbaf17daf5",
+      "new": {
+        "attempts": [
+          {
+            "cost": 182,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 545,
+              "op": "ge",
+              "value": 444
+            },
+            "ok": true,
+            "policy": {
+              "fallback": {
+                "guard": {
+                  "feature": "bins",
+                  "op": "le",
+                  "value": 4
+                },
+                "kind": "recipe",
+                "solver": {
+                  "order": "descending",
+                  "pick": "first",
+                  "repair": "exchange"
+                },
+                "steps": [
+                  "normalize_gcd",
+                  "peel_forced"
+                ]
+              },
+              "guard": {
+                "feature": "complementary_coverage",
+                "op": "ge",
+                "value": 444
+              },
+              "kind": "recipe",
+              "solver": {
+                "order": "descending",
+                "pick": "first",
+                "repair": "none"
+              },
+              "steps": []
+            },
+            "route": {
+              "fallback": null,
+              "primary": {
+                "cost": 181,
+                "guard": {
+                  "feature": "complementary_coverage",
+                  "matched": true,
+                  "observed": 545,
+                  "op": "ge",
+                  "value": 444
+                },
+                "ok": true,
+                "search_status": null
+              },
+              "selected": "primary"
+            },
+            "search_status": null,
+            "solver_ran": true
+          }
+        ],
+        "cost": 182,
+        "ok": true,
+        "outcome": "solved",
+        "packing": [
+          [
+            4
+          ],
+          [
+            7
+          ],
+          [
+            10,
+            5,
+            0
+          ],
+          [
+            9,
+            1
+          ],
+          [
+            6,
+            8
+          ],
+          [
+            3,
+            2
+          ]
+        ],
+        "path": [
+          {
+            "matched": true,
+            "slot": "primary",
+            "solver": {
+              "order": "descending",
+              "pick": "first",
+              "repair": "none"
+            },
+            "steps": []
+          }
+        ]
+      },
+      "old": {
+        "attempts": [
+          {
+            "cost": 50,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 545,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "policy": {
+              "fallback": {
+                "guard": {
+                  "feature": "bins",
+                  "op": "le",
+                  "value": 4
+                },
+                "kind": "recipe",
+                "solver": {
+                  "order": "descending",
+                  "pick": "first",
+                  "repair": "exchange"
+                },
+                "steps": [
+                  "normalize_gcd",
+                  "peel_forced"
+                ]
+              },
+              "guard": {
+                "feature": "complementary_coverage",
+                "op": "ge",
+                "value": 1000
+              },
+              "kind": "recipe",
+              "solver": {
+                "order": "descending",
+                "pick": "first",
+                "repair": "none"
+              },
+              "steps": []
+            },
+            "route": {
+              "fallback": {
+                "cost": 11,
+                "guard": {
+                  "feature": "bins",
+                  "matched": false,
+                  "observed": 6,
+                  "op": "le",
+                  "value": 4
+                },
+                "ok": false,
+                "search_status": "guard_skip"
+              },
+              "primary": {
+                "cost": 38,
+                "guard": {
+                  "feature": "complementary_coverage",
+                  "matched": false,
+                  "observed": 545,
+                  "op": "ge",
+                  "value": 1000
+                },
+                "ok": false,
+                "search_status": "guard_skip"
+              },
+              "selected": "fallback"
+            },
+            "search_status": "guard_skip",
+            "solver_ran": false
+          },
+          {
+            "cost": 87,
+            "guard": null,
+            "ok": false,
+            "policy": {
+              "order": "arrival",
+              "pick": "first",
+              "repair": "none"
+            },
+            "route": null,
+            "search_status": null,
+            "solver_ran": true
+          }
+        ],
+        "cost": 137,
+        "ok": false,
+        "outcome": "unresolved",
+        "packing": [
+          [
+            0,
+            1,
+            2,
+            5
+          ],
+          [
+            3,
+            8
+          ],
+          [
+            4
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            9
+          ]
+        ],
+        "path": [
+          {
+            "matched": false,
+            "slot": "primary",
+            "solver": null,
+            "steps": []
+          },
+          {
+            "matched": false,
+            "slot": "fallback",
+            "solver": null,
+            "steps": []
+          },
+          {
+            "matched": true,
+            "slot": "ordinary",
+            "solver": {
+              "order": "arrival",
+              "pick": "first",
+              "repair": "none"
+            },
+            "steps": []
+          }
+        ]
+      },
+      "shadow_calls": 3,
+      "shadow_spent": 319,
+      "task": {
+        "bins": 6,
+        "capacity": 4401513,
+        "items": [
+          578862,
+          1400656,
+          1704289,
+          2697224,
+          4401513,
+          578863,
+          2718836,
+          4401513,
+          1682677,
+          3000857,
+          3243788
+        ]
+      }
+    },
+    {
+      "arrival": 11,
+      "branch_changed": true,
+      "family": "d45d33994f5bd3807bb9699887bd398a82a9d56a6cf3934940fed414899554dd",
+      "new": {
+        "attempts": [
+          {
+            "cost": 272,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 875,
+              "op": "ge",
+              "value": 444
+            },
+            "ok": true,
+            "policy": {
+              "fallback": {
+                "guard": {
+                  "feature": "bins",
+                  "op": "le",
+                  "value": 4
+                },
+                "kind": "recipe",
+                "solver": {
+                  "order": "descending",
+                  "pick": "first",
+                  "repair": "exchange"
+                },
+                "steps": [
+                  "normalize_gcd",
+                  "peel_forced"
+                ]
+              },
+              "guard": {
+                "feature": "complementary_coverage",
+                "op": "ge",
+                "value": 444
+              },
+              "kind": "recipe",
+              "solver": {
+                "order": "descending",
+                "pick": "first",
+                "repair": "none"
+              },
+              "steps": []
+            },
+            "route": {
+              "fallback": null,
+              "primary": {
+                "cost": 271,
+                "guard": {
+                  "feature": "complementary_coverage",
+                  "matched": true,
+                  "observed": 875,
+                  "op": "ge",
+                  "value": 444
+                },
+                "ok": true,
+                "search_status": null
+              },
+              "selected": "primary"
+            },
+            "search_status": null,
+            "solver_ran": true
+          }
+        ],
+        "cost": 272,
+        "ok": true,
+        "outcome": "solved",
+        "packing": [
+          [
+            13,
+            12
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            15,
+            14
+          ],
+          [
+            9,
+            8
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            11,
+            10
+          ],
+          [
+            7,
+            6
+          ],
+          [
+            5,
+            4
+          ]
+        ],
+        "path": [
+          {
+            "matched": true,
+            "slot": "primary",
+            "solver": {
+              "order": "descending",
+              "pick": "first",
+              "repair": "none"
+            },
+            "steps": []
+          }
+        ]
+      },
+      "old": {
+        "attempts": [
+          {
+            "cost": 68,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 875,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "policy": {
+              "fallback": {
+                "guard": {
+                  "feature": "bins",
+                  "op": "le",
+                  "value": 4
+                },
+                "kind": "recipe",
+                "solver": {
+                  "order": "descending",
+                  "pick": "first",
+                  "repair": "exchange"
+                },
+                "steps": [
+                  "normalize_gcd",
+                  "peel_forced"
+                ]
+              },
+              "guard": {
+                "feature": "complementary_coverage",
+                "op": "ge",
+                "value": 1000
+              },
+              "kind": "recipe",
+              "solver": {
+                "order": "descending",
+                "pick": "first",
+                "repair": "none"
+              },
+              "steps": []
+            },
+            "route": {
+              "fallback": {
+                "cost": 13,
+                "guard": {
+                  "feature": "bins",
+                  "matched": false,
+                  "observed": 8,
+                  "op": "le",
+                  "value": 4
+                },
+                "ok": false,
+                "search_status": "guard_skip"
+              },
+              "primary": {
+                "cost": 54,
+                "guard": {
+                  "feature": "complementary_coverage",
+                  "matched": false,
+                  "observed": 875,
+                  "op": "ge",
+                  "value": 1000
+                },
+                "ok": false,
+                "search_status": "guard_skip"
+              },
+              "selected": "fallback"
+            },
+            "search_status": "guard_skip",
+            "solver_ran": false
+          },
+          {
+            "cost": 113,
+            "guard": null,
+            "ok": true,
+            "policy": {
+              "order": "arrival",
+              "pick": "first",
+              "repair": "none"
+            },
+            "route": null,
+            "search_status": null,
+            "solver_ran": true
+          }
+        ],
+        "cost": 181,
+        "ok": true,
+        "outcome": "solved",
+        "packing": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            8,
+            9
+          ],
+          [
+            10,
+            11
+          ],
+          [
+            12,
+            13
+          ],
+          [
+            14,
+            15
+          ]
+        ],
+        "path": [
+          {
+            "matched": false,
+            "slot": "primary",
+            "solver": null,
+            "steps": []
+          },
+          {
+            "matched": false,
+            "slot": "fallback",
+            "solver": null,
+            "steps": []
+          },
+          {
+            "matched": true,
+            "slot": "ordinary",
+            "solver": {
+              "order": "arrival",
+              "pick": "first",
+              "repair": "none"
+            },
+            "steps": []
+          }
+        ]
+      },
+      "shadow_calls": 3,
+      "shadow_spent": 453,
+      "task": {
+        "bins": 8,
+        "capacity": 4563554,
+        "items": [
+          1359210,
+          3204344,
+          1972684,
+          2590870,
+          2209195,
+          2354359,
+          2190321,
+          2373233,
+          1747584,
+          2815970,
+          1972685,
+          2590869,
+          1269669,
+          3293885,
+          1550355,
+          3013198
+        ]
+      }
+    },
+    {
+      "arrival": 13,
+      "branch_changed": true,
+      "family": "73925b3bbed3c843b5a3880aa17f30ab2980b4c9a7044f3574d678cc08e790e9",
+      "new": {
+        "attempts": [
+          {
+            "cost": 182,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 909,
+              "op": "ge",
+              "value": 444
+            },
+            "ok": true,
+            "policy": {
+              "fallback": {
+                "guard": {
+                  "feature": "bins",
+                  "op": "le",
+                  "value": 4
+                },
+                "kind": "recipe",
+                "solver": {
+                  "order": "descending",
+                  "pick": "first",
+                  "repair": "exchange"
+                },
+                "steps": [
+                  "normalize_gcd",
+                  "peel_forced"
+                ]
+              },
+              "guard": {
+                "feature": "complementary_coverage",
+                "op": "ge",
+                "value": 444
+              },
+              "kind": "recipe",
+              "solver": {
+                "order": "descending",
+                "pick": "first",
+                "repair": "none"
+              },
+              "steps": []
+            },
+            "route": {
+              "fallback": null,
+              "primary": {
+                "cost": 181,
+                "guard": {
+                  "feature": "complementary_coverage",
+                  "matched": true,
+                  "observed": 909,
+                  "op": "ge",
+                  "value": 444
+                },
+                "ok": true,
+                "search_status": null
+              },
+              "selected": "primary"
+            },
+            "search_status": null,
+            "solver_ran": true
+          }
+        ],
+        "cost": 182,
+        "ok": true,
+        "outcome": "solved",
+        "packing": [
+          [
+            1
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            10,
+            0
+          ],
+          [
+            5,
+            9
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            3,
+            7
+          ]
+        ],
+        "path": [
+          {
+            "matched": true,
+            "slot": "primary",
+            "solver": {
+              "order": "descending",
+              "pick": "first",
+              "repair": "none"
+            },
+            "steps": []
+          }
+        ]
+      },
+      "old": {
+        "attempts": [
+          {
+            "cost": 51,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 909,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "policy": {
+              "fallback": {
+                "guard": {
+                  "feature": "bins",
+                  "op": "le",
+                  "value": 4
+                },
+                "kind": "recipe",
+                "solver": {
+                  "order": "descending",
+                  "pick": "first",
+                  "repair": "exchange"
+                },
+                "steps": [
+                  "normalize_gcd",
+                  "peel_forced"
+                ]
+              },
+              "guard": {
+                "feature": "complementary_coverage",
+                "op": "ge",
+                "value": 1000
+              },
+              "kind": "recipe",
+              "solver": {
+                "order": "descending",
+                "pick": "first",
+                "repair": "none"
+              },
+              "steps": []
+            },
+            "route": {
+              "fallback": {
+                "cost": 11,
+                "guard": {
+                  "feature": "bins",
+                  "matched": false,
+                  "observed": 6,
+                  "op": "le",
+                  "value": 4
+                },
+                "ok": false,
+                "search_status": "guard_skip"
+              },
+              "primary": {
+                "cost": 39,
+                "guard": {
+                  "feature": "complementary_coverage",
+                  "matched": false,
+                  "observed": 909,
+                  "op": "ge",
+                  "value": 1000
+                },
+                "ok": false,
+                "search_status": "guard_skip"
+              },
+              "selected": "fallback"
+            },
+            "search_status": "guard_skip",
+            "solver_ran": false
+          },
+          {
+            "cost": 88,
+            "guard": null,
+            "ok": false,
+            "policy": {
+              "order": "arrival",
+              "pick": "first",
+              "repair": "none"
+            },
+            "route": null,
+            "search_status": null,
+            "solver_ran": true
+          }
+        ],
+        "cost": 139,
+        "ok": false,
+        "outcome": "unresolved",
+        "packing": [
+          [
+            0,
+            2,
+            6,
+            9
+          ],
+          [
+            1
+          ],
+          [
+            3,
+            7
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            8
+          ]
+        ],
+        "path": [
+          {
+            "matched": false,
+            "slot": "primary",
+            "solver": null,
+            "steps": []
+          },
+          {
+            "matched": false,
+            "slot": "fallback",
+            "solver": null,
+            "steps": []
+          },
+          {
+            "matched": true,
+            "slot": "ordinary",
+            "solver": {
+              "order": "arrival",
+              "pick": "first",
+              "repair": "none"
+            },
+            "steps": []
+          }
+        ]
+      },
+      "shadow_calls": 3,
+      "shadow_spent": 321,
+      "task": {
+        "bins": 6,
+        "capacity": 4691450,
+        "items": [
+          697642,
+          4691450,
+          1846032,
+          2510153,
+          3993809,
+          3340383,
+          697641,
+          2181297,
+          2845418,
+          1351067,
+          3993808
+        ]
+      }
+    },
+    {
+      "arrival": 14,
+      "branch_changed": true,
+      "family": "47d078fd2d26f5040646773cee777c7ecf5509efa77fbddc6f2b3ac8d89d02b6",
+      "new": {
+        "attempts": [
+          {
+            "cost": 146,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 888,
+              "op": "ge",
+              "value": 444
+            },
+            "ok": true,
+            "policy": {
+              "fallback": {
+                "guard": {
+                  "feature": "bins",
+                  "op": "le",
+                  "value": 4
+                },
+                "kind": "recipe",
+                "solver": {
+                  "order": "descending",
+                  "pick": "first",
+                  "repair": "exchange"
+                },
+                "steps": [
+                  "normalize_gcd",
+                  "peel_forced"
+                ]
+              },
+              "guard": {
+                "feature": "complementary_coverage",
+                "op": "ge",
+                "value": 444
+              },
+              "kind": "recipe",
+              "solver": {
+                "order": "descending",
+                "pick": "first",
+                "repair": "none"
+              },
+              "steps": []
+            },
+            "route": {
+              "fallback": null,
+              "primary": {
+                "cost": 145,
+                "guard": {
+                  "feature": "complementary_coverage",
+                  "matched": true,
+                  "observed": 888,
+                  "op": "ge",
+                  "value": 444
+                },
+                "ok": true,
+                "search_status": null
+              },
+              "selected": "primary"
+            },
+            "search_status": null,
+            "solver_ran": true
+          }
+        ],
+        "cost": 146,
+        "ok": true,
+        "outcome": "solved",
+        "packing": [
+          [
+            2
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            6
+          ]
+        ],
+        "path": [
+          {
+            "matched": true,
+            "slot": "primary",
+            "solver": {
+              "order": "descending",
+              "pick": "first",
+              "repair": "none"
+            },
+            "steps": []
+          }
+        ]
+      },
+      "old": {
+        "attempts": [
+          {
+            "cost": 44,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 888,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "policy": {
+              "fallback": {
+                "guard": {
+                  "feature": "bins",
+                  "op": "le",
+                  "value": 4
+                },
+                "kind": "recipe",
+                "solver": {
+                  "order": "descending",
+                  "pick": "first",
+                  "repair": "exchange"
+                },
+                "steps": [
+                  "normalize_gcd",
+                  "peel_forced"
+                ]
+              },
+              "guard": {
+                "feature": "complementary_coverage",
+                "op": "ge",
+                "value": 1000
+              },
+              "kind": "recipe",
+              "solver": {
+                "order": "descending",
+                "pick": "first",
+                "repair": "none"
+              },
+              "steps": []
+            },
+            "route": {
+              "fallback": {
+                "cost": 10,
+                "guard": {
+                  "feature": "bins",
+                  "matched": false,
+                  "observed": 5,
+                  "op": "le",
+                  "value": 4
+                },
+                "ok": false,
+                "search_status": "guard_skip"
+              },
+              "primary": {
+                "cost": 33,
+                "guard": {
+                  "feature": "complementary_coverage",
+                  "matched": false,
+                  "observed": 888,
+                  "op": "ge",
+                  "value": 1000
+                },
+                "ok": false,
+                "search_status": "guard_skip"
+              },
+              "selected": "fallback"
+            },
+            "search_status": "guard_skip",
+            "solver_ran": false
+          },
+          {
+            "cost": 51,
+            "guard": null,
+            "ok": true,
+            "policy": {
+              "order": "arrival",
+              "pick": "first",
+              "repair": "none"
+            },
+            "route": null,
+            "search_status": null,
+            "solver_ran": true
+          }
+        ],
+        "cost": 95,
+        "ok": true,
+        "outcome": "solved",
+        "packing": [
+          [
+            0,
+            8
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            5,
+            7
+          ]
+        ],
+        "path": [
+          {
+            "matched": false,
+            "slot": "primary",
+            "solver": null,
+            "steps": []
+          },
+          {
+            "matched": false,
+            "slot": "fallback",
+            "solver": null,
+            "steps": []
+          },
+          {
+            "matched": true,
+            "slot": "ordinary",
+            "solver": {
+              "order": "arrival",
+              "pick": "first",
+              "repair": "none"
+            },
+            "steps": []
+          }
+        ]
+      },
+      "shadow_calls": 3,
+      "shadow_spent": 241,
+      "task": {
+        "bins": 5,
+        "capacity": 4746370,
+        "items": [
+          4152641,
+          1200836,
+          4746370,
+          3545534,
+          3192918,
+          4152640,
+          1553452,
+          593730,
+          593729
+        ]
+      }
+    },
+    {
+      "arrival": 16,
+      "branch_changed": true,
+      "family": "8640da23959adde0217463df4d3b9fc44580f4a0fd66cce754576c9ac0a1aa0e",
+      "new": {
+        "attempts": [
+          {
+            "cost": 272,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 875,
+              "op": "ge",
+              "value": 444
+            },
+            "ok": true,
+            "policy": {
+              "fallback": {
+                "guard": {
+                  "feature": "bins",
+                  "op": "le",
+                  "value": 4
+                },
+                "kind": "recipe",
+                "solver": {
+                  "order": "descending",
+                  "pick": "first",
+                  "repair": "exchange"
+                },
+                "steps": [
+                  "normalize_gcd",
+                  "peel_forced"
+                ]
+              },
+              "guard": {
+                "feature": "complementary_coverage",
+                "op": "ge",
+                "value": 444
+              },
+              "kind": "recipe",
+              "solver": {
+                "order": "descending",
+                "pick": "first",
+                "repair": "none"
+              },
+              "steps": []
+            },
+            "route": {
+              "fallback": null,
+              "primary": {
+                "cost": 271,
+                "guard": {
+                  "feature": "complementary_coverage",
+                  "matched": true,
+                  "observed": 875,
+                  "op": "ge",
+                  "value": 444
+                },
+                "ok": true,
+                "search_status": null
+              },
+              "selected": "primary"
+            },
+            "search_status": null,
+            "solver_ran": true
+          }
+        ],
+        "cost": 272,
+        "ok": true,
+        "outcome": "solved",
+        "packing": [
+          [
+            15,
+            0
+          ],
+          [
+            10,
+            5
+          ],
+          [
+            14,
+            6
+          ],
+          [
+            8,
+            7
+          ],
+          [
+            12,
+            2
+          ],
+          [
+            13,
+            1
+          ],
+          [
+            9,
+            4
+          ],
+          [
+            11,
+            3
+          ]
+        ],
+        "path": [
+          {
+            "matched": true,
+            "slot": "primary",
+            "solver": {
+              "order": "descending",
+              "pick": "first",
+              "repair": "none"
+            },
+            "steps": []
+          }
+        ]
+      },
+      "old": {
+        "attempts": [
+          {
+            "cost": 68,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 875,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "policy": {
+              "fallback": {
+                "guard": {
+                  "feature": "bins",
+                  "op": "le",
+                  "value": 4
+                },
+                "kind": "recipe",
+                "solver": {
+                  "order": "descending",
+                  "pick": "first",
+                  "repair": "exchange"
+                },
+                "steps": [
+                  "normalize_gcd",
+                  "peel_forced"
+                ]
+              },
+              "guard": {
+                "feature": "complementary_coverage",
+                "op": "ge",
+                "value": 1000
+              },
+              "kind": "recipe",
+              "solver": {
+                "order": "descending",
+                "pick": "first",
+                "repair": "none"
+              },
+              "steps": []
+            },
+            "route": {
+              "fallback": {
+                "cost": 13,
+                "guard": {
+                  "feature": "bins",
+                  "matched": false,
+                  "observed": 8,
+                  "op": "le",
+                  "value": 4
+                },
+                "ok": false,
+                "search_status": "guard_skip"
+              },
+              "primary": {
+                "cost": 54,
+                "guard": {
+                  "feature": "complementary_coverage",
+                  "matched": false,
+                  "observed": 875,
+                  "op": "ge",
+                  "value": 1000
+                },
+                "ok": false,
+                "search_status": "guard_skip"
+              },
+              "selected": "fallback"
+            },
+            "search_status": "guard_skip",
+            "solver_ran": false
+          },
+          {
+            "cost": 127,
+            "guard": null,
+            "ok": false,
+            "policy": {
+              "order": "arrival",
+              "pick": "first",
+              "repair": "none"
+            },
+            "route": null,
+            "search_status": null,
+            "solver_ran": true
+          }
+        ],
+        "cost": 195,
+        "ok": false,
+        "outcome": "unresolved",
+        "packing": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            10
+          ],
+          [
+            11
+          ]
+        ],
+        "path": [
+          {
+            "matched": false,
+            "slot": "primary",
+            "solver": null,
+            "steps": []
+          },
+          {
+            "matched": false,
+            "slot": "fallback",
+            "solver": null,
+            "steps": []
+          },
+          {
+            "matched": true,
+            "slot": "ordinary",
+            "solver": {
+              "order": "arrival",
+              "pick": "first",
+              "repair": "none"
+            },
+            "steps": []
+          }
+        ]
+      },
+      "shadow_calls": 3,
+      "shadow_spent": 467,
+      "task": {
+        "bins": 8,
+        "capacity": 4835868,
+        "items": [
+          1465400,
+          2030661,
+          1925585,
+          2204319,
+          2097866,
+          1530223,
+          1637202,
+          1925584,
+          2910284,
+          2738002,
+          3305645,
+          2631549,
+          2910283,
+          2805207,
+          3198666,
+          3370467
+        ]
+      }
+    },
+    {
+      "arrival": 17,
+      "branch_changed": false,
+      "family": "e1579901c25b9ae0320fa1e324750b92eee5e77c0e39c0e6855fa15cc4fdcee4",
+      "new": {
+        "attempts": [
+          {
+            "cost": 232,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 1000,
+              "op": "ge",
+              "value": 444
+            },
+            "ok": true,
+            "policy": {
+              "fallback": {
+                "guard": {
+                  "feature": "bins",
+                  "op": "le",
+                  "value": 4
+                },
+                "kind": "recipe",
+                "solver": {
+                  "order": "descending",
+                  "pick": "first",
+                  "repair": "exchange"
+                },
+                "steps": [
+                  "normalize_gcd",
+                  "peel_forced"
+                ]
+              },
+              "guard": {
+                "feature": "complementary_coverage",
+                "op": "ge",
+                "value": 444
+              },
+              "kind": "recipe",
+              "solver": {
+                "order": "descending",
+                "pick": "first",
+                "repair": "none"
+              },
+              "steps": []
+            },
+            "route": {
+              "fallback": null,
+              "primary": {
+                "cost": 231,
+                "guard": {
+                  "feature": "complementary_coverage",
+                  "matched": true,
+                  "observed": 1000,
+                  "op": "ge",
+                  "value": 444
+                },
+                "ok": true,
+                "search_status": null
+              },
+              "selected": "primary"
+            },
+            "search_status": null,
+            "solver_ran": true
+          }
+        ],
+        "cost": 232,
+        "ok": true,
+        "outcome": "solved",
+        "packing": [
+          [
+            10,
+            1
+          ],
+          [
+            11,
+            4
+          ],
+          [
+            12,
+            2
+          ],
+          [
+            13,
+            3
+          ],
+          [
+            8,
+            5
+          ],
+          [
+            9,
+            0
+          ],
+          [
+            7,
+            6
+          ]
+        ],
+        "path": [
+          {
+            "matched": true,
+            "slot": "primary",
+            "solver": {
+              "order": "descending",
+              "pick": "first",
+              "repair": "none"
+            },
+            "steps": []
+          }
+        ]
+      },
+      "old": {
+        "attempts": [
+          {
+            "cost": 232,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 1000,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": true,
+            "policy": {
+              "fallback": {
+                "guard": {
+                  "feature": "bins",
+                  "op": "le",
+                  "value": 4
+                },
+                "kind": "recipe",
+                "solver": {
+                  "order": "descending",
+                  "pick": "first",
+                  "repair": "exchange"
+                },
+                "steps": [
+                  "normalize_gcd",
+                  "peel_forced"
+                ]
+              },
+              "guard": {
+                "feature": "complementary_coverage",
+                "op": "ge",
+                "value": 1000
+              },
+              "kind": "recipe",
+              "solver": {
+                "order": "descending",
+                "pick": "first",
+                "repair": "none"
+              },
+              "steps": []
+            },
+            "route": {
+              "fallback": null,
+              "primary": {
+                "cost": 231,
+                "guard": {
+                  "feature": "complementary_coverage",
+                  "matched": true,
+                  "observed": 1000,
+                  "op": "ge",
+                  "value": 1000
+                },
+                "ok": true,
+                "search_status": null
+              },
+              "selected": "primary"
+            },
+            "search_status": null,
+            "solver_ran": true
+          }
+        ],
+        "cost": 232,
+        "ok": true,
+        "outcome": "solved",
+        "packing": [
+          [
+            10,
+            1
+          ],
+          [
+            11,
+            4
+          ],
+          [
+            12,
+            2
+          ],
+          [
+            13,
+            3
+          ],
+          [
+            8,
+            5
+          ],
+          [
+            9,
+            0
+          ],
+          [
+            7,
+            6
+          ]
+        ],
+        "path": [
+          {
+            "matched": true,
+            "slot": "primary",
+            "solver": {
+              "order": "descending",
+              "pick": "first",
+              "repair": "none"
+            },
+            "steps": []
+          }
+        ]
+      },
+      "shadow_calls": 2,
+      "shadow_spent": 464,
+      "task": {
+        "bins": 7,
+        "capacity": 4993475,
+        "items": [
+          1774132,
+          1295791,
+          1555886,
+          1592960,
+          1555885,
+          1640341,
+          2135652,
+          2857823,
+          3353134,
+          3219343,
+          3697684,
+          3437590,
+          3437589,
+          3400515
+        ]
+      }
+    },
+    {
+      "arrival": 18,
+      "branch_changed": false,
+      "family": "a345abb303467c4d99e44ebde3f21aed076561f1a2099b13d42ec59c278721f7",
+      "new": {
+        "attempts": [
+          {
+            "cost": 72,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 444
+            },
+            "ok": false,
+            "policy": {
+              "fallback": {
+                "guard": {
+                  "feature": "bins",
+                  "op": "le",
+                  "value": 4
+                },
+                "kind": "recipe",
+                "solver": {
+                  "order": "descending",
+                  "pick": "first",
+                  "repair": "exchange"
+                },
+                "steps": [
+                  "normalize_gcd",
+                  "peel_forced"
+                ]
+              },
+              "guard": {
+                "feature": "complementary_coverage",
+                "op": "ge",
+                "value": 444
+              },
+              "kind": "recipe",
+              "solver": {
+                "order": "descending",
+                "pick": "first",
+                "repair": "none"
+              },
+              "steps": []
+            },
+            "route": {
+              "fallback": {
+                "cost": 11,
+                "guard": {
+                  "feature": "bins",
+                  "matched": false,
+                  "observed": 6,
+                  "op": "le",
+                  "value": 4
+                },
+                "ok": false,
+                "search_status": "guard_skip"
+              },
+              "primary": {
+                "cost": 60,
+                "guard": {
+                  "feature": "complementary_coverage",
+                  "matched": false,
+                  "observed": 0,
+                  "op": "ge",
+                  "value": 444
+                },
+                "ok": false,
+                "search_status": "guard_skip"
+              },
+              "selected": "fallback"
+            },
+            "search_status": "guard_skip",
+            "solver_ran": false
+          },
+          {
+            "cost": 106,
+            "guard": null,
+            "ok": true,
+            "policy": {
+              "order": "arrival",
+              "pick": "first",
+              "repair": "none"
+            },
+            "route": null,
+            "search_status": null,
+            "solver_ran": true
+          }
+        ],
+        "cost": 178,
+        "ok": true,
+        "outcome": "solved",
+        "packing": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            3,
+            4,
+            5
+          ],
+          [
+            6,
+            7,
+            8
+          ],
+          [
+            9,
+            10,
+            11
+          ],
+          [
+            12,
+            13,
+            14
+          ],
+          [
+            15,
+            16,
+            17
+          ]
+        ],
+        "path": [
+          {
+            "matched": false,
+            "slot": "primary",
+            "solver": null,
+            "steps": []
+          },
+          {
+            "matched": false,
+            "slot": "fallback",
+            "solver": null,
+            "steps": []
+          },
+          {
+            "matched": true,
+            "slot": "ordinary",
+            "solver": {
+              "order": "arrival",
+              "pick": "first",
+              "repair": "none"
+            },
+            "steps": []
+          }
+        ]
+      },
+      "old": {
+        "attempts": [
+          {
+            "cost": 72,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "policy": {
+              "fallback": {
+                "guard": {
+                  "feature": "bins",
+                  "op": "le",
+                  "value": 4
+                },
+                "kind": "recipe",
+                "solver": {
+                  "order": "descending",
+                  "pick": "first",
+                  "repair": "exchange"
+                },
+                "steps": [
+                  "normalize_gcd",
+                  "peel_forced"
+                ]
+              },
+              "guard": {
+                "feature": "complementary_coverage",
+                "op": "ge",
+                "value": 1000
+              },
+              "kind": "recipe",
+              "solver": {
+                "order": "descending",
+                "pick": "first",
+                "repair": "none"
+              },
+              "steps": []
+            },
+            "route": {
+              "fallback": {
+                "cost": 11,
+                "guard": {
+                  "feature": "bins",
+                  "matched": false,
+                  "observed": 6,
+                  "op": "le",
+                  "value": 4
+                },
+                "ok": false,
+                "search_status": "guard_skip"
+              },
+              "primary": {
+                "cost": 60,
+                "guard": {
+                  "feature": "complementary_coverage",
+                  "matched": false,
+                  "observed": 0,
+                  "op": "ge",
+                  "value": 1000
+                },
+                "ok": false,
+                "search_status": "guard_skip"
+              },
+              "selected": "fallback"
+            },
+            "search_status": "guard_skip",
+            "solver_ran": false
+          },
+          {
+            "cost": 106,
+            "guard": null,
+            "ok": true,
+            "policy": {
+              "order": "arrival",
+              "pick": "first",
+              "repair": "none"
+            },
+            "route": null,
+            "search_status": null,
+            "solver_ran": true
+          }
+        ],
+        "cost": 178,
+        "ok": true,
+        "outcome": "solved",
+        "packing": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            3,
+            4,
+            5
+          ],
+          [
+            6,
+            7,
+            8
+          ],
+          [
+            9,
+            10,
+            11
+          ],
+          [
+            12,
+            13,
+            14
+          ],
+          [
+            15,
+            16,
+            17
+          ]
+        ],
+        "path": [
+          {
+            "matched": false,
+            "slot": "primary",
+            "solver": null,
+            "steps": []
+          },
+          {
+            "matched": false,
+            "slot": "fallback",
+            "solver": null,
+            "steps": []
+          },
+          {
+            "matched": true,
+            "slot": "ordinary",
+            "solver": {
+              "order": "arrival",
+              "pick": "first",
+              "repair": "none"
+            },
+            "steps": []
+          }
+        ]
+      },
+      "shadow_calls": 3,
+      "shadow_spent": 250,
+      "task": {
+        "bins": 6,
+        "capacity": 5058775,
+        "items": [
+          941848,
+          941849,
+          3175078,
+          1009080,
+          1009081,
+          3040614,
+          859202,
+          859203,
+          3340370,
+          993537,
+          993538,
+          3071700,
+          926874,
+          926875,
+          3205026,
+          860145,
+          860146,
+          3338484
+        ]
+      }
+    }
+  ],
+  "scope": "precommitted synthetic observe stream; no estimate of real workload frequency",
+  "state_source_unchanged": true,
+  "status": {
+    "after_event": 12,
+    "arrivals": 18,
+    "branch_changes": 8,
+    "build": "8dfb6655e596523fd0190c739c4c22cfa4ffe21edee0b6109d276c1a494836e1",
+    "compared": 12,
+    "duplicates": 3,
+    "eligible": 12,
+    "errors": 0,
+    "event_id": 12,
+    "gains": 5,
+    "limit": 12,
+    "losses": 0,
+    "new_chain": [
+      {
+        "fallback": {
+          "guard": {
+            "feature": "bins",
+            "op": "le",
+            "value": 4
+          },
+          "kind": "recipe",
+          "solver": {
+            "order": "descending",
+            "pick": "first",
+            "repair": "exchange"
+          },
+          "steps": [
+            "normalize_gcd",
+            "peel_forced"
+          ]
+        },
+        "guard": {
+          "feature": "complementary_coverage",
+          "op": "ge",
+          "value": 444
+        },
+        "kind": "recipe",
+        "solver": {
+          "order": "descending",
+          "pick": "first",
+          "repair": "none"
+        },
+        "steps": []
+      },
+      {
+        "order": "arrival",
+        "pick": "first",
+        "repair": "none"
+      }
+    ],
+    "new_cost": 2530,
+    "new_ok": 12,
+    "new_on_old_success_cost": 1589,
+    "nominee_sha256": "6ff6f1d1f2b790fbd42b5af9c2a5054c670443923d0984a8a89bfec0af01e2ef",
+    "old_chain": [
+      {
+        "fallback": {
+          "guard": {
+            "feature": "bins",
+            "op": "le",
+            "value": 4
+          },
+          "kind": "recipe",
+          "solver": {
+            "order": "descending",
+            "pick": "first",
+            "repair": "exchange"
+          },
+          "steps": [
+            "normalize_gcd",
+            "peel_forced"
+          ]
+        },
+        "guard": {
+          "feature": "complementary_coverage",
+          "op": "ge",
+          "value": 1000
+        },
+        "kind": "recipe",
+        "solver": {
+          "order": "descending",
+          "pick": "first",
+          "repair": "none"
+        },
+        "steps": []
+      },
+      {
+        "order": "arrival",
+        "pick": "first",
+        "repair": "none"
+      }
+    ],
+    "old_cost": 2069,
+    "old_ok": 7,
+    "old_success_cost": 1368,
+    "prior": 3,
+    "research_build": "84a1a1a26dce0acbfff0450ec1f1b32b2ab42887339ddea4f9f9a346c84cdcde",
+    "revision": 2,
+    "shadow_calls": 34,
+    "shadow_spent": 4328,
+    "source": "observe",
+    "state": "closed"
+  }
+}
