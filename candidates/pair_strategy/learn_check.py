@@ -56,7 +56,7 @@ def run(tasks, policies, skills, budget=128):
             direct = Bench().apply(tasks[i], [report["finalist"], *ordinary])
             assert (direct["cost"], direct["ok"]) == (verified["cost"], verified["ok"])
     for saved in report["practice_solutions"]:
-        raw = engine.run(tasks[saved["task_index"]], report["candidates"][saved["candidate"]]["program"])
+        raw = Bench().single(tasks[saved["task_index"]], report["candidates"][saved["candidate"]]["program"])
         assert raw["cost"] == saved["cost"] and arena.check(tasks[saved["task_index"]], raw["packing"])
     return report
 
@@ -88,9 +88,19 @@ def check():
     routed = run(tasks, [old, base], [descending])
     assert routed["program"]["fallback"] == old and routed["comparison"]["gains"] == 6
     upgraded = run(tasks, [routed["program"], base], controls)
-    assert upgraded["fallback_calls"] == len(tasks)
+    assert upgraded["fallback_calls"] == 0
+    assert upgraded["fallback"] == upgraded["baseline"]
     if upgraded["program"]:
-        assert upgraded["program"]["fallback"] == old
+        kept = upgraded["program"]
+        original = routed["program"]
+        if kept["fallback"] == original["fallback"]:
+            assert dict(kept, guard=original["guard"]) == original
+            widened, prior = kept["guard"], original["guard"]
+        else:
+            widened, prior = kept["fallback"]["guard"], old["guard"]
+            assert dict(kept, fallback=dict(kept["fallback"], guard=prior)) == original
+        assert dict(widened, value=prior["value"]) == prior
+        assert (widened["value"] < prior["value"] if prior["op"] == "ge" else widened["value"] > prior["value"])
     assert run(tasks, [base], controls, 23)["calls"] == 0
     for budget in (24, 35, 36, 47, 48, 63, 128):
         run(tasks, [base], controls, budget)

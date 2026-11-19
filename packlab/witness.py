@@ -50,6 +50,16 @@ def _check(task, result):
 
 
 def _controls(program, policies):
+    previous = policies[0]
+    if "fallback" in program and "fallback" in previous:
+        # A single changed threshold has an exact intervention. Preserve both
+        # solvers and their shared execution costs while reverting that edit.
+        if program != previous:
+            if dict(program, guard=previous["guard"]) == previous:
+                return [("previous_primary_guard", list(policies))]
+            restored = dict(program["fallback"], guard=previous["fallback"]["guard"])
+            if dict(program, fallback=restored) == previous:
+                return [("previous_fallback_guard", list(policies))]
     steps = program["steps"]
     result = []
     for i, step in enumerate(steps):
