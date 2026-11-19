@@ -43,7 +43,7 @@ def validate_task(task):
     return task
 
 
-def sample(seed, phase, seen, labels=None):
+def sample(seed, phase, seen, labels=None, exclude=None):
     limit = RULES["max_" + phase]
     result = []
     for task, info in zip(arena.cases(seed, phase), arena.case_expectations(phase)):
@@ -51,6 +51,10 @@ def sample(seed, phase, seen, labels=None):
         key = task_key(task)
         if key in seen:
             continue
+        if exclude is not None:
+            from .research import family_id
+            if exclude(family_id(task), phase):
+                continue
         seen.add(key)
         result.append(task)
         if labels is not None:
@@ -114,7 +118,7 @@ def proven_impossible(result):
     return block.get("reason") in ("oversize", "total_excess") or trace["search_status"] == "infeasible"
 
 
-def run_round(task, policies, generation, seed, previous_trial=None, bench=None):
+def run_round(task, policies, generation, seed, previous_trial=None, bench=None, exclude=None):
     bench = bench if bench is not None else Bench()
     before = bench.apply(task, policies)
     report = dict(task=task, generation_before=generation, generation=generation,
@@ -178,8 +182,8 @@ def run_round(task, policies, generation, seed, previous_trial=None, bench=None)
     report["answer"] = {"source": "trial", "packing": bench.single(task, candidate)["packing"]}
     # The nominee is fixed. No feedback from either group reaches proposal or ranking.
     labels = {}
-    holdout = bench.compare(sample(seed, "holdout", seen, labels), policies, candidate, labels)
-    regression = bench.compare(sample(seed, "regression", seen, labels), policies, candidate, labels)
+    holdout = bench.compare(sample(seed, "holdout", seen, labels, exclude), policies, candidate, labels)
+    regression = bench.compare(sample(seed, "regression", seen, labels, exclude), policies, candidate, labels)
     report["holdout"], report["regression"] = holdout, regression
     old_cost = holdout["old_cost"] + regression["old_cost"]
     new_cost = holdout["new_cost"] + regression["new_cost"]

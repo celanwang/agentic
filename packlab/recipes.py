@@ -156,7 +156,8 @@ def route_features(task, *, ops=None):
 
 def run(task, program):
     validate(program)
-    primary = _run_leaf(task, program)
+    inputs = _inputs(task)
+    primary = _run_leaf(inputs, program, discard_skipped="fallback" in program)
     if "fallback" not in program:
         return primary
 
@@ -164,7 +165,7 @@ def run(task, program):
 
     fallback = None
     if not primary["ok"] and not proven_impossible(primary):
-        fallback = _run_leaf(task, program["fallback"])
+        fallback = _run_leaf(inputs, program["fallback"], reused_input=True)
     result = fallback if fallback is not None else primary
     ops = dict(primary["trace"]["ops"], recipe_route=1)
     if fallback is not None:
@@ -186,10 +187,11 @@ def run(task, program):
     return dict(result, trace=trace, cost=sum(ops.values()))
 
 
-def _run_leaf(task, program):
-    capacity, count, sizes = _inputs(task)
+def _run_leaf(inputs, program, *, reused_input=False, discard_skipped=False):
+    capacity, count, sizes = inputs
     original_capacity, original_sizes = capacity, sizes
-    ops = dict(recipe_setup=4 + len(sizes) + len(program["steps"]), recipe_features=0,
+    input_checks = 0 if reused_input else 3 + len(sizes)
+    ops = dict(recipe_setup=1 + input_checks + len(program["steps"]), recipe_features=0,
                recipe_guard=0, recipe_gcd=0, recipe_isolation=0,
                recipe_transform=0, recipe_inverse=0)
     trace = {"blocked": None, "repaired": [], "search_status": None, "ops": ops,
@@ -207,6 +209,9 @@ def _run_leaf(task, program):
         ops["recipe_guard"] += 1
         if not matched:
             trace["search_status"] = "guard_skip"
+            # A skipped primary always falls through; its packing is never returned.
+            if discard_skipped:
+                return finish(False, None)
             ops["recipe_inverse"] += count
             return finish(False, [[] for _ in range(count)])
 

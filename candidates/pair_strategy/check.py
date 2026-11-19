@@ -57,15 +57,21 @@ def routes(task, primary, fallback, selected, ok):
     assert result["ok"] == expected["ok"] == ok and result["packing"] == expected["packing"]
     assert result["trace"]["guard"] == a["trace"]["guard"]
     assert result["trace"]["route"]["selected"] == selected
-    assert result["trace"]["route"]["primary"]["cost"] == a["cost"]
+    primary_cost = a["cost"]
+    fallback_cost = 0
+    if selected == "fallback":
+        fallback_cost = expected["cost"] - (3 + len(task["items"]))
+        if a["trace"]["search_status"] == "guard_skip":
+            primary_cost -= task["bins"]
+    assert result["trace"]["route"]["primary"]["cost"] == primary_cost
     assert result["trace"]["blocked"] == expected["trace"]["blocked"]
     assert result["trace"]["search_status"] == expected["trace"]["search_status"]
     branch = result["trace"]["route"]["fallback"]
-    assert branch == (dict(ok=expected["ok"], cost=expected["cost"],
+    assert branch == (dict(ok=expected["ok"], cost=fallback_cost,
                            guard=expected["trace"]["guard"],
                            search_status=expected["trace"]["search_status"])
                       if selected == "fallback" else None)
-    assert result["cost"] == 1 + a["cost"] + (expected["cost"] if branch is not None else 0)
+    assert result["cost"] == 1 + primary_cost + fallback_cost
     assert result["cost"] == sum(result["trace"]["ops"].values())
     if ok:
         assert arena.check(task, result["packing"])

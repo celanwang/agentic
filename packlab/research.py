@@ -147,13 +147,13 @@ def experience(history, policies, practice):
     return skills, sources, sum(r["cost"] for r in discovery.cache.values())
 
 
-def test_sets(seed, practice, prior_input):
+def test_sets(seed, practice, prior_input, exclude=None):
     seen = {family_id(t) for t in practice}
     for phase in ("holdout", "regression"):
         tasks = []
         for task, (profile, feasible) in zip(arena.cases(seed, phase), arena.case_expectations(phase)):
             key = family_id(task)
-            if key not in seen and not prior_input(key):
+            if key not in seen and not prior_input(key) and not (exclude and exclude(key, phase)):
                 tasks.append((task, profile, feasible))
                 seen.add(key)
         yield tasks
@@ -169,6 +169,34 @@ def compare(bench, cases, old, new):
                 gains=sum(r["new_ok"] and not r["old_ok"] for r in rows),
                 losses=sum(r["old_ok"] and not r["new_ok"] for r in rows),
                 **{k: sum(row[k] for row in rows) for k in ("old_ok", "new_ok", "old_cost", "new_cost")})
+
+
+def historical_cases(history, limit=32):
+    cases, seen = [], set()
+
+    def add(task, label, feasible):
+        # Arrival order can change whether a previously delivered workload fits.
+        key = ident(task)
+        if len(cases) < limit and key not in seen:
+            cases.append((task, label, feasible))
+            seen.add(key)
+
+    for record in history:
+        if record.get("task") and record.get("answer"):
+            add(record["task"], "历史作答", True)
+    # Sample past user batches across disk counts. Their feasibility is unknown
+    # until a packing is verified. The gate compares actual results on both heads.
+    by_size = {}
+    for record in history:
+        for task in record.get("batch_tasks", []):
+            by_size.setdefault(task["bins"], []).append(task)
+    for i in range(max((len(group) for group in by_size.values()), default=0)):
+        for group in by_size.values():
+            if i < len(group):
+                add(group[i], "历史批次", None)
+        if len(cases) == limit:
+            break
+    return cases
 
 
 def judge(hold, regression, replay):
@@ -206,7 +234,7 @@ def validate_budget(budget):
 
 
 def study(policies, generation, history, memory, episode, budget, focus=None, reviewed=None, prior_input=None,
-          bench=None, batch=None):
+          bench=None, batch=None, exclude=None):
     from . import planner, recipes
     validate_budget(budget)
     seed = seed_for(episode)
@@ -245,11 +273,10 @@ def study(policies, generation, history, memory, episode, budget, focus=None, re
             decision, reason = "budget", "插入配方将超过原策略链长度上限。"
         else:
             # Lock exactly one candidate before opening either acceptance split.
-            hold_tasks, reg_tasks = test_sets(seed, practice + (batch or []), prior_input or (lambda _: False))
+            hold_tasks, reg_tasks = test_sets(seed, practice + (batch or []), prior_input or (lambda _: False), exclude)
             hold = compare(bench, hold_tasks, policies, new)
             reg = compare(bench, reg_tasks, policies, new)
-            replay_tasks = [e["task"] for e in history if e.get("task") and e.get("answer")][:32]
-            replay = compare(bench, [(task, "历史作答", True) for task in replay_tasks], policies, new)
+            replay = compare(bench, historical_cases(history), policies, new)
             data.update(holdout=hold, regression=reg, replay=replay)
             decision, reason = judge(hold, reg, replay)
         if focus is not None:

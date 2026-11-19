@@ -22,8 +22,13 @@ LEGACY_MEMORY_FORMATS = {
 # This one-way migration applies only to the verified pair of solver builds.
 COMPATIBLE_PREDECESSORS = {
     "1:4edca22ea390932922c4f812d3a251d0dfb8feabf73d752cf687021760e8b278":
+        "1:10d85ca8dc0c58b8803727bd89558c9231f097a0c00a87d80371b2eb4b271b09",
+    # The pre-route release could only run four-field recipes, whose costs still agree.
+    "1:b453159202ae53df02f754ff626f1925626d200673749821867c0ea4e29ee914":
         "1:10d85ca8dc0c58b8803727bd89558c9231f097a0c00a87d80371b2eb4b271b09"
 }
+ROUTE_COST_MIGRATION = ("1:4edca22ea390932922c4f812d3a251d0dfb8feabf73d752cf687021760e8b278",
+                        "1:b453159202ae53df02f754ff626f1925626d200673749821867c0ea4e29ee914")
 
 
 def build_id():
@@ -89,7 +94,9 @@ def _index_prior_inputs(db):
     """Track every observed task family, including events from before research was enabled."""
     db.execute("CREATE TABLE IF NOT EXISTS research_inputs (family TEXT PRIMARY KEY)")
     db.execute("CREATE TABLE IF NOT EXISTS research_input_cursor (slot INTEGER PRIMARY KEY, event_id INTEGER NOT NULL)")
-    marker = db.execute("SELECT event_id FROM research_input_cursor WHERE slot=1").fetchone()
+    db.execute("CREATE TABLE IF NOT EXISTS research_assessments (family TEXT PRIMARY KEY)")
+    # Slot 2 signals that formal rows were indexed as well. Old databases have only slot 1.
+    marker = db.execute("SELECT event_id FROM research_input_cursor WHERE slot=2").fetchone()
     last_id = marker[0] if marker else 0
     for row in db.execute("SELECT id, data FROM events WHERE id>? AND kind IN ('solve','research') ORDER BY id",
                           (last_id,)):
@@ -100,8 +107,22 @@ def _index_prior_inputs(db):
             tasks.append(task)
         keys = {research.family_id(t) for t in tasks}
         db.executemany("INSERT OR IGNORE INTO research_inputs VALUES (?)", ((k,) for k in keys))
+        assessed = {research.family_id(r["task"]) for phase in ("holdout", "regression", "replay")
+                    for r in event.get(phase, {}).get("rows", [])}
+        db.executemany("INSERT OR IGNORE INTO research_assessments VALUES (?)", ((k,) for k in assessed))
         last_id = row["id"]
     db.execute("INSERT OR REPLACE INTO research_input_cursor VALUES (1,?)", (last_id,))
+    db.execute("INSERT OR REPLACE INTO research_input_cursor VALUES (2,?)", (last_id,))
+
+
+def _exclusions(db):
+    _index_prior_inputs(db)
+    def exclude(key, phase):
+        if db.execute("SELECT 1 FROM research_inputs WHERE family=?", (key,)).fetchone():
+            return True
+        return phase == "holdout" and bool(db.execute(
+            "SELECT 1 FROM research_assessments WHERE family=?", (key,)).fetchone())
+    return exclude
 
 
 def _previous_attempt(db, task, revision=None, kind=None):
@@ -122,12 +143,12 @@ def _research(db, revision, policies, focus, budget, bench=None, started=None, b
     started = time.perf_counter() if started is None else started
     # Search only receives past tasks, observed production outcomes and trial actions.
     # Never pass formal holdout rows or blind answers to the planner.
-    _index_prior_inputs(db)
+    exclude = _exclusions(db)
     history = []
     for row in db.execute("SELECT id, data FROM events WHERE task <> 'null' ORDER BY id DESC LIMIT 32"):
         record = json.loads(row["data"])
         history.append(dict(id=row["id"], **{k: record[k] for k in
-                            ("kind", "task", "before", "answer", "trials") if k in record}))
+                            ("kind", "task", "before", "answer", "trials", "batch_tasks") if k in record}))
     row = db.execute("SELECT id, data FROM events WHERE kind='research' ORDER BY id DESC LIMIT 1").fetchone()
     last = json.loads(row["data"]) if row else {}
     signature = build_id()
@@ -136,15 +157,17 @@ def _research(db, revision, policies, focus, budget, bench=None, started=None, b
     prior_format = last.get("research_memory_format", LEGACY_MEMORY_FORMATS.get(last.get("research_build")))
     compatible = prior_format is not None and prior_format in (memory_format, COMPATIBLE_PREDECESSORS.get(memory_format))
     memory = last["search"]["memory"] if compatible else {}
+    archive_only = (prior_format, memory_format) == ROUTE_COST_MIGRATION
+    if archive_only:
+        prior = last["search"]["memory"]
+        memory = dict(version=planner.MEMORY_VERSION, archive=prior.get("archive", []))
     db.execute("""CREATE TABLE IF NOT EXISTS research_reviews
                   (revision INTEGER, build TEXT, digest TEXT, event_id INTEGER NOT NULL,
                    PRIMARY KEY (revision, build, digest))""")
     reviewed = dict(db.execute("SELECT digest,event_id FROM research_reviews WHERE revision=? AND build=?",
                                (revision["id"], signature)))
-    def prior_input(key):
-        return db.execute("SELECT 1 FROM research_inputs WHERE family=?", (key,)).fetchone() is not None
     report = research.study(policies, revision["id"], history, memory, last.get("episode", 0) + 1,
-                            budget, focus, reviewed, prior_input, bench, batch=batch)
+                            budget, focus, reviewed, bench=bench, batch=batch, exclude=exclude)
     if focus is not None and not report["answer"]:
         saved = _previous_attempt(db, focus)
         if saved and saved["answer"]:
@@ -152,6 +175,8 @@ def _research(db, revision, policies, focus, budget, bench=None, started=None, b
     report["research_build"] = signature
     report["research_memory_format"] = memory_format
     report["memory_source_event"] = row["id"] if memory else None
+    if archive_only:
+        report["memory_migration"] = "archive_only"
     if report["decision"] == "kept":
         updated = research.dispatch(report["nominee"], policies)
         version = db.execute("INSERT INTO revisions(parent, policies) VALUES (?, ?)",
@@ -193,7 +218,11 @@ def solve(folder, task):
             previous = _previous_attempt(db, task, revision["id"], "research" if research_enabled else "solve")
             if previous is None and research_enabled:
                 return _research(db, revision, policies, task, research.DEFAULT_BUDGET, bench, started)
-        report = run_round(task, policies, revision["id"], 73001 + 104729 * number, previous, bench)
+        exclude = None
+        if (previous is None and not current["ok"] and not proven_impossible(current)
+                and db.execute("SELECT 1 FROM events LIMIT 1").fetchone()):
+            exclude = _exclusions(db)
+        report = run_round(task, policies, revision["id"], 73001 + 104729 * number, previous, bench, exclude)
         if report.get("answer") and report["answer"]["source"] == "record":
             report["reason"] = f"已按本次清单重新核验记录 #{report['reused_event']} 的装法。"
         report["experiment_ms"] = round((time.perf_counter() - started) * 1000, 3)

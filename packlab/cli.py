@@ -84,14 +84,16 @@ def show_packing(task, bins):
 def show_study(data):
     search = data["search"]
     print(f"研究 #{data['id']} · 第 {data['episode']} 轮 · v{data['generation_before']} → v{data['generation']}")
-    if data.get("memory_source_event") is not None:
+    if data.get("memory_migration") == "archive_only":
+        print(f"从记录 #{data['memory_source_event']} 取回候选配方。执行成本已变化，旧评分和缓存已失效。")
+    elif data.get("memory_source_event") is not None:
         print(f"从记录 #{data['memory_source_event']} 读回配方、历史评分和试验结果。")
     print(f"练习 {len(data['practice_tasks'])} 个输入；可调用 {len(data['skill_sources'])} 种历史或现场发现的技能。")
     print(f"实验预算 {search['calls']}/{data['budget']} 次，实测操作 {search['spent']}。")
     trials = search.get("trials", [])
     routed = data.get("research_mode") == "routing"
     if routed:
-        print(f"收到 {len(data['batch_tasks'])} 份清单，试过 {len(search['candidates'])} 种求解策略。{search['reason']}")
+        print(f"收到 {len(data['batch_tasks'])} 份清单，试过 {len(search['candidates'])} 个候选。{search['reason']}")
     else:
         print(f"实际试了 {len({t['candidate'] for t in trials})} 份配方；{len(search['comparisons'])} 份完成了整组练习。")
     if data["nominee"]:
@@ -132,6 +134,7 @@ def show_witness(data):
     witness = data["witness"]
     if witness:
         labels = {"without_peel_forced": "省去独占盘剥离", "without_normalize_gcd": "省去单位归约",
+                  "previous_primary_guard": "恢复旧首选条件", "previous_fallback_guard": "恢复旧递补条件",
                   "reverse_steps": "颠倒步骤顺序", "without_guard": "移除使用条件", "previous_chain": "恢复原策略链"}
         reduced = witness["reduced"]
         task = reduced["task"]
