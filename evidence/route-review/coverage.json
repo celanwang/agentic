@@ -1,0 +1,22 @@
+{
+  "practice": {
+    "total": 18,
+    "changed_paths": 10
+  },
+  "batch": {
+    "total": 12,
+    "changed_paths": 12
+  },
+  "holdout": {
+    "total": 64,
+    "changed_paths": 0
+  },
+  "regression": {
+    "total": 19,
+    "changed_paths": 0
+  },
+  "replay": {
+    "total": 32,
+    "changed_paths": 0
+  }
+}

@@ -1,0 +1,7447 @@
+{
+  "arms": {
+    "active": [
+      {
+        "fallback": {
+          "guard": {
+            "feature": "bins",
+            "op": "le",
+            "value": 4
+          },
+          "kind": "recipe",
+          "solver": {
+            "order": "descending",
+            "pick": "first",
+            "repair": "exchange"
+          },
+          "steps": [
+            "normalize_gcd",
+            "peel_forced"
+          ]
+        },
+        "guard": {
+          "feature": "complementary_coverage",
+          "op": "ge",
+          "value": 1000
+        },
+        "kind": "recipe",
+        "solver": {
+          "order": "descending",
+          "pick": "first",
+          "repair": "none"
+        },
+        "steps": []
+      },
+      {
+        "order": "arrival",
+        "pick": "first",
+        "repair": "none"
+      }
+    ],
+    "arrival_first": [
+      {
+        "order": "arrival",
+        "pick": "first",
+        "repair": "none"
+      },
+      {
+        "fallback": {
+          "guard": {
+            "feature": "bins",
+            "op": "le",
+            "value": 4
+          },
+          "kind": "recipe",
+          "solver": {
+            "order": "descending",
+            "pick": "first",
+            "repair": "exchange"
+          },
+          "steps": [
+            "normalize_gcd",
+            "peel_forced"
+          ]
+        },
+        "guard": {
+          "feature": "complementary_coverage",
+          "op": "ge",
+          "value": 1000
+        },
+        "kind": "recipe",
+        "solver": {
+          "order": "descending",
+          "pick": "first",
+          "repair": "none"
+        },
+        "steps": []
+      }
+    ],
+    "open": [
+      {
+        "fallback": {
+          "guard": {
+            "feature": "bins",
+            "op": "le",
+            "value": 4
+          },
+          "kind": "recipe",
+          "solver": {
+            "order": "descending",
+            "pick": "first",
+            "repair": "exchange"
+          },
+          "steps": [
+            "normalize_gcd",
+            "peel_forced"
+          ]
+        },
+        "guard": {
+          "feature": "complementary_coverage",
+          "op": "ge",
+          "value": 0
+        },
+        "kind": "recipe",
+        "solver": {
+          "order": "descending",
+          "pick": "first",
+          "repair": "none"
+        },
+        "steps": []
+      },
+      {
+        "order": "arrival",
+        "pick": "first",
+        "repair": "none"
+      }
+    ],
+    "raw_ge_800": [
+      {
+        "fallback": {
+          "guard": {
+            "feature": "bins",
+            "op": "le",
+            "value": 4
+          },
+          "kind": "recipe",
+          "solver": {
+            "order": "descending",
+            "pick": "first",
+            "repair": "exchange"
+          },
+          "steps": [
+            "normalize_gcd",
+            "peel_forced"
+          ]
+        },
+        "guard": {
+          "feature": "complementary_coverage",
+          "op": "ge",
+          "value": 800
+        },
+        "kind": "recipe",
+        "solver": {
+          "order": "descending",
+          "pick": "first",
+          "repair": "none"
+        },
+        "steps": []
+      },
+      {
+        "order": "arrival",
+        "pick": "first",
+        "repair": "none"
+      }
+    ]
+  },
+  "build": "d91419af39b03378b1908f4e12d321f51c068c08d08a17baa5105064199b832e",
+  "rows": [
+    {
+      "active": {
+        "cost": 127,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 888,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": false,
+        "ops": 127,
+        "route": {
+          "fallback": {
+            "cost": 22,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 5,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 38,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 888,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 127,
+        "guard": null,
+        "ok": false,
+        "ops": 127,
+        "route": null
+      },
+      "cohort": "public_miss",
+      "coverage": 888,
+      "exact_after_peel": true,
+      "label": "pair-5",
+      "open": {
+        "cost": 146,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 888,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 146,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 145,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 888,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 146,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 888,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 146,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 145,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 888,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 127,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 444,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": false,
+        "ops": 127,
+        "route": {
+          "fallback": {
+            "cost": 22,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 5,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 37,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 444,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 127,
+        "guard": null,
+        "ok": false,
+        "ops": 127,
+        "route": null
+      },
+      "cohort": "public_miss",
+      "coverage": 444,
+      "exact_after_peel": false,
+      "label": "mixed-5",
+      "open": {
+        "cost": 146,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 444,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 146,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 145,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 444,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 127,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 444,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": false,
+        "ops": 127,
+        "route": {
+          "fallback": {
+            "cost": 22,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 5,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 37,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 444,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 136,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 800,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": false,
+        "ops": 136,
+        "route": {
+          "fallback": {
+            "cost": 23,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 5,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 41,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 800,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 136,
+        "guard": null,
+        "ok": false,
+        "ops": 136,
+        "route": null
+      },
+      "cohort": "public_miss",
+      "coverage": 800,
+      "exact_after_peel": false,
+      "label": "near-5",
+      "open": {
+        "cost": 158,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 800,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 158,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 157,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 800,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 158,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 800,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 158,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 157,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 800,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 167,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 909,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": false,
+        "ops": 167,
+        "route": {
+          "fallback": {
+            "cost": 25,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 6,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 45,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 909,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 167,
+        "guard": null,
+        "ok": false,
+        "ops": 167,
+        "route": null
+      },
+      "cohort": "public_miss",
+      "coverage": 909,
+      "exact_after_peel": true,
+      "label": "pair-6",
+      "open": {
+        "cost": 182,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 909,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 182,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 181,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 909,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 182,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 909,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 182,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 181,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 909,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 163,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 545,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": false,
+        "ops": 163,
+        "route": {
+          "fallback": {
+            "cost": 25,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 6,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 44,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 545,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 163,
+        "guard": null,
+        "ok": false,
+        "ops": 163,
+        "route": null
+      },
+      "cohort": "public_miss",
+      "coverage": 545,
+      "exact_after_peel": false,
+      "label": "mixed-6",
+      "open": {
+        "cost": 182,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 545,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 182,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 181,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 545,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 163,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 545,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": false,
+        "ops": 163,
+        "route": {
+          "fallback": {
+            "cost": 25,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 6,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 44,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 545,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 166,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 833,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": false,
+        "ops": 166,
+        "route": {
+          "fallback": {
+            "cost": 26,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 6,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 48,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 833,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 166,
+        "guard": null,
+        "ok": false,
+        "ops": 166,
+        "route": null
+      },
+      "cohort": "public_miss",
+      "coverage": 833,
+      "exact_after_peel": false,
+      "label": "near-6",
+      "open": {
+        "cost": 194,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 833,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 194,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 193,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 833,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 194,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 833,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 194,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 193,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 833,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 192,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 923,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": false,
+        "ops": 192,
+        "route": {
+          "fallback": {
+            "cost": 28,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 7,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 52,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 923,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 192,
+        "guard": null,
+        "ok": false,
+        "ops": 192,
+        "route": null
+      },
+      "cohort": "public_miss",
+      "coverage": 923,
+      "exact_after_peel": true,
+      "label": "pair-7",
+      "open": {
+        "cost": 220,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 923,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 220,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 219,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 923,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 220,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 923,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 220,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 219,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 923,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 184,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 615,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": false,
+        "ops": 184,
+        "route": {
+          "fallback": {
+            "cost": 28,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 7,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 51,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 615,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 184,
+        "guard": null,
+        "ok": false,
+        "ops": 184,
+        "route": null
+      },
+      "cohort": "public_miss",
+      "coverage": 615,
+      "exact_after_peel": false,
+      "label": "mixed-7",
+      "open": {
+        "cost": 221,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 615,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 221,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 220,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 615,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 184,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 615,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": false,
+        "ops": 184,
+        "route": {
+          "fallback": {
+            "cost": 28,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 7,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 51,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 615,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 193,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 857,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": false,
+        "ops": 193,
+        "route": {
+          "fallback": {
+            "cost": 29,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 7,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 55,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 857,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 193,
+        "guard": null,
+        "ok": false,
+        "ops": 193,
+        "route": null
+      },
+      "cohort": "public_miss",
+      "coverage": 857,
+      "exact_after_peel": false,
+      "label": "near-7",
+      "open": {
+        "cost": 232,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 857,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 232,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 231,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 857,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 232,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 857,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 232,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 231,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 857,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 227,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 933,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": false,
+        "ops": 227,
+        "route": {
+          "fallback": {
+            "cost": 31,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 8,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 59,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 933,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 227,
+        "guard": null,
+        "ok": false,
+        "ops": 227,
+        "route": null
+      },
+      "cohort": "public_miss",
+      "coverage": 933,
+      "exact_after_peel": true,
+      "label": "pair-8",
+      "open": {
+        "cost": 260,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 933,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 260,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 259,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 933,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 260,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 933,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 260,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 259,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 933,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 225,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 666,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": false,
+        "ops": 225,
+        "route": {
+          "fallback": {
+            "cost": 31,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 8,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 58,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 666,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 225,
+        "guard": null,
+        "ok": false,
+        "ops": 225,
+        "route": null
+      },
+      "cohort": "public_miss",
+      "coverage": 666,
+      "exact_after_peel": false,
+      "label": "mixed-8",
+      "open": {
+        "cost": 261,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 666,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 261,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 260,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 666,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 225,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 666,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": false,
+        "ops": 225,
+        "route": {
+          "fallback": {
+            "cost": 31,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 8,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 58,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 666,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 225,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 875,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": false,
+        "ops": 225,
+        "route": {
+          "fallback": {
+            "cost": 32,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 8,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 62,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 875,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 225,
+        "guard": null,
+        "ok": false,
+        "ops": 225,
+        "route": null
+      },
+      "cohort": "public_miss",
+      "coverage": 875,
+      "exact_after_peel": false,
+      "label": "near-8",
+      "open": {
+        "cost": 272,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 875,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 272,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 271,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 875,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 272,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 875,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 272,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 271,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 875,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 114,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 888,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 114,
+        "route": {
+          "fallback": {
+            "cost": 22,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 5,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 38,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 888,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 53,
+        "guard": null,
+        "ok": true,
+        "ops": 53,
+        "route": null
+      },
+      "cohort": "same_core_arrival_order_control",
+      "coverage": 888,
+      "exact_after_peel": true,
+      "label": "pair-5",
+      "open": {
+        "cost": 146,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 888,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 146,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 145,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 888,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 146,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 888,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 146,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 145,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 888,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 112,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 444,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 112,
+        "route": {
+          "fallback": {
+            "cost": 22,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 5,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 37,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 444,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 52,
+        "guard": null,
+        "ok": true,
+        "ops": 52,
+        "route": null
+      },
+      "cohort": "same_core_arrival_order_control",
+      "coverage": 444,
+      "exact_after_peel": false,
+      "label": "mixed-5",
+      "open": {
+        "cost": 146,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 444,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 146,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 145,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 444,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 112,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 444,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 112,
+        "route": {
+          "fallback": {
+            "cost": 22,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 5,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 37,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 444,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 121,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 800,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 121,
+        "route": {
+          "fallback": {
+            "cost": 23,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 5,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 41,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 800,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 56,
+        "guard": null,
+        "ok": true,
+        "ops": 56,
+        "route": null
+      },
+      "cohort": "same_core_arrival_order_control",
+      "coverage": 800,
+      "exact_after_peel": false,
+      "label": "near-5",
+      "open": {
+        "cost": 158,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 800,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 158,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 157,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 800,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 158,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 800,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 158,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 157,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 800,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 141,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 909,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 141,
+        "route": {
+          "fallback": {
+            "cost": 25,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 6,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 45,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 909,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 70,
+        "guard": null,
+        "ok": true,
+        "ops": 70,
+        "route": null
+      },
+      "cohort": "same_core_arrival_order_control",
+      "coverage": 909,
+      "exact_after_peel": true,
+      "label": "pair-6",
+      "open": {
+        "cost": 182,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 909,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 182,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 181,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 909,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 182,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 909,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 182,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 181,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 909,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 139,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 545,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 139,
+        "route": {
+          "fallback": {
+            "cost": 25,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 6,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 44,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 545,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 69,
+        "guard": null,
+        "ok": true,
+        "ops": 69,
+        "route": null
+      },
+      "cohort": "same_core_arrival_order_control",
+      "coverage": 545,
+      "exact_after_peel": false,
+      "label": "mixed-6",
+      "open": {
+        "cost": 182,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 545,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 182,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 181,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 545,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 139,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 545,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 139,
+        "route": {
+          "fallback": {
+            "cost": 25,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 6,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 44,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 545,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 148,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 833,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 148,
+        "route": {
+          "fallback": {
+            "cost": 26,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 6,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 48,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 833,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 73,
+        "guard": null,
+        "ok": true,
+        "ops": 73,
+        "route": null
+      },
+      "cohort": "same_core_arrival_order_control",
+      "coverage": 833,
+      "exact_after_peel": false,
+      "label": "near-6",
+      "open": {
+        "cost": 194,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 833,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 194,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 193,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 833,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 194,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 833,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 194,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 193,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 833,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 170,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 923,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 170,
+        "route": {
+          "fallback": {
+            "cost": 28,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 7,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 52,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 923,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 89,
+        "guard": null,
+        "ok": true,
+        "ops": 89,
+        "route": null
+      },
+      "cohort": "same_core_arrival_order_control",
+      "coverage": 923,
+      "exact_after_peel": true,
+      "label": "pair-7",
+      "open": {
+        "cost": 220,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 923,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 220,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 219,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 923,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 220,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 923,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 220,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 219,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 923,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 168,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 615,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 168,
+        "route": {
+          "fallback": {
+            "cost": 28,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 7,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 51,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 615,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 88,
+        "guard": null,
+        "ok": true,
+        "ops": 88,
+        "route": null
+      },
+      "cohort": "same_core_arrival_order_control",
+      "coverage": 615,
+      "exact_after_peel": false,
+      "label": "mixed-7",
+      "open": {
+        "cost": 221,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 615,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 221,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 220,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 615,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 168,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 615,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 168,
+        "route": {
+          "fallback": {
+            "cost": 28,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 7,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 51,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 615,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 177,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 857,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 177,
+        "route": {
+          "fallback": {
+            "cost": 29,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 7,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 55,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 857,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 92,
+        "guard": null,
+        "ok": true,
+        "ops": 92,
+        "route": null
+      },
+      "cohort": "same_core_arrival_order_control",
+      "coverage": 857,
+      "exact_after_peel": false,
+      "label": "near-7",
+      "open": {
+        "cost": 232,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 857,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 232,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 231,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 857,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 232,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 857,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 232,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 231,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 857,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 201,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 933,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 201,
+        "route": {
+          "fallback": {
+            "cost": 31,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 8,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 59,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 933,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 110,
+        "guard": null,
+        "ok": true,
+        "ops": 110,
+        "route": null
+      },
+      "cohort": "same_core_arrival_order_control",
+      "coverage": 933,
+      "exact_after_peel": true,
+      "label": "pair-8",
+      "open": {
+        "cost": 260,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 933,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 260,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 259,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 933,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 260,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 933,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 260,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 259,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 933,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 199,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 666,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 199,
+        "route": {
+          "fallback": {
+            "cost": 31,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 8,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 58,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 666,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 109,
+        "guard": null,
+        "ok": true,
+        "ops": 109,
+        "route": null
+      },
+      "cohort": "same_core_arrival_order_control",
+      "coverage": 666,
+      "exact_after_peel": false,
+      "label": "mixed-8",
+      "open": {
+        "cost": 261,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 666,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 261,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 260,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 666,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 199,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 666,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 199,
+        "route": {
+          "fallback": {
+            "cost": 31,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 8,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 58,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 666,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 208,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 875,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 208,
+        "route": {
+          "fallback": {
+            "cost": 32,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 8,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 62,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 875,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 113,
+        "guard": null,
+        "ok": true,
+        "ops": 113,
+        "route": null
+      },
+      "cohort": "same_core_arrival_order_control",
+      "coverage": 875,
+      "exact_after_peel": false,
+      "label": "near-8",
+      "open": {
+        "cost": 272,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 875,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 272,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 271,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 875,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 272,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 875,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 272,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 271,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 875,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 428,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 111,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 428,
+        "route": {
+          "fallback": {
+            "cost": 53,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 9,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 122,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 111,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 252,
+        "guard": null,
+        "ok": true,
+        "ops": 252,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 111,
+      "exact_after_peel": false,
+      "label": "blind-0/raw",
+      "open": {
+        "cost": 1051,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 111,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 1051,
+        "route": {
+          "fallback": {
+            "cost": 53,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 9,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 745,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 111,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": false,
+            "search_status": null
+          },
+          "selected": "fallback"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 428,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 111,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 428,
+        "route": {
+          "fallback": {
+            "cost": 53,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 9,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 122,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 111,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 428,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 111,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 428,
+        "route": {
+          "fallback": {
+            "cost": 53,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 9,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 122,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 111,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 252,
+        "guard": null,
+        "ok": true,
+        "ops": 252,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 111,
+      "exact_after_peel": false,
+      "label": "blind-0/scaled",
+      "open": {
+        "cost": 1051,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 111,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 1051,
+        "route": {
+          "fallback": {
+            "cost": 53,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 9,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 745,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 111,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": false,
+            "search_status": null
+          },
+          "selected": "fallback"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 428,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 111,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 428,
+        "route": {
+          "fallback": {
+            "cost": 53,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 9,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 122,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 111,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 463,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 108,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 463,
+        "route": {
+          "fallback": {
+            "cost": 55,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 10,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 126,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 108,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 281,
+        "guard": null,
+        "ok": true,
+        "ops": 281,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 108,
+      "exact_after_peel": false,
+      "label": "blind-0/anchored",
+      "open": {
+        "cost": 1131,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 108,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 1131,
+        "route": {
+          "fallback": {
+            "cost": 55,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 10,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 794,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 108,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": false,
+            "search_status": null
+          },
+          "selected": "fallback"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 463,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 108,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 463,
+        "route": {
+          "fallback": {
+            "cost": 55,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 10,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 126,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 108,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 463,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 108,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 463,
+        "route": {
+          "fallback": {
+            "cost": 55,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 10,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 126,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 108,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 281,
+        "guard": null,
+        "ok": true,
+        "ops": 281,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 108,
+      "exact_after_peel": false,
+      "label": "blind-0/both",
+      "open": {
+        "cost": 1131,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 108,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 1131,
+        "route": {
+          "fallback": {
+            "cost": 55,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 10,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 794,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 108,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": false,
+            "search_status": null
+          },
+          "selected": "fallback"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 463,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 108,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 463,
+        "route": {
+          "fallback": {
+            "cost": 55,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 10,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 126,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 108,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 254,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 254,
+        "route": {
+          "fallback": {
+            "cost": 206,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 2,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 47,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 45,
+        "guard": null,
+        "ok": true,
+        "ops": 45,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 0,
+      "exact_after_peel": false,
+      "label": "blind-17/raw",
+      "open": {
+        "cost": 178,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 0,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 178,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 177,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 0,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 254,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 254,
+        "route": {
+          "fallback": {
+            "cost": 206,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 2,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 47,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 281,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 281,
+        "route": {
+          "fallback": {
+            "cost": 233,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 2,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 47,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 45,
+        "guard": null,
+        "ok": true,
+        "ops": 45,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 0,
+      "exact_after_peel": false,
+      "label": "blind-17/scaled",
+      "open": {
+        "cost": 178,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 0,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 178,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 177,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 0,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 281,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 281,
+        "route": {
+          "fallback": {
+            "cost": 233,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 2,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 47,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 266,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 266,
+        "route": {
+          "fallback": {
+            "cost": 214,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 3,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 51,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 62,
+        "guard": null,
+        "ok": true,
+        "ops": 62,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 0,
+      "exact_after_peel": false,
+      "label": "blind-17/anchored",
+      "open": {
+        "cost": 205,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 0,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 205,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 204,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 0,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 266,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 266,
+        "route": {
+          "fallback": {
+            "cost": 214,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 3,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 51,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 294,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 294,
+        "route": {
+          "fallback": {
+            "cost": 242,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 3,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 51,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 62,
+        "guard": null,
+        "ok": true,
+        "ops": 62,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 0,
+      "exact_after_peel": false,
+      "label": "blind-17/both",
+      "open": {
+        "cost": 205,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 0,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 205,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 204,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 0,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 294,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 294,
+        "route": {
+          "fallback": {
+            "cost": 242,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 3,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 51,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 234,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 234,
+        "route": {
+          "fallback": {
+            "cost": 198,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 3,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 35,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 293,
+        "guard": null,
+        "ok": true,
+        "ops": 293,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 0,
+      "exact_after_peel": false,
+      "label": "blind-7/raw",
+      "open": {
+        "cost": 354,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 0,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 354,
+        "route": {
+          "fallback": {
+            "cost": 198,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 3,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 155,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 0,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": false,
+            "search_status": null
+          },
+          "selected": "fallback"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 234,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 234,
+        "route": {
+          "fallback": {
+            "cost": 198,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 3,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 35,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 253,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 253,
+        "route": {
+          "fallback": {
+            "cost": 217,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 3,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 35,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 312,
+        "guard": null,
+        "ok": true,
+        "ops": 312,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 0,
+      "exact_after_peel": false,
+      "label": "blind-7/scaled",
+      "open": {
+        "cost": 373,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 0,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 373,
+        "route": {
+          "fallback": {
+            "cost": 217,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 3,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 155,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 0,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": false,
+            "search_status": null
+          },
+          "selected": "fallback"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 253,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 253,
+        "route": {
+          "fallback": {
+            "cost": 217,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 3,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 35,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 247,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 247,
+        "route": {
+          "fallback": {
+            "cost": 207,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 4,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 39,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 320,
+        "guard": null,
+        "ok": true,
+        "ops": 320,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 0,
+      "exact_after_peel": false,
+      "label": "blind-7/anchored",
+      "open": {
+        "cost": 390,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 0,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 390,
+        "route": {
+          "fallback": {
+            "cost": 207,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 4,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 182,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 0,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": false,
+            "search_status": null
+          },
+          "selected": "fallback"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 247,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 247,
+        "route": {
+          "fallback": {
+            "cost": 207,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 4,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 39,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 268,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 268,
+        "route": {
+          "fallback": {
+            "cost": 228,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 4,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 39,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 341,
+        "guard": null,
+        "ok": true,
+        "ops": 341,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 0,
+      "exact_after_peel": false,
+      "label": "blind-7/both",
+      "open": {
+        "cost": 411,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 0,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 411,
+        "route": {
+          "fallback": {
+            "cost": 228,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 4,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 182,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 0,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": false,
+            "search_status": null
+          },
+          "selected": "fallback"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 268,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 268,
+        "route": {
+          "fallback": {
+            "cost": 228,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 4,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 39,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 225,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 315,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 225,
+        "route": {
+          "fallback": {
+            "cost": 34,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 7,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 70,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 315,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 120,
+        "guard": null,
+        "ok": true,
+        "ops": 120,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 315,
+      "exact_after_peel": false,
+      "label": "blind-1/raw",
+      "open": {
+        "cost": 526,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 315,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 526,
+        "route": {
+          "fallback": {
+            "cost": 34,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 7,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 371,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 315,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": false,
+            "search_status": null
+          },
+          "selected": "fallback"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 225,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 315,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 225,
+        "route": {
+          "fallback": {
+            "cost": 34,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 7,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 70,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 315,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 225,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 315,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 225,
+        "route": {
+          "fallback": {
+            "cost": 34,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 7,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 70,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 315,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 120,
+        "guard": null,
+        "ok": true,
+        "ops": 120,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 315,
+      "exact_after_peel": false,
+      "label": "blind-1/scaled",
+      "open": {
+        "cost": 526,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 315,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 526,
+        "route": {
+          "fallback": {
+            "cost": 34,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 7,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 371,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 315,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": false,
+            "search_status": null
+          },
+          "selected": "fallback"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 225,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 315,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 225,
+        "route": {
+          "fallback": {
+            "cost": 34,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 7,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 70,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 315,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 250,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 300,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 250,
+        "route": {
+          "fallback": {
+            "cost": 36,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 8,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 74,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 300,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 139,
+        "guard": null,
+        "ok": true,
+        "ops": 139,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 300,
+      "exact_after_peel": false,
+      "label": "blind-1/anchored",
+      "open": {
+        "cost": 583,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 300,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 583,
+        "route": {
+          "fallback": {
+            "cost": 36,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 8,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 407,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 300,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": false,
+            "search_status": null
+          },
+          "selected": "fallback"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 250,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 300,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 250,
+        "route": {
+          "fallback": {
+            "cost": 36,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 8,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 74,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 300,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 250,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 300,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 250,
+        "route": {
+          "fallback": {
+            "cost": 36,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 8,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 74,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 300,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 139,
+        "guard": null,
+        "ok": true,
+        "ops": 139,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 300,
+      "exact_after_peel": false,
+      "label": "blind-1/both",
+      "open": {
+        "cost": 583,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 300,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 583,
+        "route": {
+          "fallback": {
+            "cost": 36,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 8,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 407,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 300,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": false,
+            "search_status": null
+          },
+          "selected": "fallback"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 250,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 300,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 250,
+        "route": {
+          "fallback": {
+            "cost": 36,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 8,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 74,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 300,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 315,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 315,
+        "route": {
+          "fallback": {
+            "cost": 47,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 6,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 106,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 161,
+        "guard": null,
+        "ok": true,
+        "ops": 161,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 0,
+      "exact_after_peel": false,
+      "label": "blind-14/raw",
+      "open": {
+        "cost": 585,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 0,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 585,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 584,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 0,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 315,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 315,
+        "route": {
+          "fallback": {
+            "cost": 47,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 6,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 106,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 315,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 315,
+        "route": {
+          "fallback": {
+            "cost": 47,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 6,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 106,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 161,
+        "guard": null,
+        "ok": true,
+        "ops": 161,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 0,
+      "exact_after_peel": false,
+      "label": "blind-14/scaled",
+      "open": {
+        "cost": 585,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 0,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 585,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 584,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 0,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 315,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 315,
+        "route": {
+          "fallback": {
+            "cost": 47,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 6,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 106,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 332,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 332,
+        "route": {
+          "fallback": {
+            "cost": 49,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 7,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 110,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 172,
+        "guard": null,
+        "ok": true,
+        "ops": 172,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 0,
+      "exact_after_peel": false,
+      "label": "blind-14/anchored",
+      "open": {
+        "cost": 634,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 0,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 634,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 633,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 0,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 332,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 332,
+        "route": {
+          "fallback": {
+            "cost": 49,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 7,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 110,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 332,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 332,
+        "route": {
+          "fallback": {
+            "cost": 49,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 7,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 110,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 172,
+        "guard": null,
+        "ok": true,
+        "ops": 172,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 0,
+      "exact_after_peel": false,
+      "label": "blind-14/both",
+      "open": {
+        "cost": 634,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 0,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 634,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 633,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 0,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 332,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 332,
+        "route": {
+          "fallback": {
+            "cost": 49,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 7,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 110,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 544,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 46,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 544,
+        "route": {
+          "fallback": {
+            "cost": 61,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 10,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 140,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 46,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 342,
+        "guard": null,
+        "ok": true,
+        "ops": 342,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 46,
+      "exact_after_peel": false,
+      "label": "blind-2/raw",
+      "open": {
+        "cost": 1379,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 46,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 1379,
+        "route": {
+          "fallback": {
+            "cost": 61,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 10,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 975,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 46,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": false,
+            "search_status": null
+          },
+          "selected": "fallback"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 544,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 46,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 544,
+        "route": {
+          "fallback": {
+            "cost": 61,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 10,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 140,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 46,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 544,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 46,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 544,
+        "route": {
+          "fallback": {
+            "cost": 61,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 10,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 140,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 46,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 342,
+        "guard": null,
+        "ok": true,
+        "ops": 342,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 46,
+      "exact_after_peel": false,
+      "label": "blind-2/scaled",
+      "open": {
+        "cost": 1379,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 46,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 1379,
+        "route": {
+          "fallback": {
+            "cost": 61,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 10,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 975,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 46,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": false,
+            "search_status": null
+          },
+          "selected": "fallback"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 544,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 46,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 544,
+        "route": {
+          "fallback": {
+            "cost": 61,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 10,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 140,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 46,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 587,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 45,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 587,
+        "route": {
+          "fallback": {
+            "cost": 63,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 11,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 144,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 45,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 379,
+        "guard": null,
+        "ok": true,
+        "ops": 379,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 45,
+      "exact_after_peel": false,
+      "label": "blind-2/anchored",
+      "open": {
+        "cost": 1479,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 45,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 1479,
+        "route": {
+          "fallback": {
+            "cost": 63,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 11,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 1036,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 45,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": false,
+            "search_status": null
+          },
+          "selected": "fallback"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 587,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 45,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 587,
+        "route": {
+          "fallback": {
+            "cost": 63,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 11,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 144,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 45,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 587,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 45,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 587,
+        "route": {
+          "fallback": {
+            "cost": 63,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 11,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 144,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 45,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 379,
+        "guard": null,
+        "ok": true,
+        "ops": 379,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 45,
+      "exact_after_peel": false,
+      "label": "blind-2/both",
+      "open": {
+        "cost": 1479,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 45,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 1479,
+        "route": {
+          "fallback": {
+            "cost": 63,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 11,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 1036,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 45,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": false,
+            "search_status": null
+          },
+          "selected": "fallback"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 587,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 45,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 587,
+        "route": {
+          "fallback": {
+            "cost": 63,
+            "guard": {
+              "feature": "bins",
+              "matched": false,
+              "observed": 11,
+              "op": "le",
+              "value": 4
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "primary": {
+            "cost": 144,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 45,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 373,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 373,
+        "route": {
+          "fallback": {
+            "cost": 309,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 3,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 63,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 67,
+        "guard": null,
+        "ok": true,
+        "ops": 67,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 0,
+      "exact_after_peel": false,
+      "label": "blind-12/raw",
+      "open": {
+        "cost": 271,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 0,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 271,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 270,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 0,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 373,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 373,
+        "route": {
+          "fallback": {
+            "cost": 309,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 3,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 63,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 410,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 410,
+        "route": {
+          "fallback": {
+            "cost": 346,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 3,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 63,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 67,
+        "guard": null,
+        "ok": true,
+        "ops": 67,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 0,
+      "exact_after_peel": false,
+      "label": "blind-12/scaled",
+      "open": {
+        "cost": 271,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 0,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 271,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 270,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 0,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 410,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 410,
+        "route": {
+          "fallback": {
+            "cost": 346,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 3,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 63,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 384,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 384,
+        "route": {
+          "fallback": {
+            "cost": 316,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 4,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 67,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 76,
+        "guard": null,
+        "ok": true,
+        "ops": 76,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 0,
+      "exact_after_peel": false,
+      "label": "blind-12/anchored",
+      "open": {
+        "cost": 304,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 0,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 304,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 303,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 0,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 384,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 384,
+        "route": {
+          "fallback": {
+            "cost": 316,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 4,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 67,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 423,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 423,
+        "route": {
+          "fallback": {
+            "cost": 355,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 4,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 67,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 76,
+        "guard": null,
+        "ok": true,
+        "ops": 76,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 0,
+      "exact_after_peel": false,
+      "label": "blind-12/both",
+      "open": {
+        "cost": 304,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 0,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 304,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 303,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 0,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 423,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 423,
+        "route": {
+          "fallback": {
+            "cost": 355,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 4,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 67,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 264,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 264,
+        "route": {
+          "fallback": {
+            "cost": 222,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 2,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 41,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 330,
+        "guard": null,
+        "ok": true,
+        "ops": 330,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 0,
+      "exact_after_peel": false,
+      "label": "blind-15/raw",
+      "open": {
+        "cost": 396,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 0,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 396,
+        "route": {
+          "fallback": {
+            "cost": 222,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 2,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 173,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 0,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": false,
+            "search_status": null
+          },
+          "selected": "fallback"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 264,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 264,
+        "route": {
+          "fallback": {
+            "cost": 222,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 2,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 41,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 287,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 287,
+        "route": {
+          "fallback": {
+            "cost": 245,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 2,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 41,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 353,
+        "guard": null,
+        "ok": true,
+        "ops": 353,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 0,
+      "exact_after_peel": false,
+      "label": "blind-15/scaled",
+      "open": {
+        "cost": 419,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 0,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 419,
+        "route": {
+          "fallback": {
+            "cost": 245,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 2,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 173,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 0,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": false,
+            "search_status": null
+          },
+          "selected": "fallback"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 287,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 287,
+        "route": {
+          "fallback": {
+            "cost": 245,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 2,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 41,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 277,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 277,
+        "route": {
+          "fallback": {
+            "cost": 231,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 3,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 45,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 353,
+        "guard": null,
+        "ok": true,
+        "ops": 353,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 0,
+      "exact_after_peel": false,
+      "label": "blind-15/anchored",
+      "open": {
+        "cost": 433,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 0,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 433,
+        "route": {
+          "fallback": {
+            "cost": 231,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 3,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 201,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 0,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": false,
+            "search_status": null
+          },
+          "selected": "fallback"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 277,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 277,
+        "route": {
+          "fallback": {
+            "cost": 231,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 3,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 45,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 302,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 302,
+        "route": {
+          "fallback": {
+            "cost": 256,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 3,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 45,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 378,
+        "guard": null,
+        "ok": true,
+        "ops": 378,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 0,
+      "exact_after_peel": false,
+      "label": "blind-15/both",
+      "open": {
+        "cost": 458,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 0,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 458,
+        "route": {
+          "fallback": {
+            "cost": 256,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 3,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 201,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 0,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": false,
+            "search_status": null
+          },
+          "selected": "fallback"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 302,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 302,
+        "route": {
+          "fallback": {
+            "cost": 256,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 3,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 45,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 269,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 269,
+        "route": {
+          "fallback": {
+            "cost": 219,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 2,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 49,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 347,
+        "guard": null,
+        "ok": true,
+        "ops": 347,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 0,
+      "exact_after_peel": false,
+      "label": "blind-16/raw",
+      "open": {
+        "cost": 188,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 0,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 188,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 187,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 0,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 269,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 269,
+        "route": {
+          "fallback": {
+            "cost": 219,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 2,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 49,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 298,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 298,
+        "route": {
+          "fallback": {
+            "cost": 248,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 2,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 49,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 376,
+        "guard": null,
+        "ok": true,
+        "ops": 376,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 0,
+      "exact_after_peel": false,
+      "label": "blind-16/scaled",
+      "open": {
+        "cost": 188,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 0,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 188,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 187,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 0,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 298,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 298,
+        "route": {
+          "fallback": {
+            "cost": 248,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 2,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 49,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 280,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 280,
+        "route": {
+          "fallback": {
+            "cost": 226,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 3,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 53,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 371,
+        "guard": null,
+        "ok": true,
+        "ops": 371,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 0,
+      "exact_after_peel": false,
+      "label": "blind-16/anchored",
+      "open": {
+        "cost": 216,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 0,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 216,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 215,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 0,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 280,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 280,
+        "route": {
+          "fallback": {
+            "cost": 226,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 3,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 53,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    },
+    {
+      "active": {
+        "cost": 311,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 1000
+        },
+        "ok": true,
+        "ops": 311,
+        "route": {
+          "fallback": {
+            "cost": 257,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 3,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 53,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 1000
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      },
+      "arrival_first": {
+        "cost": 402,
+        "guard": null,
+        "ok": true,
+        "ops": 402,
+        "route": null
+      },
+      "cohort": "published_stream_success",
+      "coverage": 0,
+      "exact_after_peel": false,
+      "label": "blind-16/both",
+      "open": {
+        "cost": 216,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": true,
+          "observed": 0,
+          "op": "ge",
+          "value": 0
+        },
+        "ok": true,
+        "ops": 216,
+        "route": {
+          "fallback": null,
+          "primary": {
+            "cost": 215,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": true,
+              "observed": 0,
+              "op": "ge",
+              "value": 0
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "selected": "primary"
+        }
+      },
+      "raw_ge_800": {
+        "cost": 311,
+        "guard": {
+          "feature": "complementary_coverage",
+          "matched": false,
+          "observed": 0,
+          "op": "ge",
+          "value": 800
+        },
+        "ok": true,
+        "ops": 311,
+        "route": {
+          "fallback": {
+            "cost": 257,
+            "guard": {
+              "feature": "bins",
+              "matched": true,
+              "observed": 3,
+              "op": "le",
+              "value": 4
+            },
+            "ok": true,
+            "search_status": null
+          },
+          "primary": {
+            "cost": 53,
+            "guard": {
+              "feature": "complementary_coverage",
+              "matched": false,
+              "observed": 0,
+              "op": "ge",
+              "value": 800
+            },
+            "ok": false,
+            "search_status": "guard_skip"
+          },
+          "selected": "fallback"
+        }
+      }
+    }
+  ],
+  "summary": {
+    "public_miss": {
+      "active": {
+        "cases": 12,
+        "changed_costs": 0,
+        "gains": 0,
+        "losses": 0,
+        "operations": 2132,
+        "solved": 0
+      },
+      "arrival_first": {
+        "cases": 12,
+        "changed_costs": 0,
+        "gains": 0,
+        "losses": 0,
+        "operations": 2132,
+        "solved": 0
+      },
+      "open": {
+        "cases": 12,
+        "changed_costs": 12,
+        "gains": 12,
+        "losses": 0,
+        "operations": 2474,
+        "solved": 12
+      },
+      "raw_ge_800": {
+        "cases": 12,
+        "changed_costs": 8,
+        "gains": 8,
+        "losses": 0,
+        "operations": 2363,
+        "solved": 8
+      }
+    },
+    "published_stream_success": {
+      "active": {
+        "cases": 36,
+        "changed_costs": 0,
+        "gains": 0,
+        "losses": 0,
+        "operations": 12263,
+        "solved": 36
+      },
+      "arrival_first": {
+        "cases": 36,
+        "changed_costs": 36,
+        "gains": 0,
+        "losses": 0,
+        "operations": 8368,
+        "solved": 36
+      },
+      "open": {
+        "cases": 36,
+        "changed_costs": 36,
+        "gains": 0,
+        "losses": 0,
+        "operations": 20694,
+        "solved": 36
+      },
+      "raw_ge_800": {
+        "cases": 36,
+        "changed_costs": 0,
+        "gains": 0,
+        "losses": 0,
+        "operations": 12263,
+        "solved": 36
+      }
+    },
+    "same_core_arrival_order_control": {
+      "active": {
+        "cases": 12,
+        "changed_costs": 0,
+        "gains": 0,
+        "losses": 0,
+        "operations": 1898,
+        "solved": 12
+      },
+      "arrival_first": {
+        "cases": 12,
+        "changed_costs": 12,
+        "gains": 0,
+        "losses": 0,
+        "operations": 974,
+        "solved": 12
+      },
+      "open": {
+        "cases": 12,
+        "changed_costs": 12,
+        "gains": 0,
+        "losses": 0,
+        "operations": 2474,
+        "solved": 12
+      },
+      "raw_ge_800": {
+        "cases": 12,
+        "changed_costs": 8,
+        "gains": 0,
+        "losses": 0,
+        "operations": 2282,
+        "solved": 12
+      }
+    }
+  }
+}

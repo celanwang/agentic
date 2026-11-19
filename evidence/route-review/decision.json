@@ -1,0 +1,150 @@
+{
+  "build": "84a1a1a26dce0acbfff0450ec1f1b32b2ab42887339ddea4f9f9a346c84cdcde",
+  "generation": 2,
+  "record": 12,
+  "decision": "inconclusive",
+  "reason": "留出组新增成功不足 3 份。",
+  "program": {
+    "fallback": {
+      "guard": {
+        "feature": "bins",
+        "op": "le",
+        "value": 4
+      },
+      "kind": "recipe",
+      "solver": {
+        "order": "descending",
+        "pick": "first",
+        "repair": "exchange"
+      },
+      "steps": [
+        "normalize_gcd",
+        "peel_forced"
+      ]
+    },
+    "guard": {
+      "feature": "complementary_coverage",
+      "op": "ge",
+      "value": 444
+    },
+    "kind": "recipe",
+    "solver": {
+      "order": "descending",
+      "pick": "first",
+      "repair": "none"
+    },
+    "steps": []
+  },
+  "nominee_sha256": "6ff6f1d1f2b790fbd42b5af9c2a5054c670443923d0984a8a89bfec0af01e2ef",
+  "gate": {
+    "holdout": {
+      "total": 64,
+      "gains": 0,
+      "losses": 0,
+      "old_ok": 33,
+      "new_ok": 33,
+      "old_cost": 23378,
+      "new_cost": 23378
+    },
+    "regression": {
+      "total": 19,
+      "gains": 0,
+      "losses": 0,
+      "old_ok": 12,
+      "new_ok": 12,
+      "old_cost": 4395,
+      "new_cost": 4395
+    },
+    "replay": {
+      "total": 32,
+      "gains": 0,
+      "losses": 0,
+      "old_ok": 32,
+      "new_ok": 32,
+      "old_cost": 6566,
+      "new_cost": 6566
+    }
+  },
+  "budget": 128,
+  "calls": 86,
+  "spent": 22634,
+  "practice": {
+    "total": 18,
+    "gains": 6,
+    "losses": 0,
+    "old_cost": 4271,
+    "new_cost": 5259
+  },
+  "trigger_delivered": true,
+  "diagnostics": {
+    "published_misses": {
+      "v2": {
+        "total": 12,
+        "ok": 0,
+        "cost": 1870,
+        "gains": 0,
+        "losses": 0
+      },
+      "candidate": {
+        "total": 12,
+        "ok": 12,
+        "cost": 2474,
+        "gains": 12,
+        "losses": 0
+      },
+      "active": {
+        "total": 12,
+        "ok": 0,
+        "cost": 1870,
+        "gains": 0,
+        "losses": 0
+      }
+    },
+    "previous_pairs": {
+      "v2": {
+        "total": 40,
+        "ok": 40,
+        "cost": 8560,
+        "gains": 0,
+        "losses": 0
+      },
+      "candidate": {
+        "total": 40,
+        "ok": 40,
+        "cost": 8560,
+        "gains": 0,
+        "losses": 0
+      },
+      "active": {
+        "total": 40,
+        "ok": 40,
+        "cost": 8560,
+        "gains": 0,
+        "losses": 0
+      }
+    },
+    "previous_mixed": {
+      "v2": {
+        "total": 12,
+        "ok": 4,
+        "cost": 5153,
+        "gains": 0,
+        "losses": 0
+      },
+      "candidate": {
+        "total": 12,
+        "ok": 4,
+        "cost": 5153,
+        "gains": 0,
+        "losses": 0
+      },
+      "active": {
+        "total": 12,
+        "ok": 4,
+        "cost": 5153,
+        "gains": 0,
+        "losses": 0
+      }
+    }
+  }
+}

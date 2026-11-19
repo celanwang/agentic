@@ -36,6 +36,8 @@ def main():
     check("互补计数与回退费用", "candidates/pair_strategy/check.py")
     check("路由学习的正反例、预算与弃权", "candidates/pair_strategy/learn_check.py")
     check("批次输入与隔离", "candidates/audit/pair_batch.py")
+    check("跨轮留出、历史迁移与批次复查", "candidates/route_review/check_history.py")
+    check("已有两层路由的扩展与完整费用", "candidates/route_review/check_learning.py")
     if args.full:
         check("历史发布的四份逐项评测", "-m", "candidates.pilot_eval.replay")
         check("历史第 9 轮因果对照", "candidates/pilot_search/replay_round01.py",
@@ -46,6 +48,11 @@ def main():
         check("同统计量的开发对照", "-m", "candidates.pair_eval.development",
               expected="candidates/pair_eval/development_result.json")
         check("40 份旧失败、正式决定与封存重启", "scripts/pair_round.py", "--check")
+        check("执行器历史对照与混合成本", "candidates/route_review/check_executor.py")
+        check("12 份边界清单的独立开发干预", "-m", "candidates.route_review.eval.development",
+              expected="candidates/route_review/eval/development.json")
+        check("第 12 轮与四路重启盲测", "scripts/route_review.py", "--check")
+        check("现役程序从 v2 升级、复用装法和回退", "candidates/route_review/check_live.py")
     print("全部通过。")
 
 

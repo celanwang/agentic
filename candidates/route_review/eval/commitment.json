@@ -1,0 +1,25 @@
+{
+  "bins": [
+    5,
+    6,
+    7,
+    8
+  ],
+  "capacity_domain": [
+    2100000,
+    3699999
+  ],
+  "cases": 20,
+  "commitment": "f782f2e05f9ae57b11a4e24c13e6b05917e3a83c4e6735ddbb78ec8c2d5a0276",
+  "pair_helper_sha256": "32a74ce4c444c277388b38b2a30237a23dc1082b637cdc1b4ea2296d702d46d9",
+  "profiles": [
+    "strict",
+    "anchored",
+    "mixed",
+    "near",
+    "old_control"
+  ],
+  "sampler_sha256": "0f90aaf8f1e22ebf0feab38597b6ee7355d57f8e333b9ac66889e00d98c852d9",
+  "selection": "one system-random nonce; construction only, no solver screening",
+  "version": "agentic-route-review-blind-v1"
+}
