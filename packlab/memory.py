@@ -6,7 +6,7 @@ from contextlib import closing, contextmanager
 from datetime import datetime, timezone
 from pathlib import Path
 
-from . import arena, engine, planner, research
+from . import arena, engine, planner, research, shadow
 from .experiment import Bench, ident, proven_impossible, run_round, runtime_id, validate_task
 
 
@@ -120,8 +120,8 @@ def _exclusions(db):
     def exclude(key, phase):
         if db.execute("SELECT 1 FROM research_inputs WHERE family=?", (key,)).fetchone():
             return True
-        return phase == "holdout" and bool(db.execute(
-            "SELECT 1 FROM research_assessments WHERE family=?", (key,)).fetchone())
+        return phase == "holdout" and (bool(db.execute(
+            "SELECT 1 FROM research_assessments WHERE family=?", (key,)).fetchone()) or shadow.contains(db, key))
     return exclude
 
 
@@ -182,6 +182,7 @@ def _research(db, revision, policies, focus, budget, bench=None, started=None, b
         version = db.execute("INSERT INTO revisions(parent, policies) VALUES (?, ?)",
                              (revision["id"], ident(updated))).lastrowid
         db.execute("UPDATE head SET revision=? WHERE slot=1", (version,))
+        shadow.invalidate(db)
         report["generation"] = version
     report["experiment_ms"] = round((time.perf_counter() - started) * 1000, 3)
     event = add_event(db, "research", report)
@@ -212,6 +213,7 @@ def solve(folder, task):
         started = time.perf_counter()
         bench = Bench()
         current = bench.apply(task, policies)
+        shadow.observe(db, task, source="solve", bench=bench)
         previous = None
         if not current["ok"] and not proven_impossible(current):
             research_enabled = db.execute("SELECT 1 FROM events WHERE kind='research' LIMIT 1").fetchone() is not None
@@ -231,6 +233,7 @@ def solve(folder, task):
             version = db.execute("INSERT INTO revisions(parent, policies) VALUES (?, ?)",
                                  (revision["id"], ident(updated))).lastrowid
             db.execute("UPDATE head SET revision=? WHERE slot=1", (version,))
+            shadow.invalidate(db)
             report["generation"] = version
         return add_event(db, "solve", report)
 
@@ -258,6 +261,33 @@ def history(folder, limit):
             "SELECT id, created, start_revision, decision, reason FROM events ORDER BY id DESC LIMIT ?", (limit,))]
 
 
+def shadow_status(folder, event_id=None):
+    with _read_state(folder) as db:
+        return shadow.status(db, event_id)
+
+
+def start_shadow(folder, event_id, limit=32, source="solve"):
+    if not (Path(folder) / "agentic.sqlite3").is_file():
+        raise ValueError("需要包含冻结研究提名的已有状态")
+    with transaction(folder) as db:
+        return shadow.start(db, event_id, limit=limit, source=source)
+
+
+def observe_shadow(folder, task):
+    validate_task(task)
+    if not (Path(folder) / "agentic.sqlite3").is_file():
+        return {"outcome": "inactive"}
+    with transaction(folder) as db:
+        return shadow.observe(db, task, source="observe")
+
+
+def stop_shadow(folder):
+    if not (Path(folder) / "agentic.sqlite3").is_file():
+        return shadow.status(None)
+    with transaction(folder) as db:
+        return shadow.stop(db)
+
+
 def event(folder, event_id):
     if 0 < event_id <= 2**63 - 1:
         with _read_state(folder) as db:
@@ -280,5 +310,6 @@ def rollback(folder):
         if parent is None:
             raise ValueError(initial_state)
         db.execute("UPDATE head SET revision=? WHERE slot=1", (parent,))
+        shadow.invalidate(db)
         return add_event(db, "rollback", dict(generation_before=rev["id"], generation=parent,
                          decision="rollback", reason="手动恢复到上一份已验证策略，实验记录仍可查阅。"))

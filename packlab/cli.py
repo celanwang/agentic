@@ -328,6 +328,38 @@ def show_history(rows):
         print("目前没有记录。")
 
 
+def show_shadow(data):
+    outcomes = {"inactive": "尚未开启观察", "eligible": "新家族已计入",
+                "duplicate": "同源清单重复", "prior": "此前已见", "closed": "已达到观察上限",
+                "drift": "活动策略或程序版本已改变", "error": "比较失败，窗口已关闭", "stopped": "已手动结束"}
+    if "outcome" in data:
+        print(outcomes.get(data["outcome"], data["outcome"]))
+        return
+    if data["state"] == "inactive":
+        print("尚未开启观察。用 shadow start 研究编号 锁定候选。")
+        return
+    state = {"active": "观察中", **outcomes}.get(data["state"], data["state"])
+    print(f"研究 #{data['event_id']} · {state} · 来源 {data['source']}")
+    print(f"到达 {data['arrivals']} 份，纳入 {data['eligible']}/{data['limit']} 个新家族，"
+          f"已见 {data['prior']}，重复 {data['duplicates']}。")
+    n = data["compared"]
+    if n:
+        print(f"已完成对照 {n} 份，改变分支 {data['branch_changes']}/{n}。"
+              f"活动策略装完 {data['old_ok']}，候选装完 {data['new_ok']}，"
+              f"新增 {data['gains']}，丢失 {data['losses']}。")
+        print(f"完整路径操作 {data['old_cost']} → {data['new_cost']}，"
+              f"原已成功清单 {data['old_success_cost']} → {data['new_on_old_success_cost']}。")
+        print(f"为影子对照额外执行 {data['shadow_calls']} 次，计 {data['shadow_spent']} 个求解操作。")
+        unmeasured = data["arrivals"] - n
+        if unmeasured:
+            print(f"全部 {data['arrivals']} 次到达中有 {unmeasured} 次未作对照，"
+                  f"可确认改变分支的比例仅限上述 {n} 份。")
+    if data["errors"]:
+        print(f"有 {data['errors']} 份未完成对照。逐份原因见 --json。")
+    if data.get("reason"):
+        print(data["reason"])
+
+
 def main():
     parser = argparse.ArgumentParser(prog="agentic", description="能从失败中学习的本地归档分盘 Agent")
     parser.add_argument("--state", type=Path, default=DEFAULT, help="记忆目录")
@@ -356,6 +388,20 @@ def main():
     why.add_argument("id", type=int, help="研究事件编号")
     why.add_argument("--task", help="在指定清单上解释，默认使用本轮练习")
     why.add_argument("--json", action="store_true")
+    shadow = subs.add_parser("shadow", help="在后续清单上对照冻结候选与活动策略")
+    actions = shadow.add_subparsers(dest="action", required=True)
+    start = actions.add_parser("start", help="锁定一个研究提名并开始观察")
+    start.add_argument("id", type=int)
+    start.add_argument("--limit", type=int, default=32, help="首次到达的新家族数量，1～128")
+    start.add_argument("--source", choices=("solve", "observe"), default="solve",
+                       help="取后续正常 solve 或显式送入的 observe 清单")
+    observe = actions.add_parser("observe", help="向手动输入的窗口提交一份清单")
+    observe.add_argument("task", help="JSON 清单路径或 -")
+    status = actions.add_parser("status", help="读取观测计数和费用")
+    status.add_argument("--event", type=int, help="查看指定研究提名对应的观察记录")
+    stop = actions.add_parser("stop", help="提前结束窗口并保留已有样本")
+    for sub in (start, observe, status, stop):
+        sub.add_argument("--json", action="store_true", help="输出含逐例证据的 JSON")
     args = parser.parse_args()
     folder = args.state.expanduser().resolve()
     try:
@@ -365,6 +411,20 @@ def main():
             if args.topic == "pilot":
                 return demo_pilot(folder)
             demo(folder, triples=args.topic == "triples", mixed=args.topic == "mixed")
+            return 0
+        if args.cmd == "shadow":
+            if args.action == "start":
+                data = memory.start_shadow(folder, args.id, args.limit, args.source)
+            elif args.action == "observe":
+                data = memory.observe_shadow(folder, read_task(args.task))
+            elif args.action == "stop":
+                data = memory.stop_shadow(folder)
+            else:
+                data = memory.shadow_status(folder, args.event)
+            if args.json:
+                print(js(data))
+            else:
+                show_shadow(data)
             return 0
         if args.cmd == "research":
             if args.task and args.batch:
